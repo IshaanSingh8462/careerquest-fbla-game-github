@@ -71,59 +71,62 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="mei" type="PanelContainer" parent="CanvasLayer/book_ui"]
+[node name="asthma" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/mei"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/asthma"]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_right = -50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/mei/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/asthma/MarginContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 50
+theme_override_constants/separation = 45
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
 
-[node name="mei" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="asthma" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Acute Otitis Media
-(Middle Ear Infection)"
+theme_override_font_sizes/font_size = 25
+text = "Asthma         "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="details" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="details" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 13
 text = "
-Physical Symptoms:
-- Red ears
+Symptoms:
+- Cough
+- Shortness of breath
+- Chest pain
 
-Systematic Symptoms: 
-- Fever
+Prescription
+- Inhaler
 
-Over the counter:
-- Acetaminophen
-- Ibuprofen"
+Lifestyle Change
+- Avoid triggers (smoke, 
+allergens, cold air, etc.)
+- Regular exercise"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 275)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 40
 
-[node name="description" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="description" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -132,69 +135,80 @@ text = "Description     "
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="details" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="details" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
-text = "- Bacterial infection 
-within the ear
+text = "Asthma is a Chronic
+Lung Disease where 
+airways become
+ inflamed, swollen,
+ and narrow, leading 
+to symptoms like 
+coughing, chest
+ tightness, and 
+shortness of breath"
+horizontal_alignment = 1
 
-Diagnosis:
-- Amoxicillin"
-
-[node name="strep" type="PanelContainer" parent="CanvasLayer/book_ui"]
+[node name="arthritis" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/strep"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/arthritis"]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_right = -50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/strep/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
 
-[node name="strep" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="arthritis" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Strep Throat            "
+theme_override_font_sizes/font_size = 25
+text = "Arthritis       "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="details" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 13
-text = "
-Physical Symptoms:
-- Sore Throat
-- Runny nose
+theme_override_font_sizes/font_size = 12
+text = "Symptoms:
+- Joint pain
+- Swelling
 
-Systematic Symptoms: 
-- Fever
+Prescription
+- corticosteroids
+- DMARDs
 
-Over the counter:
-- Acetaminophen
-- Ibuprofen"
+Lifestyle change
+- Light exercise
+- Weight management
+- Avoid tobacco and have
+a balanced diet"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 300)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 25
 
-[node name="strep" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="description" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -202,72 +216,79 @@ theme_override_font_sizes/font_size = 17
 text = "Description    "
 vertical_alignment = 1
 
-[node name="details" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="details" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
-text = "- Common bacterial
-infection within the
-throat
+text = "Arthritis is a 
+general term for 
+joint pain and 
+inflammation, 
+encompassing over 
+100 conditions that 
+affect joints, tissues, 
+and connective tissues, 
+causing pain, swelling, 
+stiffness, and reduced 
+movement. "
+horizontal_alignment = 1
 
-Diagnosis: 
-- Amoxicillin
-- Penicillin"
-
-[node name="stomach" type="PanelContainer" parent="CanvasLayer/book_ui"]
-visible = false
+[node name="flu" type="PanelContainer" parent="CanvasLayer/book_ui"]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/stomach"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/flu"]
 custom_minimum_size = Vector2(375, 275)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_right = -75
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/stomach/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/flu/MarginContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="stomach" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="flu" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Gastroenteritis
-(Stomach Flu)"
+theme_override_font_sizes/font_size = 25
+text = "Influenze (Flu)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="details" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="details" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Physical Symptoms:
-- Dehydration
+theme_override_font_sizes/font_size = 13
+text = "Symptoms:
+- Fever
+- Cough
+- Fatigue
+- Headache
 
-Systematic Symptoms: 
-- Vomit
-- Diarrhea
+Prescription
+- Antiviral drugs
+- Pain reliever
 
-Over the counter:
-- Oral Rehydration Solution"
+Lifestyle changes
+- Good hygiene
+- Rest and hydrate"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-theme_override_constants/separation = 15
+theme_override_constants/separation = 25
 
-[node name="description" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="description" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -276,20 +297,18 @@ text = "Description"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="details" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="details" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "- Viral infection of
-the stomach
-
-Diagnosis: 
--Oral Rehydration
-Solution
-
-Over the counter: 
-- Acetaminophen
-- Ibuprofen
-- Humidifier"
+text = "The flu is a contagious
+ respiratory illness caused 
+by viruses, leading to
+ symptoms like fever,
+ cough, sore throat, 
+headaches, and fatigue,
+ often appearing 
+suddenly"
+horizontal_alignment = 1
 
 [node name="cold" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false

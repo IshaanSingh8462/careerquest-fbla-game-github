@@ -14,9 +14,9 @@ const JUMP_VELOCITY = 6.0
 @onready var label := $CanvasLayer/Interact/interact_button
 @onready var book := $CanvasLayer/Book/book
 @onready var book_ui := $CanvasLayer/book_ui
-@onready var mei := $CanvasLayer/book_ui/mei
-@onready var strep := $CanvasLayer/book_ui/strep
-@onready var stomach := $CanvasLayer/book_ui/stomach
+@onready var asthma := $CanvasLayer/book_ui/asthma
+@onready var arthritis := $CanvasLayer/book_ui/arthritis
+@onready var flu := $CanvasLayer/book_ui/flu
 @onready var cold := $CanvasLayer/book_ui/cold
 @onready var croup := $CanvasLayer/book_ui/croup
 @onready var pink_eye := $CanvasLayer/book_ui/pink_eye
@@ -187,7 +187,7 @@ func _physics_process(delta: float) -> void:
 	pick_or_drop(object)
 	pick_medicine()'''
 	#hides/shows forward/backward button of doctor book
-	if mei.visible:
+	if asthma.visible:
 		backward.hide()
 	else:
 		backward.show()
@@ -272,14 +272,14 @@ func flip_book():
 			Global.escape_doctor_button = false
 			Global.flip_book_anim = false
 		if Global.doc_forward:
-			if mei.visible:
-				mei.hide()
-				strep.show()
-			elif strep.visible:
-				strep.hide()
-				stomach.show()
-			elif stomach.visible:
-				stomach.hide()
+			if asthma.visible:
+				asthma.hide()
+				arthritis.show()
+			elif arthritis.visible:
+				arthritis.hide()
+				flu.show()
+			elif flu.visible:
+				flu.hide()
 				cold.show()
 			elif cold.visible:
 				cold.hide()
@@ -292,15 +292,15 @@ func flip_book():
 				hfmd.show()
 			Global.doc_forward = false
 		if Global.doc_backward:
-			if strep.visible:
-				strep.hide()
-				mei.show()
-			elif stomach.visible:
-				stomach.hide()
-				strep.show()
+			if arthritis.visible:
+				arthritis.hide()
+				asthma.show()
+			elif flu.visible:
+				flu.hide()
+				arthritis.show()
 			elif cold.visible:
 				cold.hide()
-				stomach.show()
+				flu.show()
 			elif croup.visible:
 				croup.hide()
 				cold.show()
