@@ -13,7 +13,7 @@ var score = 0
 
 #clipboard
 var clipboard_info = {"first":null,"last":null,"dob":null,"gender":null,"clip_ui":null,"checkbox_checked":null,
-"clicked":null,"forward":null,"backward":null}
+"clicked":null,"forward":null,"backward":null, "is_editing":null}
 
 var move = false
 var submit = false

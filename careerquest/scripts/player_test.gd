@@ -220,7 +220,7 @@ func _physics_process(delta: float) -> void:
 	
 #clipboard animation (pull out/keep back)
 func move_clip():
-	if Input.is_action_just_pressed("clipboard"):
+	if Input.is_action_just_pressed("clipboard") and !Global.clipboard_info["is_editing"]:
 		if Global.clipboard_info["clip_ui"].position.y == -300:
 			Global.clipboard_info["clip_ui"].position.y = 0
 		elif Global.clipboard_info["clip_ui"].position.y == 0:

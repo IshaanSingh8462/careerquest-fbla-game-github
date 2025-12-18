@@ -38,6 +38,7 @@ func _ready():
 	page1.hide()
 	page2.hide()
 	presc.hide()
+	Global.clipboard_info["is_editing"] = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float):
@@ -239,7 +240,6 @@ func timer_scoring():
 	elif (minu >= 2 and sec >= 30):
 		Global.score += 10
 
-
 func presc_check(str):
 	var presc = {"asthma":["inhaler"], "arthritis":["corticosteroids", "dmard"], "flu":["antiviral", "pain relievers"], "copd":["inhaled bronchodilators"], "migraine":["triptans", "antiemetics",
 	 "beta-blockers", "anticonvulsant"], "diabetes":["metformin", "sulfonylureas"], "acid":["proton pump", "inhibitors", "ppi", "h2 blockers"], "iron":["iron supplements"], "blood_pressure":["ace inhibitors", "beta-blockers"]}
@@ -249,6 +249,20 @@ func presc_check(str):
 				if str.find(keyword) != -1:
 					Global.score += 50
 					break  # stop after first match for this condition
+
+'''func text_input():
+	if Input.is_action_just_pressed("pick_up"):
+		if Global.clipboard_info["is_editing"]:
+			print("pick up")
+			first_name.release_focus()
+			Global.clipboard_info["is_editing"] = false
+func _on_first_name_focus_entered() -> void:
+	Global.clipboard_info["is_editing"] = true
+	print("enter")
+
+func _on_first_name_focus_exited() -> void:
+	Global.clipboard_info["is_editing"] = false
+	print("exit")'''
 
 #signals for buttons
 func _on_forward_pressed() -> void:
