@@ -99,13 +99,11 @@ func test_condition():
 #scores player input on clipboard
 func submit():
 	change_color(blue)
-	if Global.clicked:
-		dict_comp["first_name"] = Global.glob_first_name
-		print(dict_comp["first_name"])
-		print("here ^")
-		dict_comp["last_name"] = Global.glob_last_name
-		dict_comp["dob"] = Global.glob_dob
-		dict_comp["gender"] = Global.glob_gender
+	if Global.clipboard_info["clicked"]:
+		dict_comp["first_name"] = Global.clipboard_info["first"]
+		dict_comp["last_name"] = Global.clipboard_info["last"]
+		dict_comp["dob"] = Global.clipboard_info["dob"]
+		dict_comp["gender"] = Global.clipboard_info["gender"]
 		print(dict_comp)
 		print(dictionary)
 		if dict_comp["first_name"] == dictionary["first_name"]:
@@ -121,7 +119,7 @@ func submit():
 		Global.repetition += 1
 		dialogue.text = ""
 		if !Global.timer:
-			Global.clicked = false
+			Global.clipboard_info["clicked"] = false
 
 #changed color of mesh (testing)
 func change_color(col):

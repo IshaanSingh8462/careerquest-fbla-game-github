@@ -228,32 +228,14 @@ size_flags_vertical = 0
 text = "Prescription"
 label_settings = SubResource("LabelSettings_cp2nn")
 
-[node name="amox" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+[node name="desc" type="Label" parent="prescriptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Amoxicillin
-"
+text = "Write the patient's prescription"
+horizontal_alignment = 1
 
-[node name="peni" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+[node name="presc" type="LineEdit" parent="prescriptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Penicillin"
-
-[node name="water" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Oral Hydration System
-"
-
-[node name="nasal" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Nasal Drops
-"
-
-[node name="eye" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Eye Drops"
-
-[node name="steroid" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Steroids"
+alignment = 1
 
 [node name="confirm" type="Button" parent="prescriptions/MarginContainer"]
 custom_minimum_size = Vector2(200, 50)

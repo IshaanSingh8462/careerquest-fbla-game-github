@@ -45,12 +45,12 @@ func _input(event: InputEvent) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	#sets mouse value based on ui position
-	if Global.clipboard_ui.position.y == 0:
+	if Global.clipboard_info["clip_ui"].position.y == 0:
 		if Global.flip_book_anim or Global.is_talking:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif Global.clipboard_ui.position.y == -300:
+	elif Global.clipboard_info["clip_ui"].position.y == -300:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#calls init functions, also hides all ui
 	player_dialogue()
@@ -201,14 +201,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_ui.position.y == 0:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_info["checkbox_checked"].position.y == 0:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if Global.clipboard_ui.position.y == 0:
+	if Global.clipboard_info["clip_ui"].position.y == 0:
 		if direction and $head/camera.current:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
@@ -221,10 +221,10 @@ func _physics_process(delta: float) -> void:
 #clipboard animation (pull out/keep back)
 func move_clip():
 	if Input.is_action_just_pressed("clipboard"):
-		if Global.clipboard_ui.position.y == -300:
-			Global.clipboard_ui.position.y = 0
-		elif Global.clipboard_ui.position.y == 0:
-			Global.clipboard_ui.position.y = -300
+		if Global.clipboard_info["clip_ui"].position.y == -300:
+			Global.clipboard_info["clip_ui"].position.y = 0
+		elif Global.clipboard_info["clip_ui"].position.y == 0:
+			Global.clipboard_info["clip_ui"].position.y = -300
 
 '''func pick_or_drop(object=null):
 	if object == null:

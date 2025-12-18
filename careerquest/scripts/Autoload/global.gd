@@ -16,19 +16,12 @@ var repetition = 0
 var score = 0
 
 #clipboard
-var clipboard_ui = null
-var glob_first_name = null
-var glob_last_name = null
-var glob_dob = null
-var glob_gender = null
-var checkbox_checked = null
+var clipboard_info = {"first":null,"last":null,"dob":null,"gender":null,"clip_ui":null,"checkbox_checked":null,
+"clicked":null,"forward":null,"backward":null}
 
 var clicked = null
 var forward = null
 var backward = null
-var info = null
-var physical = null
-var systematic = null
 
 var move = false
 var submit = false
