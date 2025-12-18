@@ -233,9 +233,11 @@ layout_mode = 2
 text = "Write the patient's prescription"
 horizontal_alignment = 1
 
-[node name="presc" type="LineEdit" parent="prescriptions/MarginContainer/VBoxContainer"]
+[node name="presc" type="TextEdit" parent="prescriptions/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 175)
 layout_mode = 2
-alignment = 1
+placeholder_text = "write prescription here"
+wrap_mode = 1
 
 [node name="confirm" type="Button" parent="prescriptions/MarginContainer"]
 custom_minimum_size = Vector2(200, 50)

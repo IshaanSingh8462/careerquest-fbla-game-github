@@ -82,16 +82,17 @@ func _process(_delta: float):
 func submit():
 	if Global.clipboard_info["clicked"] == true:
 		var str = presc_plyr.text.to_lower()
+		timer_scoring()
+		presc_check(str)
+		checkbox_checker()
 		first_name.text = ""
 		last_name.text = ""
 		dob.text = ""
 		gender.text = ""
+		presc_plyr.text = ""
 		Global.clipboard_info["clicked"] = null
 		Global.timer = false
 		print(Global.timer_info)
-		timer_scoring()
-		presc_check(str)
-		checkbox_checker()
 
 #makes forward/backward buttons visible/hidden when certain page was open
 func button_visible():
@@ -246,7 +247,6 @@ func presc_check(str):
 		if Global.condition[condition]:  # check if condition is active
 			for keyword in presc[condition]:
 				if str.find(keyword) != -1:
-					print("found!")
 					Global.score += 50
 					break  # stop after first match for this condition
 

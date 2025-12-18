@@ -5,11 +5,7 @@ var is_doc = true
 
 #condition
 var condition = {"asthma":false, "arthritis":false, "copd":false, "flu":false, "migraine":false,
-	"diabetes":false, "acid":false, "iron":false, "blood_pressure":false}
-
-var gave_amox = null
-var gave_peni = null
-var gave_nasal = null
+"diabetes":false, "acid":false, "iron":false, "blood_pressure":false}
 
 var random_symp = false
 var repetition = 0
@@ -18,10 +14,6 @@ var score = 0
 #clipboard
 var clipboard_info = {"first":null,"last":null,"dob":null,"gender":null,"clip_ui":null,"checkbox_checked":null,
 "clicked":null,"forward":null,"backward":null}
-
-var clicked = null
-var forward = null
-var backward = null
 
 var move = false
 var submit = false
