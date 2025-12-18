@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ba4801akvuy24"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." groups=["trash_doctor"]]
+use_collision = true
+collision_layer = 6
+size = Vector3(0.75, 1.25, 0.75)

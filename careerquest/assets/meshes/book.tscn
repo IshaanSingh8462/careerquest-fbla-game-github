@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bd2l2d82sh4rd"]
+
+[node name="book" type="Node3D" groups=["book"]]
+transform = Transform3D(0.665175, 0, 0, 0, 0.195492, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="page" type="CSGBox3D" parent="." groups=["book"]]
+use_collision = true
+collision_layer = 2
+collision_mask = 2

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2aiw1b6iekbg"]
+
+[ext_resource type="PackedScene" uid="uid://cviop3038b7do" path="res://assets/blender/hospital_bed.blend" id="1_tnxx5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s4kio"]
+points = PackedVector3Array(-0.0442294, -0.034233, 0.035899, 0.0625498, 0.0173149, 0.0230152, 0.0699206, -0.0379206, -0.000920635, -0.0479206, 0.0136329, -0.000920635, -0.0479206, -0.0379206, -0.000920635, 0.0662294, -0.034233, 0.035899, -0.0460635, 0.0117836, 0.035899, 0.0699206, 0.0136329, -0.000920635, 0.0699206, 0.00626894, 0.037746, -0.0479206, -0.0379206, 0.0285373, -0.0405498, 0.0173149, 0.0230152, 0.0699206, -0.0379206, 0.0285373, -0.0479206, 0.00626894, 0.037746, 0.0625498, 0.0136329, 0.035899, -0.0460635, 0.0154656, -0.000920635, 0.068075, 0.0154656, -0.000920635, -0.0405498, 0.0136329, 0.035899, 0.0699206, 0.0136329, 0.0285373, -0.0479206, 0.0136329, 0.0285373, -0.0460635, 0.0154656, 0.0285373, 0.068075, 0.0154656, 0.0285373, 0.068075, 0.0117836, 0.035899)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k51kl"]
+albedo_color = Color(0.619608, 0.521569, 0.337255, 1)
+
+[node name="hospital_bed" instance=ExtResource("1_tnxx5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node_1/Mesh_Mesh_head_geo_001_lambert2SG_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node_1/Mesh_Mesh_head_geo_001_lambert2SG_001/StaticBody3D" index="0"]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_s4kio")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.581, 11.8373, -15.5612)
+size = Vector3(50, 19, 1)
+material = SubResource("StandardMaterial3D_k51kl")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7735, 11.8373, -15.5612)
+size = Vector3(49, 19, 1)
+material = SubResource("StandardMaterial3D_k51kl")

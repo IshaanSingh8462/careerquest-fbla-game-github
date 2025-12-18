@@ -1,0 +1,713 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdqka2d3f064w"]
+
+[ext_resource type="Script" uid="uid://yk7kd85cj3ga" path="res://scripts/player_test.gd" id="1_hsp13"]
+[ext_resource type="Script" uid="uid://65rwq1uac1fs" path="res://scripts/timer.gd" id="5_o0pbu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pdv6x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hsp13"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_hsp13")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_pdv6x")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_hsp13")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Book" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -20.0
+offset_right = 43.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book" type="Label" parent="CanvasLayer/Book"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Open Book"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interact" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="interact_button" type="Label" parent="CanvasLayer/Interact"]
+layout_mode = 2
+text = "Press E to interact"
+
+[node name="book_ui" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(450, 350)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="mei" type="PanelContainer" parent="CanvasLayer/book_ui"]
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/mei"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = -50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/mei/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+
+[node name="mei" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Acute Otitis Media
+(Middle Ear Infection)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 13
+text = "
+Physical Symptoms:
+- Red ears
+
+Systematic Symptoms: 
+- Fever
+
+Over the counter:
+- Acetaminophen
+- Ibuprofen"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 275)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Description     "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/mei/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "- Bacterial infection 
+within the ear
+
+Diagnosis:
+- Amoxicillin"
+
+[node name="strep" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/strep"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = -50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/strep/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+
+[node name="strep" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Strep Throat            "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 13
+text = "
+Physical Symptoms:
+- Sore Throat
+- Runny nose
+
+Systematic Symptoms: 
+- Fever
+
+Over the counter:
+- Acetaminophen
+- Ibuprofen"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="strep" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Description    "
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/strep/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "- Common bacterial
+infection within the
+throat
+
+Diagnosis: 
+- Amoxicillin
+- Penicillin"
+
+[node name="stomach" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/stomach"]
+custom_minimum_size = Vector2(375, 275)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = -75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/stomach/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="stomach" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Gastroenteritis
+(Stomach Flu)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Physical Symptoms:
+- Dehydration
+
+Systematic Symptoms: 
+- Vomit
+- Diarrhea
+
+Over the counter:
+- Oral Rehydration Solution"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/stomach/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "- Viral infection of
+the stomach
+
+Diagnosis: 
+-Oral Rehydration
+Solution
+
+Over the counter: 
+- Acetaminophen
+- Ibuprofen
+- Humidifier"
+
+[node name="cold" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/cold"]
+custom_minimum_size = Vector2(375, 275)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = -75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/cold/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="cold" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Common Cold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Physical Symptoms:
+- Runny nose
+- Cough
+
+Systematic Symptoms: 
+- Fever
+
+Over the counter: 
+- Acetaminophen
+- Ibuprofen
+- Humidifier"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "- Mild viral infection of
+the resperatory tract
+
+Diagnosis: 
+- Self Resolving
+- Nasal Drops recommended
+
+Over the counter: 
+- Acetaminophen
+- Ibuprofen
+- Humidifier"
+
+[node name="croup" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/croup"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/croup/MarginContainer"]
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="croup" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Croup"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Symptoms:
+- Cough
+
+Systematic Symptoms:
+- None
+
+Over the counter:
+- Acetaminophen
+- Ibuprofen
+- Humidifier"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 47
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "- Hoarce cough
+most commonly
+found in children
+
+Diagnosis:
+- Steroids
+
+"
+
+[node name="pink_eye" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/pink_eye"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/pink_eye/MarginContainer"]
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="pink_eye" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Conjunctivitis 
+(Pink Eye)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Symptoms:
+- Red eyes
+
+Diagnosis
+- Eye drops
+
+Over the counter: 
+- Eye drops"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 47
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "- Bacterial infection
+of the eye, and is 
+contagious
+
+Diagnosis:
+- Self-resolved
+- Eye drops 
+recommended
+"
+
+[node name="hfmd" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/hfmd"]
+custom_minimum_size = Vector2(375, 275)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2"]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer"]
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="hfmd" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Hand, Foot, Mouth Disease"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Physical Symptoms:
+- Blisters and Rashes
+on the hands and feet
+
+Systematic Symptoms: 
+- Fever
+- Hydration
+
+Over the counter:
+- Acetaminophen
+- Ibuprofen
+- Water"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 17
+text = "Description"
+
+[node name="Label" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "- Viral infection
+common in 
+children
+
+Diagnostic:
+- Self-resolving, 
+but focus on 
+hydration and 
+pain relief"
+
+[node name="buttons" type="MarginContainer" parent="CanvasLayer/book_ui"]
+custom_minimum_size = Vector2(425, 325)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="forward" type="Button" parent="CanvasLayer/book_ui/buttons"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+action_mode = 0
+text = ">"
+
+[node name="escape" type="Button" parent="CanvasLayer/book_ui/buttons"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+action_mode = 0
+text = "X"
+
+[node name="backwards" type="Button" parent="CanvasLayer/book_ui/buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+action_mode = 0
+text = "<"
+
+[node name="timer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+script = ExtResource("5_o0pbu")
+
+[node name="time" type="Label" parent="CanvasLayer/timer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -22.5
+offset_right = 45.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 31
+
+[node name="Timer" type="Timer" parent="CanvasLayer/timer"]
+
+[node name="background" type="Panel" parent="CanvasLayer/timer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="player_dialogue_main" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -277.0
+offset_top = -273.0
+offset_right = -27.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/player_dialogue_main"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="vbox" type="VBoxContainer" parent="CanvasLayer/player_dialogue_main/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="names" type="Button" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "What's your name and
+date of birth?"
+
+[node name="feelings" type="Button" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "What's the problem?"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="exit" type="Button" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/book_ui/buttons/forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="CanvasLayer/book_ui/buttons/escape" to="." method="_on_escape_pressed"]
+[connection signal="pressed" from="CanvasLayer/book_ui/buttons/backwards" to="." method="_on_backwards_pressed"]
+[connection signal="pressed" from="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer/names" to="." method="_on_names_pressed"]
+[connection signal="pressed" from="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer/feelings" to="." method="_on_feelings_pressed"]
+[connection signal="pressed" from="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2/exit" to="." method="_on_exit_pressed"]

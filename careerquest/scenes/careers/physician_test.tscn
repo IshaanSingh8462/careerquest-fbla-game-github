@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu5cfsyhhot41"]
+
+[ext_resource type="PackedScene" uid="uid://cofcy6el4epr0" path="res://assets/meshes/chair.tscn" id="1_8qq0c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nv80"]
+albedo_color = Color(0.578977, 0.346807, 0.12932, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5eisb"]
+albedo_color = Color(0.333333, 0.215686, 0.0588235, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjnf2"]
+albedo_color = Color(0.47451, 0.333333, 0.188235, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3esrj"]
+albedo_color = Color(0.333333, 0.215686, 0.0588235, 1)
+
+[node name="DoctorRoom" type="Node3D"]
+
+[node name="floor" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(15, 1, 12)
+material = SubResource("StandardMaterial3D_3nv80")
+
+[node name="wall1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -5.5)
+use_collision = true
+size = Vector3(15, 8, 1)
+
+[node name="wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 4.5, 0)
+use_collision = true
+size = Vector3(10, 8, 1)
+
+[node name="wall3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 4.5, 0)
+use_collision = true
+size = Vector3(10, 8, 1)
+
+[node name="wall4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 5.5)
+use_collision = true
+size = Vector3(15, 8, 1)
+
+[node name="doorHole" type="CSGBox3D" parent="wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.514, -1.5, -0.021)
+operation = 2
+size = Vector3(4, 5, 2)
+
+[node name="desk" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.75, -1.5)
+use_collision = true
+size = Vector3(3, 2.5, 7)
+material = SubResource("StandardMaterial3D_5eisb")
+
+[node name="deskHole" type="CSGBox3D" parent="desk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, 0.75)
+material_override = SubResource("StandardMaterial3D_sjnf2")
+operation = 2
+size = Vector3(3, 2, 4)
+
+[node name="shelf" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7.25, -1.5)
+use_collision = true
+size = Vector3(3, 2.5, 7)
+material = SubResource("StandardMaterial3D_3esrj")
+
+[node name="chair" parent="." instance=ExtResource("1_8qq0c")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 0, 0.5, 4.5)
+
+[node name="chair3" parent="." instance=ExtResource("1_8qq0c")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -3, 0.5, 4.5)

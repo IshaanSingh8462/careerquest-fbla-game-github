@@ -1,0 +1,291 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpjrfiwexdooa"]
+
+[ext_resource type="Script" uid="uid://dpdibpqixraho" path="res://scripts/clipboard.gd" id="1_js5ej"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_leevr"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_cp2nn"]
+font_size = 25
+
+[node name="clipboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_js5ej")
+
+[node name="info" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -48.0
+offset_right = 345.0
+offset_bottom = 302.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="info"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = -55
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="info/MarginContainer"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="info/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="first_name" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(147, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/minimum_character_width = 0
+placeholder_text = "First Name"
+
+[node name="last_name" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(147, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+placeholder_text = "Last Name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="info/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 325)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 3
+
+[node name="dob" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_vertical = 4
+placeholder_text = "Date of Birth"
+
+[node name="gender" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Gender"
+
+[node name="page1" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -48.0
+offset_right = 345.0
+offset_bottom = 302.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="page1"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="page1/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="page1/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Page 1"
+label_settings = SubResource("LabelSettings_leevr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="short breath" type="CheckBox" parent="page1/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Shortness of Breath"
+
+[node name="chest pain" type="CheckBox" parent="page1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Chest Pain"
+
+[node name="joint pain" type="CheckBox" parent="page1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Joint Pain"
+
+[node name="swelling" type="CheckBox" parent="page1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Swelling"
+
+[node name="cough" type="CheckBox" parent="page1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cough"
+
+[node name="sore throat" type="CheckBox" parent="page1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sore Throat"
+
+[node name="headache" type="CheckBox" parent="page1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "headache"
+
+[node name="page2" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -48.0
+offset_right = 345.0
+offset_bottom = 302.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="page2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="page2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Page 2"
+label_settings = SubResource("LabelSettings_cp2nn")
+
+[node name="nausea" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nausea"
+
+[node name="vomit" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Vomiting"
+
+[node name="urination" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Frequent Urination"
+
+[node name="dizzy" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dizziness"
+
+[node name="fever" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fever"
+
+[node name="fatigue" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fatigue"
+
+[node name="thirst_hunger" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Thirsty/Hungry"
+
+[node name="prescriptions" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -48.0
+offset_right = 345.0
+offset_bottom = 302.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="prescriptions"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="prescriptions/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="prescriptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Prescription"
+label_settings = SubResource("LabelSettings_cp2nn")
+
+[node name="amox" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Amoxicillin
+"
+
+[node name="peni" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Penicillin"
+
+[node name="water" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Oral Hydration System
+"
+
+[node name="nasal" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nasal Drops
+"
+
+[node name="eye" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Eye Drops"
+
+[node name="steroid" type="CheckBox" parent="prescriptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Steroids"
+
+[node name="confirm" type="Button" parent="prescriptions/MarginContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Confirm"
+
+[node name="forward" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 259.5
+offset_right = 335.0
+offset_bottom = 294.5
+grow_vertical = 0
+text = ">"
+
+[node name="backward" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 259.5
+offset_right = 60.0
+offset_bottom = 294.5
+grow_vertical = 0
+text = "<"
+
+[connection signal="pressed" from="prescriptions/MarginContainer/confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="backward" to="." method="_on_backward_pressed"]

@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://w52ivpn8bbqm"]
+
+[ext_resource type="Script" uid="uid://cwa7mnk7e17lg" path="res://scripts/electrician_fusebox.gd" id="1_sgqtv"]
+[ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_xpqt5"]
+
+[node name="elec_switch" type="Node3D"]
+script = ExtResource("1_sgqtv")
+
+[node name="wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+use_collision = true
+size = Vector3(10, 10, 1)
+
+[node name="hole_wall" type="CSGBox3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0.399)
+operation = 2
+size = Vector3(1, 1.75, 0.205)
+
+[node name="hinge" type="CSGCylinder3D" parent="." groups=["switch_board_elec"]]
+transform = Transform3D(-0.913992, 0, -0.405732, 0, 1, 0, 0.405732, 0, -0.913992, -0.546, 3, 0.5)
+use_collision = true
+collision_layer = 16
+radius = 0.05
+height = 1.75
+sides = 20
+material = ExtResource("1_xpqt5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="hinge" groups=["switch_board_elec"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546481, 0, 0)
+use_collision = true
+collision_layer = 16
+size = Vector3(1.1, 1.75, 0.05)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button1" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw1"]]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.6, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button2" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw2"]]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.3, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button3" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw3"]]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button4" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw4"]]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 2.7, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button5" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw5"]]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 2.4, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button6" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw6"]]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 3.6, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button7" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw7"]]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 3.3, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button8" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw8"]]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 3, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button9" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw9"]]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 2.7, 0.302259)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")
+
+[node name="circuit_button10" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw10"]]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 2.4, 0.3)
+use_collision = true
+collision_layer = 16
+size = Vector3(0.2, 0.2, 0.4)
+material = ExtResource("1_xpqt5")

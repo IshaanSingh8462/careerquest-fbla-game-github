@@ -1,0 +1,96 @@
+[gd_scene load_steps=17 format=3 uid="uid://bl3a002q2m7xd"]
+
+[ext_resource type="PackedScene" uid="uid://bdqka2d3f064w" path="res://scenes/characters/Player_test.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dh27ydv1onqyl" path="res://assets/meshes/doctor_start_button.tscn" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://cu5cfsyhhot41" path="res://scenes/careers/physician_test.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dpjrfiwexdooa" path="res://scenes/ui/clipboard.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://2c3xn273ioqh" path="res://scenes/characters/npc.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cc78vd5wxk2an" path="res://scenes/ui/center_cursor.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://bd2l2d82sh4rd" path="res://assets/meshes/book.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://ckbns68rk4d6f" path="res://scenes/careers/airplane_cockpit__test.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cq1t24qf85052" path="res://assets/meshes/electrician_start_button.tscn" id="12_eb6dy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_sugp2"]
+background_mode = 2
+sky = SubResource("Sky_0wfyh")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tefeu"]
+albedo_color = Color(0.0196078, 0.741176, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_trceg"]
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sugp2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="floor" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_tefeu")
+use_collision = true
+size = Vector3(150, 0.5, 150)
+
+[node name="doctor_button" parent="." groups=["doctor_start"] instance=ExtResource("1_tefeu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.5, 5.1)
+script = null
+
+[node name="player" parent="." instance=ExtResource("1_o5qli")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -1.76749, 2.16927, 1.84753)
+
+[node name="clipboard" parent="player" instance=ExtResource("2_jyhfs")]
+
+[node name="CenterCursor" parent="player" instance=ExtResource("4_tipki")]
+
+[node name="head" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00409627, 0.738459, 0.00569487)
+
+[node name="camera" type="Camera3D" parent="player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62633, 0)
+
+[node name="ray" type="RayCast3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, -3.02826e-07, -1, 0, 6.92785, -4.37114e-08, -0.0113466, -0.0109539, -0.00569487)
+collision_mask = 18
+
+[node name="hand" type="Node3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976038, -0.446156, -1.21149)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/head/camera/hand"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("SphereMesh_trceg")
+
+[node name="DoctorRoom" parent="." instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+
+[node name="npc" parent="." instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.75, 10)
+
+[node name="book" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(0.665175, 0, 0, 0, 0.195492, 0, 0, 0, 1, -4.5, 2.8, -1)
+
+[node name="pilot_scene" parent="." instance=ExtResource("9_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 25)
+
+[node name="hospital_bed" parent="." instance=ExtResource("11_ya4ey")]
+transform = Transform3D(-0.06, 0, -5.24537e-09, 0, 0.06, 0, 5.24537e-09, 0, -0.06, 3.754, 0.225, -2.79084)
+
+[node name="electrician_button" parent="." instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -14.7387, 3.5, -0.397897)
+script = null
+
+[node name="electric_wall" parent="." instance=ExtResource("11_eb6dy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.9182, 0, 0)
