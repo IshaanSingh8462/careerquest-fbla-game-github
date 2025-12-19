@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bl3a002q2m7xd"]
+[gd_scene load_steps=22 format=3 uid="uid://bl3a002q2m7xd"]
 
 [ext_resource type="PackedScene" uid="uid://bdqka2d3f064w" path="res://scenes/characters/Player_test.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dh27ydv1onqyl" path="res://assets/meshes/doctor_start_button.tscn" id="1_tefeu"]
@@ -6,7 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dpjrfiwexdooa" path="res://scenes/ui/clipboard.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://2c3xn273ioqh" path="res://scenes/characters/npc.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cc78vd5wxk2an" path="res://scenes/ui/center_cursor.tscn" id="4_tipki"]
+[ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="5_eb6dy"]
+[ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="6_jbj1t"]
+[ext_resource type="Material" uid="uid://dwoxwrydf6qvo" path="res://scenes/materials/light_red.tres" id="7_muem4"]
 [ext_resource type="PackedScene" uid="uid://bd2l2d82sh4rd" path="res://assets/meshes/book.tscn" id="7_o6xl0"]
+[ext_resource type="Material" uid="uid://d28oag3bivmvk" path="res://scenes/materials/white.tres" id="8_dp3eg"]
+[ext_resource type="Material" uid="uid://cqty4gbuywbs" path="res://scenes/materials/green.tres" id="9_0ld40"]
 [ext_resource type="PackedScene" uid="uid://ckbns68rk4d6f" path="res://scenes/careers/airplane_cockpit__test.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
@@ -72,6 +77,36 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/head/camera/hand"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = SubResource("SphereMesh_trceg")
+
+[node name="steth" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = ExtResource("5_eb6dy")
+
+[node name="therm" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = ExtResource("6_jbj1t")
+
+[node name="tongue" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = ExtResource("7_muem4")
+
+[node name="tri" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = ExtResource("8_dp3eg")
+
+[node name="phys" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = ExtResource("9_0ld40")
 
 [node name="DoctorRoom" parent="." instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)

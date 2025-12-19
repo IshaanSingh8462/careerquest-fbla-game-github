@@ -10,6 +10,13 @@ const JUMP_VELOCITY = 6.0
 @onready var ray := $head/camera/ray
 @onready var hand := $head/camera/hand
 
+#doctor tools
+@onready var steth := $head/camera/steth
+@onready var therm := $head/camera/therm
+@onready var tongue := $head/camera/tongue
+@onready var tri := $head/camera/tri
+@onready var phys := $head/camera/phys
+
 #doctor ui variables
 @onready var label := $CanvasLayer/Interact/interact_button
 @onready var book := $CanvasLayer/Book/book
@@ -206,7 +213,21 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_info["checkbox_checked"].position.y == 0:
 		velocity.y = JUMP_VELOCITY
-
+	var tools = [steth, therm, tongue, tri, phys]
+	var input_index = ["1","2","3","4","5"]
+	for i in range(5):
+		if Input.is_action_just_pressed(input_index[i]):
+			# If selecting the same tool → unequip
+			if Global.active_tool == i:
+				tools[i].visible = false
+				Global.active_tool = -1
+				continue
+			# Selecting a new tool
+			for t in tools:
+				t.visible = false
+			tools[i].visible = true
+			Global.active_tool = i
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")

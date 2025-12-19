@@ -34,6 +34,8 @@ var is_talking = false
 var ask_name = false
 var ask_feel = false
 
+var active_tool = -1
+
 #starts doctor functions
 func interact():
 	move = true
