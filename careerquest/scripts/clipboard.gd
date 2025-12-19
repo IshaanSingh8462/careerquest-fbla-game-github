@@ -82,9 +82,9 @@ func _process(_delta: float):
 #when 'confirm' button pressed on clipboard, reset clipboard values and timer
 func submit():
 	if Global.clipboard_info["clicked"] == true:
-		var str = presc_plyr.text.to_lower()
+		var string = presc_plyr.text.to_lower()
 		timer_scoring()
-		presc_check(str)
+		presc_check(string)
 		checkbox_checker()
 		first_name.text = ""
 		last_name.text = ""
@@ -179,7 +179,7 @@ func checkbox_checker():
 		if cough.button_pressed:
 			Global.score += 50
 		if sore_throat.button_pressed:
-			Global.score == 50
+			Global.score += 50
 		if (short_breath.button_pressed or joint_pain.button_pressed or swell.button_pressed or 
 		headache.button_pressed or nausea.button_pressed or vomit.button_pressed or urination.button_pressed 
 		or dizzy.button_pressed or fever.button_pressed or fatigue.button_pressed or thirst_hunger.button_pressed):
@@ -190,7 +190,7 @@ func checkbox_checker():
 		if fatigue.button_pressed:
 			Global.score += 50
 		if dizzy.button_pressed:
-			Global.score == 50
+			Global.score += 50
 		if (chest_pain.button_pressed or joint_pain.button_pressed or 
 			swell.button_pressed or cough.button_pressed or sore_throat.button_pressed or headache.button_pressed or 
 			nausea.button_pressed or vomit.button_pressed or urination.button_pressed or fever.button_pressed or thirst_hunger.button_pressed):
@@ -199,7 +199,7 @@ func checkbox_checker():
 		if headache.button_pressed:
 			Global.score += 50
 		if dizzy.button_pressed:
-			Global.score == 50
+			Global.score += 50
 		if (short_breath.button_pressed or chest_pain.button_pressed or joint_pain.button_pressed or 
 			swell.button_pressed or cough.button_pressed or sore_throat.button_pressed or
 			nausea.button_pressed or vomit.button_pressed or urination.button_pressed or fever.button_pressed or 
@@ -240,13 +240,13 @@ func timer_scoring():
 	elif (minu >= 2 and sec >= 30):
 		Global.score += 10
 
-func presc_check(str):
-	var presc = {"asthma":["inhaler"], "arthritis":["corticosteroids", "dmard"], "flu":["antiviral", "pain relievers"], "copd":["inhaled bronchodilators"], "migraine":["triptans", "antiemetics",
+func presc_check(string):
+	var prescription = {"asthma":["inhaler"], "arthritis":["corticosteroids", "dmard"], "flu":["antiviral", "pain relievers"], "copd":["inhaled bronchodilators"], "migraine":["triptans", "antiemetics",
 	 "beta-blockers", "anticonvulsant"], "diabetes":["metformin", "sulfonylureas"], "acid":["proton pump", "inhibitors", "ppi", "h2 blockers"], "iron":["iron supplements"], "blood_pressure":["ace inhibitors", "beta-blockers"]}
-	for condition in presc.keys():
+	for condition in prescription.keys():
 		if Global.condition[condition]:  # check if condition is active
-			for keyword in presc[condition]:
-				if str.find(keyword) != -1:
+			for keyword in prescription[condition]:
+				if string.find(keyword) != -1:
 					Global.score += 50
 					break  # stop after first match for this condition
 

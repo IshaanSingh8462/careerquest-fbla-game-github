@@ -40,15 +40,23 @@ var total_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_condition()
 	position = start
 	change_color(white)
 	dialogue.text = ""
+	if Global.condition["asthma"] or Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"] or Global.condition["iron"]:
+		Global.condition["temp"] = randi_range(100,103)
+	elif Global.condition["diabetes"]:
+		Global.condition["sugar"] = randi_range(140,210)
+	else:
+		Global.condition["temp"] = randi_range(97,99)
+		Global.condition["sugar"] = randi_range(100,140)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	#calls functions to start doctor npc scene
 	random()
-	test_condition()
+	get_condition()
 	npc_dialogue(delta)
 	#move npc into room animation, then resets global condition varialbe
 	if Global.move:
@@ -91,7 +99,7 @@ func random():
 		Global.random_symp = false
 	
 #tests to see what condition the npc has
-func test_condition():
+func get_condition():
 	for i in all_symptoms:
 		if dictionary["condition"] == i:
 			Global.condition[i] = true

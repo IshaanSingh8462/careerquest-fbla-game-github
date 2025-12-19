@@ -96,17 +96,17 @@ visible = false
 size = Vector3(0.25, 0.25, 0.25)
 material = ExtResource("7_muem4")
 
+[node name="gluc" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = ExtResource("9_0ld40")
+
 [node name="tri" type="CSGBox3D" parent="player/head/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
 visible = false
 size = Vector3(0.25, 0.25, 0.25)
 material = ExtResource("8_dp3eg")
-
-[node name="phys" type="CSGBox3D" parent="player/head/camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
-visible = false
-size = Vector3(0.25, 0.25, 0.25)
-material = ExtResource("9_0ld40")
 
 [node name="DoctorRoom" parent="." instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)

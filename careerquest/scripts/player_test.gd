@@ -14,8 +14,8 @@ const JUMP_VELOCITY = 6.0
 @onready var steth := $head/camera/steth
 @onready var therm := $head/camera/therm
 @onready var tongue := $head/camera/tongue
+@onready var gluc := $head/camera/gluc
 @onready var tri := $head/camera/tri
-@onready var phys := $head/camera/phys
 
 #doctor ui variables
 @onready var label := $CanvasLayer/Interact/interact_button
@@ -85,19 +85,36 @@ func _physics_process(delta: float) -> void:
 				if !object.has_method("interact"):
 					label.show()
 					if Input.is_action_just_pressed("interact"):
-						Global.is_talking = true
+						if Global.active_tool != -1:
+							if Global.active_tool == 0:
+								#Enter Heartbeat Noise Here
+								if Global.condition["asthma"] or Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"] or Global.condition["iron"]:
+									print("The patient's heartbeat sounds irregular...")
+								else:
+									print("The patient's heartbeat sounds fine...")
+							if Global.active_tool == 1:
+								print("Temp: " + str(Global.condition["temp"]))
+							if Global.active_tool == 2:
+								if Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"]:
+									print("You see a redness in the patient's throat...")
+								else:
+									print("The patient's throat looks normal...")
+							if Global.active_tool == 3:
+								print("Sugar level: " + str(Global.condition["sugar"]) + "mg/dl")
+							if Global.active_tool == 4:
+								if Global.condition["arthritis"]:
+									print("The patient had some joint pain and swelling...")
+								else:
+									print("The patient has normal reaction to reflex hammer...")
+						else:
+							print("not active")
+							Global.is_talking = true
 		#opens doctor book for medications
 		if object.is_in_group("book"):
 			if !object.has_method("interact"):
 				book.show()
 				if Input.is_action_just_pressed("interact"):
 					Global.flip_book_anim = true
-		#
-		if object.is_in_group("doctor_presc"):
-			if !object.has_method("interact"):
-				label.show()
-				if Input.is_action_just_pressed("interact"):
-					print("give prescription")
 
 		#starts electrician roleplay
 		if object.is_in_group("electrician_start"):
@@ -106,7 +123,7 @@ func _physics_process(delta: float) -> void:
 					if Input.is_action_just_pressed("interact"):
 						Global.is_elec = true
 						print("elec start")
-		#eopens lectrician switchboard function
+		#opens electrician switchboard function
 		if object.is_in_group("switch_board_elec"):
 			if !object.has_method("interact"):
 				label.show()
@@ -206,14 +223,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		forward.show()
 	
-	# Add the gravity.
+	# Add the gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
+	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_info["checkbox_checked"].position.y == 0:
 		velocity.y = JUMP_VELOCITY
-	var tools = [steth, therm, tongue, tri, phys]
+	
+	#doctor inventory selection - select tools for analysis
+	var tools = [steth, therm, tongue, gluc, tri]
 	var input_index = ["1","2","3","4","5"]
 	for i in range(5):
 		if Input.is_action_just_pressed(input_index[i]):
@@ -314,7 +333,6 @@ func flip_book():
 		pages[current_index].hide()
 		pages[current_index - 1].show()
 		Global.doc_backward = false
-
 
 
 #player dialogue to doctor npc

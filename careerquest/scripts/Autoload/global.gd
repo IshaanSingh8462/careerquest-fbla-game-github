@@ -5,7 +5,7 @@ var is_doc = true
 
 #condition
 var condition = {"asthma":false, "arthritis":false, "copd":false, "flu":false, "migraine":false,
-"diabetes":false, "acid":false, "iron":false, "blood_pressure":false}
+"diabetes":false, "acid":false, "iron":false, "blood_pressure":false, "temp":0, "sugar":0}
 
 var random_symp = false
 var repetition = 0
