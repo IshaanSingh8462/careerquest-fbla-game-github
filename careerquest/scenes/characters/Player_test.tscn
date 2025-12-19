@@ -72,7 +72,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="asthma" type="PanelContainer" parent="CanvasLayer/book_ui"]
-visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
@@ -233,6 +232,7 @@ movement. "
 horizontal_alignment = 1
 
 [node name="flu" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
@@ -286,7 +286,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-theme_override_constants/separation = 25
+theme_override_constants/separation = 50
 
 [node name="description" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -295,7 +295,6 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 17
 text = "Description"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="details" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -310,206 +309,230 @@ headaches, and fatigue,
 suddenly"
 horizontal_alignment = 1
 
-[node name="cold" type="PanelContainer" parent="CanvasLayer/book_ui"]
+[node name="copd" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/cold"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/copd"]
 custom_minimum_size = Vector2(375, 275)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_right = -75
+theme_override_constants/margin_right = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/cold/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/copd/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="copd" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Chronic Obstructive 
+Pulmonary Disease (COPD)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Symptoms:
+- Cough
+- Shortness of breath
+- Chest pain
+- Fatigue
+
+Prescription
+- Inhaled bronchodilators
+
+Lifestyle change
+- Avoid smoking, dust, pollution, etc.
+- Regular exercise"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "COPD is a lung 
+condition that 
+makes breathing 
+difficult, involving 
+inflamed, damaged 
+airways and air sacs
+(alveoli) that block 
+airflow, leading to 
+symptoms like  cough, 
+shortness of breath,
+ and chest tightness,
+ primarily caused 
+by long-term irritant
+ exposure  like smoking"
+horizontal_alignment = 1
+
+[node name="migraine" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/migraine"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/migraine/MarginContainer"]
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 theme_override_constants/separation = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="cold" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Common Cold"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Physical Symptoms:
-- Runny nose
-- Cough
-
-Systematic Symptoms: 
-- Fever
-
-Over the counter: 
-- Acetaminophen
-- Ibuprofen
-- Humidifier"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/cold/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "- Mild viral infection of
-the resperatory tract
-
-Diagnosis: 
-- Self Resolving
-- Nasal Drops recommended
-
-Over the counter: 
-- Acetaminophen
-- Ibuprofen
-- Humidifier"
-
-[node name="croup" type="PanelContainer" parent="CanvasLayer/book_ui"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/croup"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/croup/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = 80
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="croup" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="migraine" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Croup"
+theme_override_font_sizes/font_size = 25
+text = "Migraine"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 11
 text = "Symptoms:
-- Cough
+- Headache
+- Nausea
+- Vomiting
 
-Systematic Symptoms:
-- None
+Prescription
+- Triptans 
+- Antiemetics 
+-Ppreventive medications 
+(beta-blockers, anticonvulsants)
 
-Over the counter:
-- Acetaminophen
-- Ibuprofen
-- Humidifier"
+Lifestyle changes
+- Sleep and hydration
+- Identify and avoid triggers
+(stress, food, etc.)"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_constants/separation = 47
+theme_override_constants/separation = 40
+alignment = 1
 
-[node name="description" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="description" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 17
 text = "Description"
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/croup/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "- Hoarce cough
-most commonly
-found in children
+text = "Migraine's are a 
+neurological condition
+ causing moderate to
+ severe head pain, 
+usually on one side,
+accompanied by
+ symptoms like nausea 
+and vomiting."
+horizontal_alignment = 1
 
-Diagnosis:
-- Steroids
-
-"
-
-[node name="pink_eye" type="PanelContainer" parent="CanvasLayer/book_ui"]
+[node name="diabetes" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/pink_eye"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/diabetes"]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = -20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/pink_eye/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/diabetes/MarginContainer"]
 custom_minimum_size = Vector2(375, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 
-[node name="pink_eye" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="diabetes" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Conjunctivitis 
-(Pink Eye)"
+theme_override_font_sizes/font_size = 25
+text = "Diabetes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Symptoms:
-- Red eyes
+-  frequent urination 
+- thirsty/hungry
+- fatigue
 
-Diagnosis
-- Eye drops
+Prescription
+- metformin + 
+sulfonylureas
 
-Over the counter: 
-- Eye drops"
+Lifestyle changes
+- Healthy diet
+- Regular exercise"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_constants/separation = 47
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="description" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="description" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -518,94 +541,290 @@ text = "Description"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/pink_eye/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "- Bacterial infection
-of the eye, and is 
-contagious
+theme_override_font_sizes/font_size = 11
+text = "Diabetes is a chronic 
+condition where your 
+blood sugar (glucose) 
+levels are too high
+ because your body 
+either doesn't make 
+enough insulin or can't 
+use it effectively,
+preventing sugar from 
+entering cells for energy, 
+leading to potential 
+damage to the heart, 
+eyes, kidneys, and 
+nerves over time"
+horizontal_alignment = 1
 
-Diagnosis:
-- Self-resolved
-- Eye drops 
-recommended
-"
-
-[node name="hfmd" type="PanelContainer" parent="CanvasLayer/book_ui"]
+[node name="gerd" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/hfmd"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/gerd"]
 custom_minimum_size = Vector2(375, 275)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2"]
 custom_minimum_size = Vector2(350, 250)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer"]
 custom_minimum_size = Vector2(375, 0)
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
-[node name="hfmd" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="gerd" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 17
-text = "Hand, Foot, Mouth Disease"
+text = "Gastroesophageal Reflux 
+Disease (GERD)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Symptoms:
+- chest pain
+- cough 
+- sore throat
+
+Prescription
+- Proton pump inhibitors
+- H2 blockers
+
+Lifestyle changes
+- Eat small meals
+- Lose excess weight
+- Quit smoking"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 17
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "Physical Symptoms:
-- Blisters and Rashes
-on the hands and feet
+text = "GERD is a chronic 
+digestive disorder 
+where stomach acid 
+frequently flows back 
+(refluxes) into the 
+esophagus (food pipe), 
+irritating its lining due to
+ a weak or poorly closing 
+lower esophageal sphincter
+ (LES) muscle, leading to 
+symptoms like chest pain,
+cough, and sore throat"
+horizontal_alignment = 1
 
-Systematic Symptoms: 
-- Fever
-- Hydration
+[node name="iron" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
 
-Over the counter:
-- Acetaminophen
-- Ibuprofen
-- Water"
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/iron"]
+custom_minimum_size = Vector2(375, 275)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2"]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer"]
+custom_minimum_size = Vector2(375, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="description" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="iron" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "Iron-Deficiency Anemia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Symptoms:
+- Fatigue
+- shortness of breath
+- dizziness
+
+Prescription
+- Iron supplements
+
+Lifestyle change
+- Iron-rich foods 
+(red meat, beans, 
+leafy greens)
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 17
 text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/book_ui/hfmd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "- Viral infection
-common in 
-children
+text = "Anemia is a condition
+ in which the blood
+ doesn't have enough 
+healthy red blood
+ cells. Red blood 
+cells carry oxygen
+ to the body's
+ tissues. Not getting
+enough iron can 
+cause iron deficiency."
+horizontal_alignment = 1
 
-Diagnostic:
-- Self-resolving, 
-but focus on 
-hydration and 
-pain relief"
+[node name="blood" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/blood"]
+custom_minimum_size = Vector2(375, 275)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2"]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer"]
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="blood" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Hypertension 
+(High Blood Pressure)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+
+[node name="detail" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Symptoms:
+- headache
+- dizziness
+
+Prescription
+- ACE inhibitors
+- beta-blockers
+
+Lifestyle changes
+- Reduce salt intake
+Regular exercise
+Stress management 
+and weight control"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 17
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Hypertension is the force
+ of blood against your
+ artery walls is consistently
+ too high, making your 
+heart work harder and
+damaging arteries over
+ time, leading to risks of 
+heart attackand stroke. 
+It's often called the
+ \"silent killer\"  symptoms,
+ but readings of 130/80
+ mmHg or higher 
+indicate hypertension
+"
+horizontal_alignment = 1
 
 [node name="buttons" type="MarginContainer" parent="CanvasLayer/book_ui"]
 custom_minimum_size = Vector2(425, 325)

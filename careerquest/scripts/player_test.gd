@@ -17,14 +17,17 @@ const JUMP_VELOCITY = 6.0
 @onready var asthma := $CanvasLayer/book_ui/asthma
 @onready var arthritis := $CanvasLayer/book_ui/arthritis
 @onready var flu := $CanvasLayer/book_ui/flu
-@onready var cold := $CanvasLayer/book_ui/cold
-@onready var croup := $CanvasLayer/book_ui/croup
-@onready var pink_eye := $CanvasLayer/book_ui/pink_eye
-@onready var hfmd := $CanvasLayer/book_ui/hfmd
+@onready var copd := $CanvasLayer/book_ui/copd
+@onready var migraine := $CanvasLayer/book_ui/migraine
+@onready var diabetes := $CanvasLayer/book_ui/diabetes
+@onready var gerd := $CanvasLayer/book_ui/gerd
+@onready var iron := $CanvasLayer/book_ui/iron
+@onready var blood := $CanvasLayer/book_ui/blood
 @onready var forward := $CanvasLayer/book_ui/buttons/forward
 @onready var backward := $CanvasLayer/book_ui/buttons/backwards
 @onready var player_dia := $CanvasLayer/player_dialogue_main
 @onready var player_dia_exit := $CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2/exit
+@onready var pages = [asthma, arthritis, flu, copd, migraine, diabetes, gerd, iron, blood]
 
 @onready var electric = get_node("/root/main/electric_wall")
 
@@ -191,7 +194,7 @@ func _physics_process(delta: float) -> void:
 		backward.hide()
 	else:
 		backward.show()
-	if hfmd.visible:
+	if blood.visible:
 		forward.hide()
 	else:
 		forward.show()
@@ -263,54 +266,36 @@ func pick_medicine():
 		nasal.global_position = hand.global_position
 		nasal.global_rotation = hand.global_rotation - Vector3(0,0,0.25)
 		nasal.linear_velocity = Vector3(0.1,1.5,0.1)'''
+
 #doctor book animation (flip pages)
 func flip_book():
-	if Global.flip_book_anim:
-		book_ui.show()
-		if Global.escape_doctor_button:
-			book_ui.hide()
-			Global.escape_doctor_button = false
-			Global.flip_book_anim = false
-		if Global.doc_forward:
-			if asthma.visible:
-				asthma.hide()
-				arthritis.show()
-			elif arthritis.visible:
-				arthritis.hide()
-				flu.show()
-			elif flu.visible:
-				flu.hide()
-				cold.show()
-			elif cold.visible:
-				cold.hide()
-				croup.show()
-			elif croup.visible:
-				croup.hide()
-				pink_eye.show()
-			elif pink_eye.visible:
-				pink_eye.hide()
-				hfmd.show()
-			Global.doc_forward = false
-		if Global.doc_backward:
-			if arthritis.visible:
-				arthritis.hide()
-				asthma.show()
-			elif flu.visible:
-				flu.hide()
-				arthritis.show()
-			elif cold.visible:
-				cold.hide()
-				flu.show()
-			elif croup.visible:
-				croup.hide()
-				cold.show()
-			elif pink_eye.visible:
-				pink_eye.hide()
-				croup.show()
-			elif hfmd.visible:
-				hfmd.hide()
-				pink_eye.show()
-			Global.doc_backward = false
+	if not Global.flip_book_anim:
+		return
+	book_ui.show()
+	if Global.escape_doctor_button:
+		book_ui.hide()
+		Global.escape_doctor_button = false
+		Global.flip_book_anim = false
+		return
+	# find current visible page
+	var current_index = -1
+	for i in range(pages.size()):
+		if pages[i].visible:
+			current_index = i
+			break
+	if current_index == -1:
+		return  # nothing visible
+	if Global.doc_forward and current_index < pages.size() - 1:
+		pages[current_index].hide()
+		pages[current_index + 1].show()
+		Global.doc_forward = false
+	elif Global.doc_backward and current_index > 0:
+		pages[current_index].hide()
+		pages[current_index - 1].show()
+		Global.doc_backward = false
+
+
+
 #player dialogue to doctor npc
 func player_dialogue():
 	if Global.is_talking:
