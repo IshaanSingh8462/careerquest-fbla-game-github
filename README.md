@@ -23,7 +23,7 @@ Progress:
       - 0 for >150 sec
 
 To Do:
-- Doctor: code doctor tools used to obtain symptom data
+- Doctor: code doctor tools used to obtain symptom data (ui bar at top of screen - hotbar for tools)
   - stethoscope -> shortness of breath, cough, chest pain
   - thermometer -> fever
   - tongue depressor -> fever, cough, sore throat,
