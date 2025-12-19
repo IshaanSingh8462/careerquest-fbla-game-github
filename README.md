@@ -32,6 +32,7 @@ To Do:
   - physical exam -> joint pain, swelling
   - talking -> nausea, vomit, headache, fatigue, frequent urination, thirsty/hungry
   - interact with tool -> gives hints (high glucose, swelling, redness, etc.)
+- Doctor: create dialogue for npc -> interactions with tools, asking for personal info, etc.
 - Electrician scene: perform task (switch high lightbulbs, fix broken outlets, rewire broken cords, etc.)
   - fusebox: turns off electricity at working location (room)
   - tools: screwdriver, linesman pliers, voltage test, wire cutter, electrical tape
