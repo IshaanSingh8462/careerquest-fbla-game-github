@@ -24,13 +24,6 @@ Progress:
 
 To Do:
 - Doctor: code doctor tools used to obtain symptom data (ui bar at top of screen - hotbar for tools)
-  - stethoscope -> shortness of breath, cough, chest pain
-  - thermometer -> fever
-  - tongue depressor -> fever, cough, sore throat,
-  - glucose meter -> diabetes
-  - neurological exam kit -> dizziness, fatigue
-  - physical exam -> joint pain, swelling
-  - talking -> nausea, vomit, headache, fatigue, frequent urination, thirsty/hungry
   - interact with tool -> gives hints (high glucose, swelling, redness, etc.)
 - Doctor: create dialogue for npc -> interactions with tools, asking for personal info, etc.
 - Electrician scene: perform task (switch high lightbulbs, fix broken outlets, rewire broken cords, etc.)
