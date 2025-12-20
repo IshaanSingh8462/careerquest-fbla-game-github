@@ -50,11 +50,11 @@ use_collision = true
 size = Vector3(150, 0.5, 150)
 
 [node name="doctor_button" parent="." groups=["doctor_start"] instance=ExtResource("1_tefeu")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.5, 5.1)
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 23, 3.5, -25.75)
 script = null
 
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -1.76749, 2.16927, 1.84753)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 25.5286, 2.16927, -15.4774)
 
 [node name="clipboard" parent="player" instance=ExtResource("2_jyhfs")]
 
@@ -129,3 +129,16 @@ script = null
 
 [node name="electric_wall" parent="." instance=ExtResource("11_eb6dy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.9182, 0, 0)
+
+[node name="lobby" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.33, 7.5, -18.805)
+size = Vector3(15, 15, 15)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="lobby"]
+operation = 2
+size = Vector3(14, 16, 14)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="lobby"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 7.523)
+operation = 2
+size = Vector3(4, 6, 4)

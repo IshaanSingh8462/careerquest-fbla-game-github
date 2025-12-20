@@ -78,6 +78,10 @@ func _physics_process(delta: float) -> void:
 				if !object.has_method("interact"):
 					label.show()
 					if Input.is_action_just_pressed("interact"):
+						global_position.x = -1.5
+						global_position.z = 1.5
+						global_rotation = Vector3(0,0,0)
+						await get_tree().create_timer(2.0).timeout
 						Global.interact()
 		else:
 			#allows talking to doctor npc
@@ -107,7 +111,6 @@ func _physics_process(delta: float) -> void:
 								else:
 									print("The patient has normal reaction to reflex hammer...")
 						else:
-							print("not active")
 							Global.is_talking = true
 		#opens doctor book for medications
 		if object.is_in_group("book"):
@@ -234,18 +237,19 @@ func _physics_process(delta: float) -> void:
 	#doctor inventory selection - select tools for analysis
 	var tools = [steth, therm, tongue, gluc, tri]
 	var input_index = ["1","2","3","4","5"]
-	for i in range(5):
-		if Input.is_action_just_pressed(input_index[i]):
-			# If selecting the same tool → unequip
-			if Global.active_tool == i:
-				tools[i].visible = false
-				Global.active_tool = -1
-				continue
-			# Selecting a new tool
-			for t in tools:
-				t.visible = false
-			tools[i].visible = true
-			Global.active_tool = i
+	if Global.is_doc:
+		for i in range(5):
+			if Input.is_action_just_pressed(input_index[i]):
+				# If selecting the same tool → unequip
+				if Global.active_tool == i:
+					tools[i].visible = false
+					Global.active_tool = -1
+					continue
+				# Selecting a new tool
+				for t in tools:
+					t.visible = false
+				tools[i].visible = true
+				Global.active_tool = i
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

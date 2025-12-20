@@ -134,15 +134,34 @@ func change_color(col):
 	mesh_mat.set_surface_override_material(0, col)
 
 #generates dialogue for npc when player interacts with it
+var last_request = ""
+
 func npc_dialogue(delta):
+	# If a new request starts, reset the timer
+	if Global.ask_name or Global.ask_feel:
+		if total_time == 0:
+			dialogue.text = ""   # clear old dialogue immediately
+	# NAME dialogue
 	if Global.ask_name:
-		dialogue.text = "My name is " + dictionary["first_name"] + " " + dictionary["last_name"] + ", and \nmy dob is " + dictionary["dob"]
+		# If both are true, prioritize feel and cancel name
+		if Global.ask_feel:
+			Global.ask_name = false
+		dialogue.text = "My name is %s %s,\nand my dob is %s" % [
+			dictionary["first_name"],
+			dictionary["last_name"],
+			dictionary["dob"]
+		]
 		total_time += delta
+	# FEEL dialogue
 	elif Global.ask_feel:
-		dialogue.text = "My condition is " + dictionary["condition"]
+		if Global.ask_name:
+			Global.ask_feel = false
+		dialogue.text = "My condition is %s" % dictionary["condition"]
 		total_time += delta
+	# No dialogue
 	else:
 		dialogue.text = ""
+	# End dialogue after 5 seconds
 	if total_time >= 5:
 		Global.ask_name = false
 		Global.ask_feel = false

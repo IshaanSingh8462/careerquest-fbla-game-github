@@ -42,6 +42,7 @@ func interact():
 	at_start = false
 	random_symp = true
 	timer = true
+	is_doc = true
 	
 '''Electric Variables'''
 var is_elec = false
