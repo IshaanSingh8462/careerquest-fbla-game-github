@@ -12,6 +12,8 @@ Progress:
   - doctor book
     - guide for player to analyze symptoms and conclude with a prescription + notes on how the npc should behave
     - additional info about the condition (what it is, it's symptoms, and it's effects)
+  - doctor tools
+    - player hotbar to access all tools (stethescope, thermometer, glucose meter, etc.) using number pad 1-5
   - points
     - +50 for every info of npc (first name, last name, dob, gender)
     - +50 for correct symptoms
@@ -23,9 +25,10 @@ Progress:
       - 0 for >150 sec
 
 To Do:
-- Doctor: code doctor tools used to obtain symptom data (ui bar at top of screen - hotbar for tools)
-  - interact with tool -> gives hints (high glucose, swelling, redness, etc.)
-- Doctor: create dialogue for npc -> interactions with tools, asking for personal info, etc.
+- Doctor:
+  - code doctor tools Visual used to obtain symptom data (ui bar at top of screen - hotbar for tools)
+  - interact with tool (Design) -> gives hints (high glucose, swelling, redness, etc.)
+  - create dialogue for npc -> interactions with tools, asking for personal info, etc.
 - Electrician scene: perform task (switch high lightbulbs, fix broken outlets, rewire broken cords, etc.)
   - fusebox: turns off electricity at working location (room)
   - tools: screwdriver, linesman pliers, voltage test, wire cutter, electrical tape
