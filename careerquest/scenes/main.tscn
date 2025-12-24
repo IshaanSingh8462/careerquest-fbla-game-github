@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bl3a002q2m7xd"]
+[gd_scene load_steps=28 format=3 uid="uid://bl3a002q2m7xd"]
 
 [ext_resource type="PackedScene" uid="uid://bdqka2d3f064w" path="res://scenes/characters/Player_test.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dh27ydv1onqyl" path="res://assets/meshes/doctor_start_button.tscn" id="1_tefeu"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cq1t24qf85052" path="res://assets/meshes/electrician_start_button.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://ckftj6snpsvt" path="res://scenes/careers/outlet.tscn" id="17_muem4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -34,6 +35,24 @@ glow_enabled = true
 albedo_color = Color(0.0196078, 0.741176, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_trceg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbj1t"]
+albedo_color = Color(0.544949, 0.482915, 0.17651, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muem4"]
+albedo_color = Color(0.800985, 0.230758, 0.24755, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp3eg"]
+albedo_color = Color(0.749795, 0.229528, 0.613887, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
+albedo_color = Color(0.0827415, 0.0827414, 0.0827414, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqmmt"]
+transparency = 1
+albedo_color = Color(0.311327, 0.345987, 0.592699, 1)
+metallic = 0.4
+roughness = 0.1
 
 [node name="main" type="Node3D"]
 
@@ -108,6 +127,36 @@ visible = false
 size = Vector3(0.25, 0.25, 0.25)
 material = ExtResource("8_dp3eg")
 
+[node name="screw" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = SubResource("StandardMaterial3D_jbj1t")
+
+[node name="plier" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = SubResource("StandardMaterial3D_muem4")
+
+[node name="volt" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = SubResource("StandardMaterial3D_dp3eg")
+
+[node name="wire" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = SubResource("StandardMaterial3D_0ld40")
+
+[node name="tape" type="CSGBox3D" parent="player/head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+visible = false
+size = Vector3(0.25, 0.25, 0.25)
+material = SubResource("StandardMaterial3D_gqmmt")
+
 [node name="DoctorRoom" parent="." instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 
@@ -124,11 +173,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 25)
 transform = Transform3D(-0.06, 0, -5.24537e-09, 0, 0.06, 0, 5.24537e-09, 0, -0.06, 3.754, 0.225, -2.79084)
 
 [node name="electrician_button" parent="." instance=ExtResource("12_eb6dy")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -14.7387, 3.5, -0.397897)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 28, 3.5, -25.75)
 script = null
 
-[node name="electric_wall" parent="." instance=ExtResource("11_eb6dy")]
+[node name="electric_scene" parent="." instance=ExtResource("11_eb6dy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.9182, 0, 0)
+
+[node name="outlet" parent="electric_scene" instance=ExtResource("17_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.19637, 0, 7.16549e-07)
 
 [node name="lobby" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.33, 7.5, -18.805)

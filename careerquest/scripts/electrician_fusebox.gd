@@ -1,7 +1,5 @@
 extends Node3D
 
-class_name electrician
-
 #create reference nodes and variables
 @onready var fuse_door := $hinge
 @onready var switch1 := $circuit_button1
@@ -21,20 +19,10 @@ var rot = Vector3(0,0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if switch1 == null:
-		print(switch1)
-	switch1.global_rotation.y = deg_to_rad(-30)
-	switch2.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch3.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch4.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch5.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch6.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch7.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch8.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch9.global_rotation = Vector3(0,deg_to_rad(-30),0)
-	switch10.global_rotation = Vector3(0,deg_to_rad(-30),0)
+	var all_switches = [switch1, switch2, switch3, switch4, switch5, switch6, switch7, switch8, switch9, switch10]
+	for s in all_switches:
+		s.global_rotation.y = deg_to_rad(-30)
 	fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:

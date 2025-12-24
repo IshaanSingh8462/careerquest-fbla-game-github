@@ -1,7 +1,7 @@
 extends Node
 
 '''doctor variables'''
-var is_doc = true
+var is_doc = false
 
 #condition
 var condition = {"asthma":false, "arthritis":false, "copd":false, "flu":false, "migraine":false,

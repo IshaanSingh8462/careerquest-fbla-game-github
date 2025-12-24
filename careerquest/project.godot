@@ -31,10 +31,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 book="checks for book"
-amoxicillin="use medicine"
-penicillin=""
 medicine="All medicine has this group"
-nasal_drop="nasal drops"
 switch_board_elec="Interact with switch to disasemble"
 electrician_start="start the electrician scene"
 doctor_start="press to let patient enter"
@@ -49,6 +46,9 @@ sw7=""
 sw8=""
 sw9=""
 sw10=""
+outlet_scene1=""
+outlet_scene3=""
+outlet_scene2=""
 
 [gui]
 

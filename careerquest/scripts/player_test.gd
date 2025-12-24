@@ -36,13 +36,28 @@ const JUMP_VELOCITY = 6.0
 @onready var player_dia_exit := $CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2/exit
 @onready var pages = [asthma, arthritis, flu, copd, migraine, diabetes, gerd, iron, blood]
 
-@onready var electric = get_node("/root/main/electric_wall")
+#electrician tools
+@onready var screw := $head/camera/screw
+@onready var plier := $head/camera/plier
+@onready var volt := $head/camera/volt
+@onready var wire := $head/camera/wire
+@onready var tape := $head/camera/tape
+
+#electrician outlet scene
+@onready var o_scene1 := $"../electric_scene/outlet/scene1"
+@onready var o_scene2 := $"../electric_scene/outlet/scene2"
+@onready var o_scene3 := $"../electric_scene/outlet/scene3"
+
+@onready var electric = get_node("/root/main/electric_scene")
 
 @onready var doc_npc = get_node("/root/main/npc")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_dia.hide()
+	o_scene1.position = Vector3(0,1.331,.08)
+	o_scene2.position = Vector3(0,10,0)
+	o_scene3.position = Vector3(0,10,0)
 	
 #Captures/hides and shows mouse when moving/press esc
 func _input(event: InputEvent) -> void:
@@ -124,6 +139,10 @@ func _physics_process(delta: float) -> void:
 			if !object.has_method("interact"):
 					label.show()
 					if Input.is_action_just_pressed("interact"):
+						global_position.x = -15
+						global_position.z = -6
+						global_rotation = Vector3(0,0,0)
+						await get_tree().create_timer(2.0).timeout
 						Global.is_elec = true
 						print("elec start")
 		#opens electrician switchboard function
@@ -145,6 +164,45 @@ func _physics_process(delta: float) -> void:
 						if object.is_in_group(sw[i]):
 							electric.switches_move(i+1)
 							Global.sw_num(i)
+		if object.is_in_group("outlet_scene1"):
+			if !object.has_method("interact"):
+				label.show()
+				if Input.is_action_just_pressed("interact"):
+					if o_scene1.position == Vector3(0,1.331,.08):
+						print("scene 1 over, scene 2 start")
+						o_scene2.position = Vector3(0,0,0)
+						o_scene2.visible = true
+						o_scene1.position = Vector3(-.55,.275,1)
+						o_scene1.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
+					else:
+						print("scene 2 over, scene 1 start")
+						o_scene2.position = Vector3(0,10,0)
+						o_scene1.position = Vector3(0,1.331,.08)
+						o_scene1.rotation = Vector3(0,0,0)
+						
+		elif object.is_in_group("outlet_scene2"):
+			if !object.has_method("interact"):
+				label.show()
+				if Input.is_action_just_pressed("interact"):
+					if o_scene2.position == Vector3(0,0,0):
+						print("scene 2 over, scene 3 start")
+						o_scene3.position = Vector3(0,0,0)
+						o_scene3.visible = true
+						o_scene2.position = Vector3(1.591,.25,1.672)
+						o_scene2.rotation = Vector3(deg_to_rad(-90),deg_to_rad(35),0)
+					else:
+						print("scene 3 over, scene 2 start")
+						o_scene3.position = Vector3(0,10,0)
+						o_scene3.visible = false
+						o_scene2.position = Vector3(0,0,0)
+						o_scene2.rotation = Vector3(0,0,0)
+
+		elif object.is_in_group("outlet_scene3"):
+			if !object.has_method("interact"):
+				label.show()
+				if Input.is_action_just_pressed("interact"):
+					print("scene 3 over, start wire fix")
+				
 
 		'''if object.is_in_group("medicine"):
 			if object.is_in_group("amoxicillin"):
@@ -235,20 +293,34 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	#doctor inventory selection - select tools for analysis
-	var tools = [steth, therm, tongue, gluc, tri]
+	var doc_tools = [steth, therm, tongue, gluc, tri]
+	var elec_tools = [screw, plier, volt, wire, tape]
 	var input_index = ["1","2","3","4","5"]
 	if Global.is_doc:
 		for i in range(5):
 			if Input.is_action_just_pressed(input_index[i]):
 				# If selecting the same tool → unequip
 				if Global.active_tool == i:
-					tools[i].visible = false
+					doc_tools[i].visible = false
 					Global.active_tool = -1
 					continue
 				# Selecting a new tool
-				for t in tools:
+				for t in doc_tools:
 					t.visible = false
-				tools[i].visible = true
+				doc_tools[i].visible = true
+				Global.active_tool = i
+	if Global.is_elec:
+		for i in range(5):
+			if Input.is_action_just_pressed(input_index[i]):
+				# If selecting the same tool → unequip
+				if Global.active_tool == i:
+					elec_tools[i].visible = false
+					Global.active_tool = -1
+					continue
+				# Selecting a new tool
+				for t in elec_tools:
+					t.visible = false
+				elec_tools[i].visible = true
 				Global.active_tool = i
 	
 	# Get the input direction and handle the movement/deceleration.
