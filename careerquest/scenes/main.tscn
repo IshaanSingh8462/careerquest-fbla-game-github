@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cq1t24qf85052" path="res://assets/meshes/electrician_start_button.tscn" id="12_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://ckftj6snpsvt" path="res://scenes/careers/outlet.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" path="res://scenes/careers/outlet.tscn" id="17_muem4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
