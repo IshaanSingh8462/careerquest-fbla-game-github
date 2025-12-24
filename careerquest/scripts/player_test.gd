@@ -168,7 +168,9 @@ func _physics_process(delta: float) -> void:
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
-					if o_scene1.position == Vector3(0,1.331,.08):
+					if o_scene3.position == Vector3(0,0,0):
+						print("scene 3 in progress")
+					elif o_scene1.position == Vector3(0,1.331,.08):
 						print("scene 1 over, scene 2 start")
 						o_scene2.position = Vector3(0,0,0)
 						o_scene2.visible = true
@@ -179,7 +181,6 @@ func _physics_process(delta: float) -> void:
 						o_scene2.position = Vector3(0,10,0)
 						o_scene1.position = Vector3(0,1.331,.08)
 						o_scene1.rotation = Vector3(0,0,0)
-						print("test git")
 		elif object.is_in_group("outlet_scene2"):
 			if !object.has_method("interact"):
 				label.show()
@@ -196,13 +197,11 @@ func _physics_process(delta: float) -> void:
 						o_scene3.visible = false
 						o_scene2.position = Vector3(0,0,0)
 						o_scene2.rotation = Vector3(0,0,0)
-
 		elif object.is_in_group("outlet_scene3"):
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
 					print("scene 3 over, start wire fix")
-				
 
 		'''if object.is_in_group("medicine"):
 			if object.is_in_group("amoxicillin"):
