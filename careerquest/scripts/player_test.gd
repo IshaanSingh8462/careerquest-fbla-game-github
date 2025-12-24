@@ -179,7 +179,7 @@ func _physics_process(delta: float) -> void:
 						o_scene2.position = Vector3(0,10,0)
 						o_scene1.position = Vector3(0,1.331,.08)
 						o_scene1.rotation = Vector3(0,0,0)
-						
+						print("test git")
 		elif object.is_in_group("outlet_scene2"):
 			if !object.has_method("interact"):
 				label.show()
