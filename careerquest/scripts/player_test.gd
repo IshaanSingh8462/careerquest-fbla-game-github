@@ -164,40 +164,40 @@ func _physics_process(delta: float) -> void:
 						if object.is_in_group(sw[i]):
 							electric.switches_move(i+1)
 							Global.sw_num(i)
-		if object.is_in_group("outlet_scene1"):
+		if object.is_in_group("outlet_scene1") and Global.is_elec:
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
-					if o_scene3.position == Vector3(0,0,0):
+					if Global.active_tool != 0:
+						print("use a screwdriver")
+					elif o_scene3.position == Vector3(0,0,0):
 						print("scene 3 in progress")
 					elif o_scene1.position == Vector3(0,1.331,.08):
-						print("scene 1 over, scene 2 start")
 						o_scene2.position = Vector3(0,0,0)
 						o_scene2.visible = true
 						o_scene1.position = Vector3(-.55,.275,1)
 						o_scene1.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
 					else:
-						print("scene 2 over, scene 1 start")
 						o_scene2.position = Vector3(0,10,0)
 						o_scene1.position = Vector3(0,1.331,.08)
 						o_scene1.rotation = Vector3(0,0,0)
-		elif object.is_in_group("outlet_scene2"):
+		elif object.is_in_group("outlet_scene2") and Global.is_elec:
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
-					if o_scene2.position == Vector3(0,0,0):
-						print("scene 2 over, scene 3 start")
+					if Global.active_tool != 0:
+						print("use a screwdriver")
+					elif o_scene2.position == Vector3(0,0,0):
 						o_scene3.position = Vector3(0,0,0)
 						o_scene3.visible = true
 						o_scene2.position = Vector3(1.591,.25,1.672)
 						o_scene2.rotation = Vector3(deg_to_rad(-90),deg_to_rad(35),0)
 					else:
-						print("scene 3 over, scene 2 start")
 						o_scene3.position = Vector3(0,10,0)
 						o_scene3.visible = false
 						o_scene2.position = Vector3(0,0,0)
 						o_scene2.rotation = Vector3(0,0,0)
-		elif object.is_in_group("outlet_scene3"):
+		elif object.is_in_group("outlet_scene3") and Global.is_elec:
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
