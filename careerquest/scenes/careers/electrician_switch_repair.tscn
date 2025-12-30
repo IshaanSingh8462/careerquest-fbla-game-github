@@ -12,9 +12,9 @@ use_collision = true
 size = Vector3(10, 10, 1)
 
 [node name="hole_wall" type="CSGBox3D" parent="wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0.399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, -2, 0.399)
 operation = 2
-size = Vector3(1, 1.75, 0.205)
+size = Vector3(1.425, 1.75, 0.205)
 
 [node name="hinge" type="CSGCylinder3D" parent="." groups=["switch_board_elec"]]
 transform = Transform3D(-0.913992, 0, -0.405732, 0, 1, 0, 0.405732, 0, -0.913992, -0.546, 3, 0.5)
@@ -26,10 +26,10 @@ sides = 20
 material = ExtResource("1_xpqt5")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hinge" groups=["switch_board_elec"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546481, 0, 0)
+transform = Transform3D(1, 0, 1.49012e-07, 0, 1, 0, -1.49012e-07, 0, 1, 0.701126, 0, -0.0044587)
 use_collision = true
 collision_layer = 16
-size = Vector3(1.1, 1.75, 0.05)
+size = Vector3(1.425, 1.75, 0.05)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button1" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw1"]]
@@ -68,36 +68,76 @@ size = Vector3(0.2, 0.2, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button6" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw6"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 3.6, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3.6, 0.3)
 use_collision = true
 collision_layer = 16
 size = Vector3(0.2, 0.2, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button7" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw7"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 3.3, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3.3, 0.3)
 use_collision = true
 collision_layer = 16
 size = Vector3(0.2, 0.2, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button8" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw8"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 3, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3, 0.3)
 use_collision = true
 collision_layer = 16
 size = Vector3(0.2, 0.2, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button9" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw9"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 2.7, 0.302259)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 2.7, 0.302259)
 use_collision = true
 collision_layer = 16
 size = Vector3(0.2, 0.2, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button10" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw10"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.2, 2.4, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 2.4, 0.3)
 use_collision = true
 collision_layer = 16
 size = Vector3(0.2, 0.2, 0.4)
 material = ExtResource("1_xpqt5")
+
+[node name="trip1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 3.6, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 3.3, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 3, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 2.7, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 2.4, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 3.6, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 3.3, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 3, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 2.7, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
+
+[node name="trip10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 2.4, 0.275)
+size = Vector3(0.1, 0.2, 0.05)
