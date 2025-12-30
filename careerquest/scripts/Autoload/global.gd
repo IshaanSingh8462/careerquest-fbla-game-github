@@ -49,12 +49,15 @@ var is_elec = false
 
 #switch variables
 var open_fusebox = false
-var sw_states = [true,true,true,true,true,true,true,true,true,true]
+var sw_states = [true,true,true,true,true,true,true,true,true,true] #true = switch is in 'on' position
+var fuse_states = [true,true,true,true,true,true,true,true,true,true] #true = switch not tripped
 
 #changes state of fusebox switches
 func sw_num(i):
 	sw_states[i] = !sw_states[i]
-	print(str(i+1) + " is " + str(sw_states[i]))
+	if sw_states[i] and !fuse_states[i]:
+		fuse_states[i] = true
+	print(str(i+1) + " is " + str(sw_states[i]) + " and tripped status is " + str(fuse_states[i]))
 
 '''Pick Items'''
 var pick_item = false

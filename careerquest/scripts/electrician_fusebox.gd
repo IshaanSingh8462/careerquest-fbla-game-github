@@ -13,6 +13,20 @@ extends Node3D
 @onready var switch9 := $circuit_button9
 @onready var switch10 := $circuit_button10
 
+@onready var trip1 := $trip1
+@onready var trip2 := $trip2
+@onready var trip3 := $trip3
+@onready var trip4 := $trip4
+@onready var trip5 := $trip5
+@onready var trip6 := $trip6
+@onready var trip7 := $trip7
+@onready var trip8 := $trip8
+@onready var trip9 := $trip9
+@onready var trip10 := $trip10
+
+@onready var red = load("res://scenes/materials/light_red.tres")
+@onready var green = load("res://scenes/materials/green.tres")
+
 var openingFuse = true
 var ROT_SPEED = Vector3(0,deg_to_rad(-3),0)
 var rot = Vector3(0,0,0)
@@ -23,11 +37,14 @@ func _ready():
 	for s in all_switches:
 		s.global_rotation.y = deg_to_rad(-30)
 	fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
+	Global.fuse_states[2] = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if Global.open_fusebox:
 		open_fuse()
+	fuse_state_color()
 
 #open fusebox door animation
 func open_fuse():
@@ -47,3 +64,11 @@ func switches_move(switch):
 				switches[i].global_rotation.y = deg_to_rad(30)
 			elif abs(angle - deg_to_rad(30)) < 0.01:
 				switches[i].global_rotation.y = deg_to_rad(-30)
+
+func fuse_state_color():
+	var fuses = [trip1,trip2,trip3,trip4,trip5,trip6,trip7,trip8,trip9,trip10]
+	for i in range(10):
+		if Global.fuse_states[i]:
+			fuses[i].material = green
+		else:
+			fuses[i].material = red
