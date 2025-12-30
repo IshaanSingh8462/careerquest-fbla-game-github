@@ -24,8 +24,11 @@ extends Node3D
 @onready var trip9 := $trip9
 @onready var trip10 := $trip10
 
+@onready var indicator := $indicator
+
 @onready var red = load("res://scenes/materials/light_red.tres")
 @onready var green = load("res://scenes/materials/green.tres")
+@onready var white = load("res://scenes/materials/white.tres")
 
 var openingFuse = true
 var ROT_SPEED = Vector3(0,deg_to_rad(-3),0)
@@ -72,3 +75,9 @@ func fuse_state_color():
 			fuses[i].material = green
 		else:
 			fuses[i].material = red
+	if Global.load <= 12:
+		indicator.material = green
+	elif Global.load >= 18:
+		indicator.material = red
+	else:
+		indicator.material = white

@@ -50,7 +50,16 @@ var is_elec = false
 #switch variables
 var open_fusebox = false
 var sw_states = [true,true,true,true,true,true,true,true,true,true] #true = switch is in 'on' position
+var load_val = [4,5,3,1,3,2,6,6,4,5]
+var load = 0
 var fuse_states = [true,true,true,true,true,true,true,true,true,true] #true = switch not tripped
+
+func calc_load():
+	load = 0
+	for i in range(10):
+		if fuse_states[i]:
+			load += load_val[i]
+	print("current load: " + str(load))
 
 #changes state of fusebox switches
 func sw_num(i):

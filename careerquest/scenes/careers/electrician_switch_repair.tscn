@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://w52ivpn8bbqm"]
+[gd_scene load_steps=4 format=3 uid="uid://w52ivpn8bbqm"]
 
 [ext_resource type="Script" uid="uid://cwa7mnk7e17lg" path="res://scripts/electrician_fusebox.gd" id="1_sgqtv"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_xpqt5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sgqtv"]
+viewport_path = NodePath("switch1_label/SubViewport")
 
 [node name="elec_switch" type="Node3D"]
 script = ExtResource("1_sgqtv")
@@ -33,73 +36,73 @@ size = Vector3(1.425, 1.75, 0.05)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button1" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw1"]]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.6, 0.3)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.7, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button2" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw2"]]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.3, 0.3)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.4, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button3" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw3"]]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3, 0.3)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.1, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button4" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw4"]]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 2.7, 0.3)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 2.8, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button5" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw5"]]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 2.4, 0.3)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 2.5, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button6" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw6"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3.6, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3.7, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button7" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw7"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3.3, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3.4, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button8" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw8"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 3.1, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button9" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw9"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 2.7, 0.302259)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 2.8, 0.302259)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="circuit_button10" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw10"]]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 2.4, 0.3)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.6, 2.5, 0.3)
 use_collision = true
 collision_layer = 16
-size = Vector3(0.2, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 material = ExtResource("1_xpqt5")
 
 [node name="trip1" type="CSGBox3D" parent="."]
@@ -141,3 +144,29 @@ size = Vector3(0.1, 0.2, 0.05)
 [node name="trip10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 2.4, 0.275)
 size = Vector3(0.1, 0.2, 0.05)
+
+[node name="switch1_label" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, -0.156406, 3.52957, 0.298843)
+texture = SubResource("ViewportTexture_sgqtv")
+
+[node name="SubViewport" type="SubViewport" parent="switch1_label"]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="switch1_label/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.1667
+offset_right = 20.0
+offset_bottom = 11.1667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Helo"
+
+[node name="indicator" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15995, 3.04286, 0.50697)
+size = Vector3(0.121094, 1, 0.0223389)
