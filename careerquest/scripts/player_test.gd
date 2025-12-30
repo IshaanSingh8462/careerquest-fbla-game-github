@@ -164,6 +164,7 @@ func _physics_process(delta: float) -> void:
 						if object.is_in_group(sw[i]):
 							electric.switches_move(i+1)
 							Global.sw_num(i) 
+							Global.calc_load()
 		if object.is_in_group("outlet_scene1") and Global.is_elec:
 			if !object.has_method("interact"):
 				label.show()
