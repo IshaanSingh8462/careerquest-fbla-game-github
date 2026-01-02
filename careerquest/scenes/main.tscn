@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bl3a002q2m7xd"]
+[gd_scene load_steps=29 format=3 uid="uid://bl3a002q2m7xd"]
 
 [ext_resource type="PackedScene" uid="uid://bdqka2d3f064w" path="res://scenes/characters/Player_test.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dh27ydv1onqyl" path="res://assets/meshes/doctor_start_button.tscn" id="1_tefeu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dpjrfiwexdooa" path="res://scenes/ui/clipboard.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://2c3xn273ioqh" path="res://scenes/characters/npc.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cc78vd5wxk2an" path="res://scenes/ui/center_cursor.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://7bj16k2a7t26" path="res://scenes/ui/elec_options.tscn" id="5_dp3eg"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="5_eb6dy"]
 [ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="6_jbj1t"]
 [ext_resource type="Material" uid="uid://dwoxwrydf6qvo" path="res://scenes/materials/light_red.tres" id="7_muem4"]
@@ -78,6 +79,8 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 25.5286, 2.1692
 [node name="clipboard" parent="player" instance=ExtResource("2_jyhfs")]
 
 [node name="CenterCursor" parent="player" instance=ExtResource("4_tipki")]
+
+[node name="elec_options" parent="player" instance=ExtResource("5_dp3eg")]
 
 [node name="head" type="Node3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00409627, 0.738459, 0.00569487)

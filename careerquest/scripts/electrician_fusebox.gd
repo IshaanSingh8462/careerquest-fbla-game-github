@@ -40,14 +40,13 @@ func _ready():
 	for s in all_switches:
 		s.global_rotation.y = deg_to_rad(-30)
 	fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
-	Global.fuse_states[2] = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if Global.open_fusebox:
 		open_fuse()
-	fuse_state_color()
+	sw_values()
 
 #open fusebox door animation
 func open_fuse():
@@ -68,16 +67,16 @@ func switches_move(switch):
 			elif abs(angle - deg_to_rad(30)) < 0.01:
 				switches[i].global_rotation.y = deg_to_rad(-30)
 
-func fuse_state_color():
-	var fuses = [trip1,trip2,trip3,trip4,trip5,trip6,trip7,trip8,trip9,trip10]
+func sw_values():
+	var sw_value = [trip1,trip2,trip3,trip4,trip5,trip6,trip7,trip8,trip9,trip10]
 	for i in range(10):
-		if Global.fuse_states[i]:
-			fuses[i].material = green
+		if Global.sw_states[i]:
+			sw_value[i].material = green
 		else:
-			fuses[i].material = red
-	if Global.load <= 12:
-		indicator.material = green
-	elif Global.load >= 18:
+			sw_value[i].material = red
+	if Global.tripped_status:
 		indicator.material = red
+		for i in sw_value:
+			i.material = red
 	else:
-		indicator.material = white
+		indicator.material = green
