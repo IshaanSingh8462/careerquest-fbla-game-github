@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://7bj16k2a7t26"]
+
+[ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="1_2fbcr"]
+
+[node name="elec_options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="stars" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="stars"]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="stars/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="star_pic" type="HBoxContainer" parent="stars/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="stars/MarginContainer/VBoxContainer/star_pic"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_2fbcr")
+
+[node name="TextureRect2" type="TextureRect" parent="stars/MarginContainer/VBoxContainer/star_pic"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_2fbcr")
+
+[node name="TextureRect3" type="TextureRect" parent="stars/MarginContainer/VBoxContainer/star_pic"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_2fbcr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="stars/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="1star" type="Button" parent="stars/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "1 star
+"
+
+[node name="3star" type="Button" parent="stars/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "3 star
+"
+
+[node name="5star" type="Button" parent="stars/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "5 star
+"
+
+[node name="VScrollBar" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VScrollBar"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VScrollBar/PanelContainer"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VScrollBar/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VScrollBar/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Button" type="Button" parent="VScrollBar/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VScrollBar/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VScrollBar/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Button" type="Button" parent="VScrollBar/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VScrollBar/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
