@@ -43,14 +43,32 @@ func interact():
 	random_symp = true
 	timer = true
 	is_doc = true
-	
+
+
+
 '''Electric Variables'''
 var is_elec = false
+
+#pick options variables (stars, card, etc.)
+var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
+var elec_desc = ["house desc", "coffee_shop desc","office desc","traffic_light desc","factory desc","apartment desc"]
+func pick_desc(location):
+	var index = elec_location.find(location)
+	if index != -1:
+		return elec_desc[index]
+	return ""
+var random_location = elec_location.pick_random()
+var elec_cond = {
+	"difficulty": null,
+	"location": random_location,
+	"desc": pick_desc(random_location)
+}
+
+# difficulty: 1-star, 3-star, 5-star; 
 
 #switch variables
 var open_fusebox = false
 var sw_states = [false,false,false,false,false,false,false,false,false,false] #switch is in on/off position
-var elec_difficulty = 0 #1-star, 3-star, 5-star
 var load_val = [4,5,3,1,3,2,6,6,4,5]
 var load = 0
 var tripped_status = false
@@ -63,7 +81,7 @@ func calc_load():
 	for i in range(10):
 		if sw_states[i]:
 			load += load_val[i]
-	var limit = load_limits[elec_difficulty]
+	var limit = load_limits[elec_cond["difficulty"]]
 	# Breaker logic
 	if tripped_status:
 		# Breaker is already tripped → only reset if load is zero
@@ -75,7 +93,6 @@ func calc_load():
 			tripped_status = true
 	print("current load: " + str(load))
 	print("tripped status: " + str(tripped_status))
-
 
 #changes state of fusebox switches
 func sw_num(i):
