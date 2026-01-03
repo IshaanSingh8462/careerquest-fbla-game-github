@@ -58,6 +58,7 @@ func _ready():
 	o_scene1.position = Vector3(0,1.331,.08)
 	o_scene2.position = Vector3(0,10,0)
 	o_scene3.position = Vector3(0,10,0)
+	print(Global.elec_cond)
 	
 #Captures/hides and shows mouse when moving/press esc
 func _input(event: InputEvent) -> void:
@@ -70,12 +71,12 @@ func _input(event: InputEvent) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	#sets mouse value based on ui position
-	if Global.clipboard_info["clip_ui"].position.y == 0:
+	if Global.clipboard_info["clip_ui"].position.y == 0 and Global.is_doc:
 		if Global.flip_book_anim or Global.is_talking:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif Global.clipboard_info["clip_ui"].position.y == -300:
+	elif Global.clipboard_info["clip_ui"].position.y == -300 and Global.is_doc:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#calls init functions, also hides all ui
 	player_dialogue()
@@ -165,6 +166,7 @@ func _physics_process(delta: float) -> void:
 							electric.switches_move(i+1)
 							Global.sw_num(i) 
 							Global.calc_load()
+		#plays outlet fixing animation when interacted with
 		if object.is_in_group("outlet_scene1") and Global.is_elec:
 			if !object.has_method("interact"):
 				label.show()
@@ -339,7 +341,7 @@ func _physics_process(delta: float) -> void:
 	
 #clipboard animation (pull out/keep back)
 func move_clip():
-	if Input.is_action_just_pressed("clipboard") and !Global.clipboard_info["is_editing"]:
+	if Input.is_action_just_pressed("clipboard") and !Global.clipboard_info["is_editing"] and Global.is_doc:
 		if Global.clipboard_info["clip_ui"].position.y == -300:
 			Global.clipboard_info["clip_ui"].position.y = 0
 		elif Global.clipboard_info["clip_ui"].position.y == 0:

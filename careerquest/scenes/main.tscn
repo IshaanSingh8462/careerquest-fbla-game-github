@@ -76,11 +76,11 @@ script = null
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 25.5286, 2.16927, -15.4774)
 
+[node name="elec_options" parent="player" instance=ExtResource("5_dp3eg")]
+
 [node name="clipboard" parent="player" instance=ExtResource("2_jyhfs")]
 
 [node name="CenterCursor" parent="player" instance=ExtResource("4_tipki")]
-
-[node name="elec_options" parent="player" instance=ExtResource("5_dp3eg")]
 
 [node name="head" type="Node3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00409627, 0.738459, 0.00569487)
