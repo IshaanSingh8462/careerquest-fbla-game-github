@@ -1,5 +1,7 @@
 extends Node
 
+var pause_game = null
+
 '''doctor variables'''
 var is_doc = false
 

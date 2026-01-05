@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdqka2d3f064w"]
+[gd_scene load_steps=8 format=3 uid="uid://bdqka2d3f064w"]
 
 [ext_resource type="Script" uid="uid://yk7kd85cj3ga" path="res://scripts/player_test.gd" id="1_hsp13"]
+[ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="3_8pp3b"]
+[ext_resource type="Script" uid="uid://u1kqhcqr8l66" path="res://scripts/elec_options.gd" id="3_hc7jq"]
+[ext_resource type="Texture2D" uid="uid://dplkl0fsnj3" path="res://icon.svg" id="5_6cpf6"]
 [ext_resource type="Script" uid="uid://65rwq1uac1fs" path="res://scripts/timer.gd" id="5_o0pbu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pdv6x"]
@@ -943,9 +946,164 @@ theme_override_constants/separation = 20
 layout_mode = 2
 text = "Exit"
 
+[node name="elec_options" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_hc7jq")
+
+[node name="stars" type="PanelContainer" parent="CanvasLayer/elec_options"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/elec_options/stars"]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/elec_options/stars/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="star_pic" type="HBoxContainer" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/star_pic"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_8pp3b")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/star_pic"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_8pp3b")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/star_pic"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_8pp3b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="1star" type="Button" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "1 star"
+
+[node name="3star" type="Button" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "3 star
+"
+
+[node name="5star" type="Button" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "5 star
+"
+
+[node name="pause" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu" type="PanelContainer" parent="pause"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="pause/menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause/menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pause/menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="pause/menu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_6cpf6")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="pause/menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="exit" type="Button" parent="pause/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="resume" type="Button" parent="pause/menu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "resume"
+
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/escape" to="." method="_on_escape_pressed"]
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/backwards" to="." method="_on_backwards_pressed"]
 [connection signal="pressed" from="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer/names" to="." method="_on_names_pressed"]
 [connection signal="pressed" from="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer/feelings" to="." method="_on_feelings_pressed"]
 [connection signal="pressed" from="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer/1star" to="." method="_on_star1_pressed"]
+[connection signal="pressed" from="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer/3star" to="." method="_on_star3_pressed"]
+[connection signal="pressed" from="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer/5star" to="." method="_on_star5_pressed"]
+[connection signal="pressed" from="pause/menu/MarginContainer/VBoxContainer/HBoxContainer2/exit" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="pause/menu/MarginContainer/resume" to="." method="_on_resume_pressed"]

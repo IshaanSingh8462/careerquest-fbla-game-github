@@ -26,6 +26,12 @@ extends Node3D
 
 @onready var indicator := $indicator
 
+#locations
+@onready var traffic_light := $traffic_light
+@onready var factory := $factory
+@onready var apartment := $apartment
+@onready var house := $house
+
 @onready var red = load("res://scenes/materials/light_red.tres")
 @onready var green = load("res://scenes/materials/green.tres")
 @onready var white = load("res://scenes/materials/white.tres")
@@ -40,10 +46,14 @@ func _ready():
 	for s in all_switches:
 		s.global_rotation.y = deg_to_rad(-30)
 	fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
-
+	traffic_light.hide()
+	factory.hide()
+	apartment.hide()
+	house.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
+	elec_location_pick()
 	if Global.open_fusebox:
 		open_fuse()
 	sw_values()
@@ -80,3 +90,13 @@ func sw_values():
 			i.material = red
 	else:
 		indicator.material = green
+var elec_location_pick_ = false
+func elec_location_pick():
+	if Global.is_elec and not elec_location_pick_:
+		var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
+		var locations = [house, house, house, traffic_light, factory, apartment]
+		for i in range(6):
+			if Global.elec_cond["location"] == elec_location[i]:
+				locations[i].show()
+				print(elec_location[i])
+				elec_location_pick_ = true
