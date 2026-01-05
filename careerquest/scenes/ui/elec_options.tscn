@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7bj16k2a7t26"]
 
-[ext_resource type="Script" uid="uid://u1kqhcqr8l66" path="res://scenes/ui/elec_options.gd" id="1_1kbjp"]
+[ext_resource type="Script" uid="uid://u1kqhcqr8l66" path="res://scripts/elec_options.gd" id="1_1kbjp"]
 [ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="1_2fbcr"]
 
 [node name="elec_options" type="Control"]
@@ -65,23 +65,25 @@ theme_override_constants/separation = 15
 alignment = 1
 
 [node name="1star" type="Button" parent="stars/MarginContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-text = "1 star
-"
+text = "1 star"
 
 [node name="3star" type="Button" parent="stars/MarginContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "3 star
 "
 
 [node name="5star" type="Button" parent="stars/MarginContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "5 star
 "
 
-[connection signal="pressed" from="stars/MarginContainer/VBoxContainer/HBoxContainer/1star" to="." method="_on_star_pressed"]
+[connection signal="pressed" from="stars/MarginContainer/VBoxContainer/HBoxContainer/1star" to="." method="_on_star1_pressed"]
 [connection signal="pressed" from="stars/MarginContainer/VBoxContainer/HBoxContainer/3star" to="." method="_on_star3_pressed"]
 [connection signal="pressed" from="stars/MarginContainer/VBoxContainer/HBoxContainer/5star" to="." method="_on_star5_pressed"]

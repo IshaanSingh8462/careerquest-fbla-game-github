@@ -4,6 +4,9 @@ extends CharacterBody3D
 const SPEED = 7.5
 const JUMP_VELOCITY = 6.0
 
+#main ui
+@onready var pause := $pause
+
 #pick item variables
 @onready var head := $head
 @onready var camera := $head/camera
@@ -54,6 +57,7 @@ const JUMP_VELOCITY = 6.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pause.hide()
 	player_dia.hide()
 	o_scene1.position = Vector3(0,1.331,.08)
 	o_scene2.position = Vector3(0,10,0)
@@ -62,7 +66,7 @@ func _ready():
 	
 #Captures/hides and shows mouse when moving/press esc
 func _input(event: InputEvent) -> void:
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and !Global.pause_game:
 		if event is InputEventMouseMotion and $head/camera.current:
 			head.rotate_y(-event.relative.x * 0.01)
 			camera.rotate_x(-event.relative.y * 0.01)
@@ -70,13 +74,23 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	#pause game
+	if Input.is_action_just_pressed("pause"):
+		if Global.pause_game:
+			pause.hide()
+			return
+		else:
+			pause.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			return
+
 	#sets mouse value based on ui position
 	if Global.clipboard_info["clip_ui"].position.y == 0 and Global.is_doc:
 		if Global.flip_book_anim or Global.is_talking:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif Global.clipboard_info["clip_ui"].position.y == -300 and Global.is_doc:
+	elif Global.clipboard_info["clip_ui"].position.y == -300 and !Global.is_doc:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#calls init functions, also hides all ui
 	player_dialogue()
@@ -87,7 +101,7 @@ func _physics_process(delta: float) -> void:
 	flip_book()
 	#detects what the player is looking at, then performs functions based off of object
 	var object = ray.get_collider()
-	if ray.is_colliding():
+	if ray.is_colliding() and !Global.pause_game:
 		if Global.at_start:
 			#starts doctor roleplay
 			if object.is_in_group("doctor_start"):
@@ -291,7 +305,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump
-	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_info["checkbox_checked"].position.y == 0:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_info["checkbox_checked"].position.y == 0 and !Global.pause_game:
 		velocity.y = JUMP_VELOCITY
 	
 	#doctor inventory selection - select tools for analysis
@@ -329,7 +343,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if Global.clipboard_info["clip_ui"].position.y == 0:
+	if Global.clipboard_info["clip_ui"].position.y == 0 and !Global.pause_game:
 		if direction and $head/camera.current:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
@@ -440,3 +454,24 @@ func _on_feelings_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	Global.is_talking = false # Replace with function body.
+
+func _on_star1_pressed() -> void:
+	Global.elec_cond["difficulty"] = 0
+	print("easy mode")
+
+func _on_star3_pressed() -> void:
+	Global.elec_cond["difficulty"] = 1
+	print("intermediate mode")
+func _on_star5_pressed() -> void:
+	Global.elec_cond["difficulty"] = 2
+	print("hard mode")
+
+func _on_resume_pressed() -> void:
+	print("resume")
+	Global.pause_game = false
+	pause.hide()
+	 # Replace with function body.
+
+func _on_exit_game_pressed() -> void:
+	print("quit game")
+	get_tree().quit() # Replace with function body.

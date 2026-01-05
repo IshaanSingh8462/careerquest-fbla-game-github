@@ -10,6 +10,7 @@ func _ready() -> void:
 	star1.disabled = false
 	star3.disabled = false
 	star5.disabled = false
+	update_stars_visibility()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,18 +19,13 @@ func _process(delta: float) -> void:
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	stars.hide()
+	update_stars_visibility()
+
+func update_stars_visibility() -> void:
 	if Global.is_elec:
-		stars.show()
-		if Global.elec_cond["difficulty"] != null:
+		if Global.elec_cond["difficulty"] == null:
+			stars.show()
+		else:
 			stars.hide()
-
-
-func _on_star_pressed() -> void:
-	Global.elec_cond["difficulty"] = 0
-
-func _on_star5_pressed() -> void:
-	Global.elec_cond["difficulty"] = 1
-
-func _on_star3_pressed() -> void:
-	Global.elec_cond["difficulty"] = 2
+	else:
+		stars.hide()

@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://w52ivpn8bbqm"]
+[gd_scene load_steps=8 format=3 uid="uid://w52ivpn8bbqm"]
 
 [ext_resource type="Script" uid="uid://cwa7mnk7e17lg" path="res://scripts/electrician_fusebox.gd" id="1_sgqtv"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_xpqt5"]
+[ext_resource type="Material" uid="uid://d3utq2qq4jl0p" path="res://scenes/materials/light_yellow.tres" id="2_1qikm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgqtv"]
+albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qikm"]
+albedo_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f78w"]
+albedo_color = Color(0.4, 0.4, 0.4, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sgqtv"]
 viewport_path = NodePath("switch1_label/SubViewport")
@@ -9,15 +19,68 @@ viewport_path = NodePath("switch1_label/SubViewport")
 [node name="elec_switch" type="Node3D"]
 script = ExtResource("1_sgqtv")
 
-[node name="wall" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351807, 3.14331, 0)
+[node name="house" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185, 3, 0)
 use_collision = true
-size = Vector3(2.48291, 2.6001, 1)
+size = Vector3(10, 6, 1)
+material = ExtResource("2_1qikm")
 
-[node name="hole_wall" type="CSGBox3D" parent="wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196807, -0.143311, 0.44715)
+[node name="hole_wall" type="CSGBox3D" parent="house"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0, 0.4)
 operation = 2
 size = Vector3(1.425, 1.75, 0.205)
+material = ExtResource("2_1qikm")
+
+[node name="traffic_light" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 3, 0)
+visible = false
+use_collision = true
+size = Vector3(1.925, 2.25, 1)
+material = SubResource("StandardMaterial3D_sgqtv")
+
+[node name="hole_wall" type="CSGBox3D" parent="traffic_light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+operation = 2
+size = Vector3(1.425, 1.75, 0.205)
+material = SubResource("StandardMaterial3D_1qikm")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="traffic_light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.914)
+radius = 0.75
+height = 10.0
+sides = 20
+material = SubResource("StandardMaterial3D_6f78w")
+
+[node name="factory" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 3, 0)
+visible = false
+use_collision = true
+size = Vector3(1.925, 2.25, 1)
+material = SubResource("StandardMaterial3D_sgqtv")
+
+[node name="hole_wall" type="CSGBox3D" parent="factory"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+operation = 2
+size = Vector3(1.425, 1.75, 0.205)
+material = SubResource("StandardMaterial3D_1qikm")
+
+[node name="CSGCylinder3D" type="CSGBox3D" parent="factory"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.914)
+size = Vector3(1, 10, 1)
+material = SubResource("StandardMaterial3D_6f78w")
+
+[node name="apartment" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21063, 3, 0)
+visible = false
+use_collision = true
+size = Vector3(6, 6, 1)
+material = ExtResource("2_1qikm")
+
+[node name="hole_wall" type="CSGBox3D" parent="apartment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05563, 0, 0.4)
+operation = 2
+size = Vector3(1.425, 1.75, 0.205)
+material = ExtResource("2_1qikm")
 
 [node name="hinge" type="CSGCylinder3D" parent="." groups=["switch_board_elec"]]
 transform = Transform3D(-0.913992, 0, -0.405732, 0, 1, 0, 0.405732, 0, -0.913992, -0.546, 3, 0.5)
@@ -168,5 +231,5 @@ theme_override_font_sizes/font_size = 12
 text = "Helo"
 
 [node name="indicator" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15995, 3.04286, 0.50697)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.155, 2, 0.5)
 size = Vector3(0.121094, 1, 0.0223389)
