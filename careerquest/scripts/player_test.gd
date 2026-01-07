@@ -57,6 +57,9 @@ const JUMP_VELOCITY = 6.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	global_position.x = 25.5
+	global_position.z = -15.5
+	global_rotation = Vector3(0,0,0)
 	pause.hide()
 	player_dia.hide()
 	o_scene1.position = Vector3(0,1.331,.08)
@@ -93,6 +96,7 @@ func _physics_process(delta: float) -> void:
 	elif Global.clipboard_info["clip_ui"].position.y == -300 and !Global.is_doc:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#calls init functions, also hides all ui
+	check_comp()
 	player_dialogue()
 	move_clip()
 	label.hide()
@@ -177,6 +181,8 @@ func _physics_process(delta: float) -> void:
 					var sw = ["sw1","sw2","sw3","sw4","sw5","sw6","sw7","sw8","sw9","sw10"]
 					for i in range(10):
 						if object.is_in_group(sw[i]):
+							if Global.elec_job_comp["breaker"]:
+								return
 							electric.switches_move(i+1)
 							Global.sw_num(i) 
 							Global.calc_load()
@@ -218,7 +224,8 @@ func _physics_process(delta: float) -> void:
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
-					print("scene 3 over, start wire fix")
+					Global.elec_job_comp["outlet"] = true
+					print("Fix elec -> win for now")
 
 		'''if object.is_in_group("medicine"):
 			if object.is_in_group("amoxicillin"):
@@ -338,6 +345,7 @@ func _physics_process(delta: float) -> void:
 					t.visible = false
 				elec_tools[i].visible = true
 				Global.active_tool = i
+
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -433,6 +441,22 @@ func player_dialogue():
 		player_dia.show()
 	else:
 		player_dia.hide()
+
+func check_comp():
+	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
+		global_position.x = 25.5
+		global_position.z = -15.5
+		global_rotation = Vector3(0,0,0)
+		print("elec done!")
+		Global.is_elec = false
+		Global.elec_job_comp["breaker"] = false
+		Global.elec_job_comp["outlet"] = false
+		Global.elec_job_comp["light"] = false
+		o_scene1.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
+		o_scene1.position = Vector3(0,1.331,.08)
+		o_scene2.position = Vector3(0,10,0)
+		o_scene3.position = Vector3(0,10,0)
+
 
 #signals
 func _on_forward_pressed() -> void:

@@ -26,6 +26,8 @@ extends Node3D
 
 @onready var indicator := $indicator
 
+@onready var ind_num := $indicator_num/SubViewport/Label
+
 #locations
 @onready var traffic_light := $traffic_light
 @onready var factory := $factory
@@ -35,6 +37,7 @@ extends Node3D
 @onready var red = load("res://scenes/materials/light_red.tres")
 @onready var green = load("res://scenes/materials/green.tres")
 @onready var white = load("res://scenes/materials/white.tres")
+@onready var yellow = load("res://scenes/materials/light_yellow.tres")
 
 var openingFuse = true
 var ROT_SPEED = Vector3(0,deg_to_rad(-3),0)
@@ -57,6 +60,20 @@ func _physics_process(_delta: float) -> void:
 	if Global.open_fusebox:
 		open_fuse()
 	sw_values()
+	indicator_num()
+	if Global.load == Global.elec_cond["load_limit"]:
+		indicator.material = green
+		Global.elec_job_comp["breaker"] = true
+		var all_switches = [switch1, switch2, switch3, switch4, switch5, switch6, switch7, switch8, switch9, switch10]
+		for s in all_switches:
+			s.global_rotation.y = deg_to_rad(-30)
+		var sw_value = [trip1,trip2,trip3,trip4,trip5,trip6,trip7,trip8,trip9,trip10]
+		for i in range(10):
+			sw_value[i].material = red
+		Global.load = 0
+		Global.elec_cond["load_limit"] = null
+		print("done")
+		
 
 #open fusebox door animation
 func open_fuse():
@@ -65,9 +82,12 @@ func open_fuse():
 		rot.y += fuse_door.global_rotation.y
 		if rot.y >= 80:
 			openingFuse = false
+			
 
 #flip switch animation
 func switches_move(switch):
+	if Global.elec_job_comp["breaker"]:
+		return
 	var switches = [switch1, switch2, switch3, switch4, switch5, switch6, switch7, switch8, switch9, switch10]
 	for i in range(10):
 		if i == switch - 1:
@@ -78,6 +98,8 @@ func switches_move(switch):
 				switches[i].global_rotation.y = deg_to_rad(-30)
 
 func sw_values():
+	if Global.elec_job_comp["breaker"]:
+		return
 	var sw_value = [trip1,trip2,trip3,trip4,trip5,trip6,trip7,trip8,trip9,trip10]
 	for i in range(10):
 		if Global.sw_states[i]:
@@ -89,8 +111,11 @@ func sw_values():
 		for i in sw_value:
 			i.material = red
 	else:
-		indicator.material = green
+		indicator.material = yellow
+		
+
 var elec_location_pick_ = false
+
 func elec_location_pick():
 	if Global.is_elec and not elec_location_pick_:
 		var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
@@ -100,3 +125,6 @@ func elec_location_pick():
 				locations[i].show()
 				print(elec_location[i])
 				elec_location_pick_ = true
+
+func indicator_num():
+	ind_num.text = str(Global.load)

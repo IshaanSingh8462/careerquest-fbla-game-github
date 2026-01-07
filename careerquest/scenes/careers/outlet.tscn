@@ -16,7 +16,7 @@ albedo_color = Color(0.414066, 0.414066, 0.414066, 1)
 [node name="wall" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 use_collision = true
-size = Vector3(7, 7, 0.15)
+size = Vector3(1, 7, 0.15)
 material = SubResource("StandardMaterial3D_tw7mg")
 
 [node name="hole" type="CSGBox3D" parent="wall"]

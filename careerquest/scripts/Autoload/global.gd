@@ -4,6 +4,7 @@ var pause_game = null
 
 '''doctor variables'''
 var is_doc = false
+var doc_tutor = true
 
 #condition
 var condition = {"asthma":false, "arthritis":false, "copd":false, "flu":false, "migraine":false,
@@ -50,23 +51,7 @@ func interact():
 
 '''Electric Variables'''
 var is_elec = false
-
-#pick options variables (stars, card, etc.)
-var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
-var elec_desc = ["house desc", "coffee_shop desc","office desc","traffic_light desc","factory desc","apartment desc"]
-func pick_desc(location):
-	var index = elec_location.find(location)
-	if index != -1:
-		return elec_desc[index]
-	return ""
-var random_location = elec_location.pick_random()
-var elec_cond = {
-	"difficulty": null,
-	"location": random_location,
-	"desc": pick_desc(random_location)
-}
-
-# difficulty: 1-star, 3-star, 5-star; 
+var elec_tutor = true
 
 #switch variables
 var open_fusebox = false
@@ -74,6 +59,25 @@ var sw_states = [false,false,false,false,false,false,false,false,false,false] #s
 var load_val = [4,5,3,1,3,2,6,6,4,5]
 var load = 0
 var tripped_status = false
+
+#pick options variables (stars, card, etc.)
+var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
+var elec_desc = ["house desc", "coffee_shop desc","office desc","traffic_light desc","factory desc","apartment desc"]
+var elec_job_comp = {"breaker":false,"outlet":false,"light":false}
+func pick_desc(location):
+	load_val.shuffle()
+	var index = elec_location.find(location)
+	if index != -1:
+		return elec_desc[index]
+	return ""
+var random_location = elec_location.pick_random()
+
+var elec_cond = {
+	"difficulty": null,
+	"location": random_location,
+	"desc": pick_desc(random_location),
+	"load_limit":null
+}# difficulty: 1-star, 3-star, 5-star; 
 
 func calc_load():
 	load = 0
@@ -84,6 +88,7 @@ func calc_load():
 		if sw_states[i]:
 			load += load_val[i]
 	var limit = load_limits[elec_cond["difficulty"]]
+	elec_cond["load_limit"] = limit
 	# Breaker logic
 	if tripped_status:
 		# Breaker is already tripped → only reset if load is zero
@@ -91,15 +96,12 @@ func calc_load():
 			tripped_status = false
 	else:
 		# Breaker is NOT tripped → check if it should trip
-		if load >= limit:
+		if load > limit:
 			tripped_status = true
-	print("current load: " + str(load))
-	print("tripped status: " + str(tripped_status))
 
 #changes state of fusebox switches
 func sw_num(i):
 	sw_states[i] = !sw_states[i]
-	print(str(i+1) + " is " + str(sw_states[i]))
 
 '''Pick Items'''
 var pick_item = false
