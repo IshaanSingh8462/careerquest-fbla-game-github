@@ -202,6 +202,7 @@ func _physics_process(delta: float) -> void:
 						o_scene1.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
 					else:
 						o_scene2.position = Vector3(0,10,0)
+						o_scene2.visible = false
 						o_scene1.position = Vector3(0,1.331,.08)
 						o_scene1.rotation = Vector3(0,0,0)
 		elif object.is_in_group("outlet_scene2") and Global.is_elec:
@@ -452,7 +453,10 @@ func check_comp():
 		Global.elec_job_comp["breaker"] = false
 		Global.elec_job_comp["outlet"] = false
 		Global.elec_job_comp["light"] = false
-		o_scene1.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
+		o_scene2.visible = false
+		o_scene3.visible = false
+		o_scene1.rotation = Vector3(0,0,0)
+		o_scene2.rotation = Vector3(0,0,0)
 		o_scene1.position = Vector3(0,1.331,.08)
 		o_scene2.position = Vector3(0,10,0)
 		o_scene3.position = Vector3(0,10,0)
