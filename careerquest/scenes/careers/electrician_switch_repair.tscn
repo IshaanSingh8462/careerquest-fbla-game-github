@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://w52ivpn8bbqm"]
+[gd_scene load_steps=9 format=3 uid="uid://w52ivpn8bbqm"]
 
 [ext_resource type="Script" uid="uid://cwa7mnk7e17lg" path="res://scripts/electrician_fusebox.gd" id="1_sgqtv"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_xpqt5"]
-[ext_resource type="Material" uid="uid://d3utq2qq4jl0p" path="res://scenes/materials/light_yellow.tres" id="2_1qikm"]
+[ext_resource type="Material" uid="uid://cckr4glkoaqdu" path="res://scenes/materials/dark_yellow.tres" id="2_1qikm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgqtv"]
 albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
@@ -15,6 +15,9 @@ albedo_color = Color(0.4, 0.4, 0.4, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sgqtv"]
 viewport_path = NodePath("switch1_label/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1qikm"]
+viewport_path = NodePath("indicator_num/SubViewport")
 
 [node name="elec_switch" type="Node3D"]
 script = ExtResource("1_sgqtv")
@@ -229,6 +232,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 12
 text = "Helo"
+
+[node name="indicator_num" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0.310059, 1.97212, 0.524687)
+texture = SubResource("ViewportTexture_1qikm")
+
+[node name="SubViewport" type="SubViewport" parent="indicator_num"]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="indicator_num/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.1667
+offset_right = 20.0
+offset_bottom = 11.1667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "0"
 
 [node name="indicator" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.155, 2, 0.5)

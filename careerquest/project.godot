@@ -49,6 +49,7 @@ sw10=""
 outlet_scene1=""
 outlet_scene3=""
 outlet_scene2=""
+ladder=""
 
 [gui]
 

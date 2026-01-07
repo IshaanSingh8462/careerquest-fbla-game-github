@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://btghf13psexkx"]
+
+[node name="ladder" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." groups=["ladder"]]
+use_collision = true
+collision_layer = 16
+size = Vector3(0.1, 4, 1)
