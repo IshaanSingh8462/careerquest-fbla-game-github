@@ -48,7 +48,6 @@ func interact():
 	is_doc = true
 
 
-
 '''Electric Variables'''
 var is_elec = false
 var elec_tutor = true
@@ -57,6 +56,7 @@ var elec_tutor = true
 var open_fusebox = false
 var sw_states = [false,false,false,false,false,false,false,false,false,false] #switch is in on/off position
 var load_val = [4,5,3,1,3,2,6,6,4,5]
+@warning_ignore("shadowed_global_identifier")
 var load = 0
 var tripped_status = false
 

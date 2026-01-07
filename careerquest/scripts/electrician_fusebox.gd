@@ -60,7 +60,7 @@ func _physics_process(_delta: float) -> void:
 	if Global.open_fusebox:
 		open_fuse()
 	sw_values()
-	indicator_num()
+	ind_num.text = str(Global.load)
 	if Global.load == Global.elec_cond["load_limit"]:
 		indicator.material = green
 		Global.elec_job_comp["breaker"] = true
@@ -70,10 +70,11 @@ func _physics_process(_delta: float) -> void:
 		var sw_value = [trip1,trip2,trip3,trip4,trip5,trip6,trip7,trip8,trip9,trip10]
 		for i in range(10):
 			sw_value[i].material = red
+		for i in range(10):
+			Global.sw_states[i] = false
 		Global.load = 0
 		Global.elec_cond["load_limit"] = null
-		print("done")
-		
+	check_comp()
 
 #open fusebox door animation
 func open_fuse():
@@ -82,7 +83,6 @@ func open_fuse():
 		rot.y += fuse_door.global_rotation.y
 		if rot.y >= 80:
 			openingFuse = false
-			
 
 #flip switch animation
 func switches_move(switch):
@@ -112,12 +112,13 @@ func sw_values():
 			i.material = red
 	else:
 		indicator.material = yellow
-		
 
 var elec_location_pick_ = false
 
 func elec_location_pick():
 	if Global.is_elec and not elec_location_pick_:
+		house.global_position = Vector3(.185,3.0,0)
+		apartment.global_position = Vector3(2.211,3.0,0)
 		var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
 		var locations = [house, house, house, traffic_light, factory, apartment]
 		for i in range(6):
@@ -125,6 +126,16 @@ func elec_location_pick():
 				locations[i].show()
 				print(elec_location[i])
 				elec_location_pick_ = true
+		loc_coll()
 
-func indicator_num():
-	ind_num.text = str(Global.load)
+func loc_coll():
+	if Global.elec_cond["location"] == "traffic_light" or Global.elec_cond["location"] == "factory":
+		house.global_position = Vector3(0,10,0)
+		apartment.global_position = Vector3(0,10,0)
+	if Global.elec_cond["location"] == "apartment":
+		house.global_position = Vector3(0,10,0)
+
+func check_comp():
+	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
+		elec_location_pick_ = false
+		fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
