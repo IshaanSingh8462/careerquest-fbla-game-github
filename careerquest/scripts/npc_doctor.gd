@@ -2,8 +2,8 @@ extends Node3D
 
 #create reference nodes and variables
 var SPEED = 5
-var start = Vector3(3.5, 1.75, 10)
-var move_into = Vector3(3.5, 1.75, 0)
+var start = Vector3(.6, 1.75, 10)
+var move_into = Vector3(.6, 1.75, 2)
 var going_back = false
 
 @onready var mesh_mat = $MeshInstance3D

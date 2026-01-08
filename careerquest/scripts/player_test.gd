@@ -5,7 +5,7 @@ const SPEED = 7.5
 const JUMP_VELOCITY = 6.0
 
 #main ui
-@onready var pause := $pause
+@onready var pause := $CanvasLayer/pause
 
 #pick item variables
 @onready var head := $head
@@ -47,9 +47,9 @@ const JUMP_VELOCITY = 6.0
 @onready var tape := $head/camera/tape
 
 #electrician outlet scene
-@onready var o_scene1 := $"../electric_scene/outlet/scene1"
-@onready var o_scene2 := $"../electric_scene/outlet/scene2"
-@onready var o_scene3 := $"../electric_scene/outlet/scene3"
+#@onready var o_scene1 := $"../electric_scene/outlet/scene1"
+#@onready var o_scene2 := $"../electric_scene/outlet/scene2"
+#@onready var o_scene3 := $"../electric_scene/outlet/scene3"
 
 @onready var electric = get_node("/root/main/electric_scene")
 
@@ -62,9 +62,9 @@ func _ready():
 	global_rotation = Vector3(0,0,0)
 	pause.hide()
 	player_dia.hide()
-	o_scene1.position = Vector3(0,1.331,.08)
+	'''o_scene1.position = Vector3(0,1.331,.08)
 	o_scene2.position = Vector3(0,10,0)
-	o_scene3.position = Vector3(0,10,0)
+	o_scene3.position = Vector3(0,10,0)'''
 	print(Global.elec_cond)
 	
 #Captures/hides and shows mouse when moving/press esc
@@ -96,7 +96,6 @@ func _physics_process(delta: float) -> void:
 	elif Global.clipboard_info["clip_ui"].position.y == -300 and !Global.is_doc:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#calls init functions, also hides all ui
-	check_comp()
 	player_dialogue()
 	move_clip()
 	label.hide()
@@ -186,8 +185,23 @@ func _physics_process(delta: float) -> void:
 							electric.switches_move(i+1)
 							Global.sw_num(i) 
 							Global.calc_load()
+		if object.is_in_group("outlet"):
+			if !object.has_method("interact"):
+				label.show()
+				if Input.is_action_just_pressed("interact"):
+					if Global.active_tool != 0:
+						print("use a screwdriver")
+						return
+					var outlet = object.get_parent()
+					if object.is_in_group("outlet_scene1"):
+						outlet.remove_case()
+					elif object.is_in_group("outlet_scene2"):
+						outlet.unplug()
+					elif object.is_in_group("outlet_scene3"):
+						outlet.fix_wiring()
+
 		#plays outlet fixing animation when interacted with
-		if object.is_in_group("outlet_scene1") and Global.is_elec:
+		'''if object.is_in_group("outlet_scene1") and Global.is_elec:
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
@@ -226,7 +240,7 @@ func _physics_process(delta: float) -> void:
 				label.show()
 				if Input.is_action_just_pressed("interact"):
 					Global.elec_job_comp["outlet"] = true
-					print("Fix elec -> win for now")
+					print("Fix elec -> win for now")'''
 
 		'''if object.is_in_group("medicine"):
 			if object.is_in_group("amoxicillin"):
@@ -453,13 +467,6 @@ func check_comp():
 		Global.elec_job_comp["breaker"] = false
 		Global.elec_job_comp["outlet"] = false
 		Global.elec_job_comp["light"] = false
-		o_scene2.visible = false
-		o_scene3.visible = false
-		o_scene1.rotation = Vector3(0,0,0)
-		o_scene2.rotation = Vector3(0,0,0)
-		o_scene1.position = Vector3(0,1.331,.08)
-		o_scene2.position = Vector3(0,10,0)
-		o_scene3.position = Vector3(0,10,0)
 
 
 #signals

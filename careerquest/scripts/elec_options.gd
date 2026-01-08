@@ -16,8 +16,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if stars.visible:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	update_stars_visibility()
 
