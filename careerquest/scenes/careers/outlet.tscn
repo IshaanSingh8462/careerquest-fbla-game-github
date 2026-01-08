@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckftj6snpsvt"]
+[gd_scene load_steps=6 format=3 uid="uid://ckftj6snpsvt"]
 
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_4puoi"]
+[ext_resource type="Script" uid="uid://bw5fxfg4j84dx" path="res://scenes/careers/outlet.gd" id="1_65d66"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tw7mg"]
 albedo_color = Color(0.295867, 0.295866, 0.295866, 1)
@@ -12,6 +13,7 @@ albedo_color = Color(0.151276, 0.151276, 0.151276, 1)
 albedo_color = Color(0.414066, 0.414066, 0.414066, 1)
 
 [node name="outlet" type="Node3D"]
+script = ExtResource("1_65d66")
 
 [node name="wall" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
@@ -25,43 +27,56 @@ operation = 2
 size = Vector3(0.4, 0.55, 0.123)
 material = SubResource("StandardMaterial3D_65d66")
 
-[node name="scene1" type="CSGCombiner3D" parent="." groups=["outlet_scene1"]]
+[node name="case" type="CSGCombiner3D" parent="." groups=["outlet", "outlet_scene1"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.331, 0.08)
 use_collision = true
 collision_layer = 16
 
-[node name="switch" type="CSGBox3D" parent="scene1"]
+[node name="switch" type="CSGBox3D" parent="case"]
 size = Vector3(0.45, 0.65, 0.05)
 
-[node name="scene2" type="CSGCombiner3D" parent="." groups=["outlet_scene2"]]
-visible = false
+[node name="plug1" type="CSGCylinder3D" parent="case/switch"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.119, 0.012)
+operation = 2
+radius = 0.075
+height = 0.05
+sides = 14
+
+[node name="plug2" type="CSGCylinder3D" parent="case/switch"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.107, 0.012)
+operation = 2
+radius = 0.075
+height = 0.05
+sides = 14
+
+[node name="plug" type="CSGCombiner3D" parent="." groups=["outlet", "outlet_scene2"]]
 use_collision = true
 collision_layer = 16
 
-[node name="plug" type="CSGBox3D" parent="scene2"]
+[node name="plug" type="CSGBox3D" parent="plug"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33078, 0.0798588)
 layers = 16
 size = Vector3(0.3, 0.55, 0.05)
 material = SubResource("StandardMaterial3D_4ndne")
 
-[node name="plug1" type="CSGCylinder3D" parent="scene2"]
+[node name="plug1" type="CSGCylinder3D" parent="plug"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.45, 0.094)
 radius = 0.075
 height = 0.05
 sides = 14
 
-[node name="plug2" type="CSGCylinder3D" parent="scene2"]
+[node name="plug2" type="CSGCylinder3D" parent="plug"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.225, 0.094)
 radius = 0.075
 height = 0.05
 sides = 14
 
-[node name="scene3" type="CSGCombiner3D" parent="." groups=["outlet_scene3"]]
+[node name="wiring" type="CSGCombiner3D" parent="." groups=["outlet", "outlet_scene3"]]
 visible = false
 use_collision = true
 collision_layer = 16
 
-[node name="work_space" type="CSGBox3D" parent="scene3"]
+[node name="work_space" type="CSGBox3D" parent="wiring"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.331, -0.033)
 size = Vector3(0.4, 0.55, 0.025)
 material = ExtResource("1_4puoi")

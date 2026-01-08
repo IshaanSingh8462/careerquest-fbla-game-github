@@ -130,8 +130,8 @@ func elec_location_pick():
 
 func loc_coll():
 	if Global.elec_cond["location"] == "traffic_light" or Global.elec_cond["location"] == "factory":
-		house.global_position = Vector3(0,10,0)
-		apartment.global_position = Vector3(0,10,0)
+		house.global_position = Vector3(10,0,0)
+		apartment.global_position = Vector3(0,0,0)
 	if Global.elec_cond["location"] == "apartment":
 		house.global_position = Vector3(0,10,0)
 

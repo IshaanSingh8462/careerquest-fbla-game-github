@@ -103,5 +103,8 @@ func calc_load():
 func sw_num(i):
 	sw_states[i] = !sw_states[i]
 
+#outlet variables
+var outlet = {"is_case_removed":false,"is_unplugged":false,"is_fixed":false}
+
 '''Pick Items'''
 var pick_item = false
