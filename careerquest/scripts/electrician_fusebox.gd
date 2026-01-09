@@ -28,6 +28,10 @@ extends Node3D
 
 @onready var ind_num := $indicator_num/SubViewport/Label
 
+@onready var outlet1 := $outlet
+@onready var outlet2 := $outlet2
+@onready var outlet3 := $outlet3
+
 #locations
 @onready var traffic_light := $traffic_light
 @onready var factory := $factory
@@ -117,8 +121,6 @@ var elec_location_pick_ = false
 
 func elec_location_pick():
 	if Global.is_elec and not elec_location_pick_:
-		house.global_position = Vector3(.185,3.0,0)
-		apartment.global_position = Vector3(2.211,3.0,0)
 		var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
 		var locations = [house, house, house, traffic_light, factory, apartment]
 		for i in range(6):
@@ -137,5 +139,7 @@ func loc_coll():
 
 func check_comp():
 	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
-		elec_location_pick_ = false
+		#elec_location_pick_ = false
 		fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
+		house.global_position = Vector3(.185,3.0,0)
+		apartment.global_position = Vector3(2.211,3.0,0)

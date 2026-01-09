@@ -1,6 +1,7 @@
 extends Node
 
 var pause_game = null
+var mouse_mode = 0 #0=captured, 1=visible
 
 '''doctor variables'''
 var is_doc = false
