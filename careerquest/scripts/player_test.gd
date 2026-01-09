@@ -46,12 +46,16 @@ const JUMP_VELOCITY = 6.0
 @onready var wire := $head/camera/wire
 @onready var tape := $head/camera/tape
 
+#electrician ui
+@onready var star := $CanvasLayer/elec_options/stars
+
 #electrician outlet scene
-#@onready var o_scene1 := $"../electric_scene/outlet/scene1"
-#@onready var o_scene2 := $"../electric_scene/outlet/scene2"
-#@onready var o_scene3 := $"../electric_scene/outlet/scene3"
+@onready var outlet1 = get_outlet_by_id(0)
+@onready var outlet2 = get_outlet_by_id(1)
+@onready var outlet3 = get_outlet_by_id(2)
 
 @onready var electric = get_node("/root/main/electric_scene")
+@onready var out = get_node("/root/Global")
 
 @onready var doc_npc = get_node("/root/main/npc")
 
@@ -62,11 +66,11 @@ func _ready():
 	global_rotation = Vector3(0,0,0)
 	pause.hide()
 	player_dia.hide()
-	'''o_scene1.position = Vector3(0,1.331,.08)
-	o_scene2.position = Vector3(0,10,0)
-	o_scene3.position = Vector3(0,10,0)'''
+	outlet1.position = Vector3(3,0,.5)
+	outlet2.position = Vector3(4.5,0,.5)
+	outlet3.position = Vector3(6,0,.5)
 	print(Global.elec_cond)
-	
+
 #Captures/hides and shows mouse when moving/press esc
 func _input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and !Global.pause_game:
@@ -77,6 +81,10 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if Global.mouse_mode == 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif Global.mouse_mode == 1:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#pause game
 	if Input.is_action_just_pressed("pause"):
 		if Global.pause_game:
@@ -84,17 +92,24 @@ func _physics_process(delta: float) -> void:
 			return
 		else:
 			pause.show()
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			return
 
 	#sets mouse value based on ui position
-	if Global.clipboard_info["clip_ui"].position.y == 0 and Global.is_doc:
-		if Global.flip_book_anim or Global.is_talking:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if pause.visible:
+		Global.mouse_mode = 1
+	elif Global.is_doc:
+		if Global.clipboard_info["clip_ui"].position.y == -300 or Global.flip_book_anim or Global.is_talking:
+			Global.mouse_mode = 1
 		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif Global.clipboard_info["clip_ui"].position.y == -300 and !Global.is_doc:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Global.mouse_mode = 0
+	elif Global.is_elec:
+		if star.visible:
+			Global.mouse_mode = 1
+		else:
+			Global.mouse_mode = 0
+	else:
+		Global.mouse_mode = 0
+
 	#calls init functions, also hides all ui
 	player_dialogue()
 	move_clip()
@@ -102,6 +117,7 @@ func _physics_process(delta: float) -> void:
 	book.hide()
 	book_ui.hide()
 	flip_book()
+	check_comp()
 	#detects what the player is looking at, then performs functions based off of object
 	var object = ray.get_collider()
 	if ray.is_colliding() and !Global.pause_game:
@@ -162,6 +178,7 @@ func _physics_process(delta: float) -> void:
 						global_rotation = Vector3(0,0,0)
 						await get_tree().create_timer(2.0).timeout
 						Global.is_elec = true
+						move_outlet()
 						print("elec start")
 		#opens electrician switchboard function
 		if object.is_in_group("switch_board_elec"):
@@ -458,6 +475,10 @@ func player_dialogue():
 		player_dia.hide()
 
 func check_comp():
+	if (outlet1.outlet["is_case_removed"] and outlet1.outlet["is_fixed"]
+	and outlet2.outlet["is_case_removed"] and outlet2.outlet["is_fixed"]
+	and outlet3.outlet["is_case_removed"] and outlet3.outlet["is_fixed"]):
+		Global.elec_job_comp["outlet"] = true
 	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
 		global_position.x = 25.5
 		global_position.z = -15.5
@@ -467,7 +488,58 @@ func check_comp():
 		Global.elec_job_comp["breaker"] = false
 		Global.elec_job_comp["outlet"] = false
 		Global.elec_job_comp["light"] = false
+		outlet1.reset()
+		outlet2.reset()
+		outlet3.reset()
 
+func move_outlet():
+	var layouts = {
+		"house": [
+			Vector3(3,0,.5),
+			Vector3(4.5,0,.5),
+			Vector3(6,0,.5)
+		],
+		"coffee_shop": [
+			Vector3(3,0,3),
+			Vector3(4.5,0,3),
+			Vector3(6,0,3)
+		],
+		"office": [
+			Vector3(6,0,3),
+			Vector3(7.5,0,3),
+			Vector3(9,0,3)
+		],
+		"traffic_light": [
+			Vector3(6,0,.5),
+			Vector3(7.5,0,.5),
+			Vector3(9,0,.5)
+		],
+		"factory": [
+			Vector3(3,1,.5),
+			Vector3(4.5,1,.5),
+			Vector3(6,1,.5)
+		],
+		"apartment": [
+			Vector3(3,1,3),
+			Vector3(4.5,1,3),
+			Vector3(6,1,3)
+	]}
+	# find which condition is active
+	for key in layouts.keys():
+		if Global.elec_cond["location"] == key:
+			var pos = layouts[key]
+			outlet1.position = pos[0]
+			outlet2.position = pos[1]
+			outlet3.position = pos[2]
+			return
+
+
+func get_outlet_by_id(id: int):
+	for child in $"../electric_scene".get_children():
+		if child is Outlet:  # <— IMPORTANT
+			if child.outlet_id == id:
+				return child
+	return null
 
 #signals
 func _on_forward_pressed() -> void:

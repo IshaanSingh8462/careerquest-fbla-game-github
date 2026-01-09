@@ -14,8 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if stars.visible:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	pass
 
 	update_stars_visibility()
 
