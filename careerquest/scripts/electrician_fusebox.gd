@@ -63,8 +63,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	elec_location_pick()
-	if Global.open_fusebox:
-		open_fuse()
+	open_fuse()
 	sw_values()
 	ind_num.text = str(Global.load)
 	if Global.load == Global.elec_cond["load_limit"]:
@@ -84,11 +83,14 @@ func _physics_process(_delta: float) -> void:
 
 #open fusebox door animation
 func open_fuse():
-	if openingFuse:
+	if Global.open_fusebox and openingFuse:
+		for i in range(80):
+			pass
 		fuse_door.global_rotation.y += ROT_SPEED.y
 		rot.y += fuse_door.global_rotation.y
 		if rot.y >= 80:
 			openingFuse = false
+			Global.open_fusebox = false
 
 #flip switch animation
 func switches_move(switch):
@@ -129,14 +131,33 @@ func elec_location_pick():
 				print(elec_location[i])
 				elec_location_pick_ = true
 		loc_coll()
+		openingFuse = true
+		rot = Vector3(0,0,0)
+
 
 func loc_coll():
-	var loc = [house,factory,traffic_light,apartment]
-	for i in loc:
-		if Global.elec_cond["location"] != i.name:
-			i.position.y = 10
-		if Global.elec_cond["location"] == "coffee_shop" or Global.elec_cond["location"] == "office":
-			house.position.y = 3
+	var loc = {
+		"house": [house, 3],
+		"coffee_shop": [house, 3],
+		"office": [house, 3],
+		"factory": [factory, 3],
+		"traffic_light": [traffic_light, 3],
+		"apartment": [apartment, 3]
+	}
+	var current = Global.elec_cond["location"]
+	# First hide all unique nodes
+	var unique_nodes = {}
+	for key in loc.keys():
+		unique_nodes[loc[key][0]] = true
+	for node in unique_nodes.keys():
+		node.hide()
+		node.position.y = 10
+	# Then show the active one
+	var node = loc[current][0]
+	node.show()
+	node.position.y = loc[current][1]
+
+
 	'''if Global.elec_cond["location"] == "traffic_light" or Global.elec_cond["location"] == "factory":
 		house.global_position = Vector3(10,0,0)
 		apartment.global_position = Vector3(0,0,0)
@@ -144,13 +165,17 @@ func loc_coll():
 		house.global_position = Vector3(0,10,0)'''
 
 func check_comp():
-	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
+	if Global.elec_games:
 		#elec_location_pick_ = false
 		fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
-		house.position.y = 6
-		apartment.position.y = 6
-		factory.position.y = 3.25
-		traffic_light.position.y = 3.25
+		house.position.y = 3
+		apartment.position.y = 3
+		factory.position.y = 3
+		traffic_light.position.y = 3
 		Global.is_elec = false
 		print("elec done")
 		elec_location_pick_ = false
+		var rand_loc = Global.elec_location.pick_random()
+		Global.elec_cond["location"] = rand_loc
+		print(Global.pick_desc(rand_loc))
+		Global.elec_games = false

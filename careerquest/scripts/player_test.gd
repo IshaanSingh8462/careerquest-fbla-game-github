@@ -330,6 +330,9 @@ func _physics_process(delta: float) -> void:
 	var elec_tools = [screw, plier, volt, wire, tape]
 	var input_index = ["1","2","3","4","5"]
 	if Global.is_doc:
+		if Global.active_tool == -1:
+			for i in range(5):
+				doc_tools[i].hide()
 		for i in range(5):
 			if Input.is_action_just_pressed(input_index[i]):
 				# If selecting the same tool → unequip
@@ -346,6 +349,9 @@ func _physics_process(delta: float) -> void:
 					therm_off.show()
 					therm_on_good.hide()
 	if Global.is_elec:
+		if Global.active_tool == -1:
+			for i in range(5):
+				elec_tools[i].hide()
 		for i in range(5):
 			if Input.is_action_just_pressed(input_index[i]):
 				# If selecting the same tool → unequip
@@ -471,6 +477,9 @@ func check_comp():
 		outlet1.reset()
 		outlet2.reset()
 		outlet3.reset()
+		Global.elec_cond["difficulty"] = null
+		Global.active_tool = -1
+		Global.elec_games = true
 
 func move_outlet():
 	var layouts = {
