@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ra7oup1he2q"]
+
+[ext_resource type="PackedScene" uid="uid://ma0nka587t21" path="res://assets/blender/therm_on_good.blend" id="1_32nku"]
+[ext_resource type="Script" uid="uid://dmatc7vb2v7kd" path="res://assets/meshes/therm_on_good.gd" id="2_8fxm1"]
+[ext_resource type="PackedScene" uid="uid://d050jfgrmu37n" path="res://assets/blender/therm_on_bad.blend" id="3_qfav6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8fxm1"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="therm_on_good" instance=ExtResource("1_32nku")]
+script = ExtResource("2_8fxm1")
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(-8.74228e-09, -0.2, -8.74228e-09, 0, -8.74228e-09, 0.2, -0.2, 8.74228e-09, 3.82137e-16, 0, 0, 0)
+
+[node name="therm_on_bad" parent="." index="1" instance=ExtResource("3_qfav6")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.972403, 0.23331, 0, -0.23331, 0.972403, 0, 5.34488, 0.708949)
+texture = SubResource("ViewportTexture_8fxm1")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" index="0"]
+transparent_bg = true
+size = Vector2i(100, 100)
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.1667
+offset_right = 20.0
+offset_bottom = 11.1667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "100"

@@ -39,6 +39,7 @@ var ask_name = false
 var ask_feel = false
 
 var active_tool = -1
+var doc_therm_text = ""
 
 #starts doctor functions
 func interact():
