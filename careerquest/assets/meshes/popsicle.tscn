@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5uuv8v1rrh5q"]
+
+[ext_resource type="PackedScene" uid="uid://dg7lwtkug6sm2" path="res://assets/blender/popsicle.blend" id="1_m7ghg"]
+
+[node name="popsicle" instance=ExtResource("1_m7ghg")]
+transform = Transform3D(0.2, 0, 0, 0, 0.141421, -0.141421, 0, 0.141421, 0.141421, 0, 0, 0)

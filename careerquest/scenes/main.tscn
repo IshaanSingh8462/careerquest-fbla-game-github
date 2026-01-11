@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bl3a002q2m7xd"]
+[gd_scene load_steps=33 format=3 uid="uid://bl3a002q2m7xd"]
 
 [ext_resource type="PackedScene" uid="uid://bdqka2d3f064w" path="res://scenes/characters/Player_test.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dh27ydv1onqyl" path="res://assets/meshes/doctor_start_button.tscn" id="1_tefeu"]
@@ -11,13 +11,18 @@
 [ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="7_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://caskeegrftea5" path="res://assets/meshes/therm_off.tscn" id="7_muem4"]
 [ext_resource type="PackedScene" uid="uid://bd2l2d82sh4rd" path="res://assets/meshes/book.tscn" id="7_o6xl0"]
-[ext_resource type="Material" uid="uid://d3utq2qq4jl0p" path="res://scenes/materials/light_yellow.tres" id="8_0ld40"]
 [ext_resource type="Material" uid="uid://d28oag3bivmvk" path="res://scenes/materials/white.tres" id="8_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://ckbns68rk4d6f" path="res://scenes/careers/airplane_cockpit__test.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://b5uuv8v1rrh5q" path="res://assets/meshes/popsicle.tscn" id="9_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cq1t24qf85052" path="res://assets/meshes/electrician_start_button.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://ckftj6snpsvt" path="res://scenes/careers/outlet.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" uid="uid://c66kqnkfy0xkc" path="res://scenes/careers/coffee_test.tscn" id="19_0ld40"]
+[ext_resource type="PackedScene" uid="uid://dgy033mxhe56w" path="res://scenes/careers/house.tscn" id="20_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://ckii4ec4evt3b" path="res://scenes/careers/office.tscn" id="20_yc10j"]
+[ext_resource type="PackedScene" uid="uid://0ufkbwqin5dv" path="res://scenes/careers/factory.tscn" id="22_jscy8"]
+[ext_resource type="PackedScene" uid="uid://dxi0q5tms3ark" path="res://scenes/careers/apartment.tscn" id="23_pm3ni"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -108,11 +113,9 @@ visible = false
 
 [node name="therm_off" parent="player/head/camera/therm" instance=ExtResource("7_muem4")]
 
-[node name="tongue" type="CSGBox3D" parent="player/head/camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
+[node name="tongue" parent="player/head/camera" instance=ExtResource("9_dp3eg")]
+transform = Transform3D(0.0965926, 0.0156901, 0.00905867, 0, 0.035, -0.0606218, -0.0258819, 0.0585561, 0.0338074, 0.505, -0.45, -1)
 visible = false
-size = Vector3(0.25, 0.25, 0.25)
-material = ExtResource("8_0ld40")
 
 [node name="tri" type="CSGBox3D" parent="player/head/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
@@ -170,18 +173,38 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 28, 3.
 script = null
 
 [node name="electric_scene" parent="." instance=ExtResource("11_eb6dy")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.9182, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -21.3881, 0, 0)
 
 [node name="outlet" parent="electric_scene" instance=ExtResource("17_muem4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01431, 0, 3.28417)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.536, 0, 3.227)
 
 [node name="outlet2" parent="electric_scene" instance=ExtResource("17_muem4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48812, 0, 3.11967)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, 9.787)
 outlet_id = 1
 
 [node name="outlet3" parent="electric_scene" instance=ExtResource("17_muem4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06547, 0, 2.7563)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.523, 0, -0.905)
 outlet_id = 2
+
+[node name="coffee_test" parent="electric_scene" instance=ExtResource("19_0ld40")]
+transform = Transform3D(-0.999719, 0, 0.0236993, 0, 1, 0, -0.0236993, 0, -0.999719, -0.168589, 0, 13.998)
+visible = false
+
+[node name="office" parent="electric_scene" instance=ExtResource("20_yc10j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.18, 2.491, 5.372)
+visible = false
+
+[node name="house2" parent="electric_scene" instance=ExtResource("20_gqmmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 2.491, 5.372)
+visible = false
+
+[node name="factory2" parent="electric_scene" instance=ExtResource("22_jscy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.99024, 0)
+visible = false
+
+[node name="apartment2" parent="electric_scene" instance=ExtResource("23_pm3ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04953, 3.18502, 3.24904)
+visible = false
 
 [node name="lobby" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.33, 7.5, -18.805)

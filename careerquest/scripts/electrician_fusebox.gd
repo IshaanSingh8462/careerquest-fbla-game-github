@@ -43,6 +43,8 @@ extends Node3D
 @onready var white = load("res://scenes/materials/white.tres")
 @onready var yellow = load("res://scenes/materials/light_yellow.tres")
 
+@onready var elec_location_pick_ = false
+
 var openingFuse = true
 var ROT_SPEED = Vector3(0,deg_to_rad(-3),0)
 var rot = Vector3(0,0,0)
@@ -117,8 +119,6 @@ func sw_values():
 	else:
 		indicator.material = yellow
 
-var elec_location_pick_ = false
-
 func elec_location_pick():
 	if Global.is_elec and not elec_location_pick_:
 		var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
@@ -131,15 +131,26 @@ func elec_location_pick():
 		loc_coll()
 
 func loc_coll():
-	if Global.elec_cond["location"] == "traffic_light" or Global.elec_cond["location"] == "factory":
+	var loc = [house,factory,traffic_light,apartment]
+	for i in loc:
+		if Global.elec_cond["location"] != i.name:
+			i.position.y = 10
+		if Global.elec_cond["location"] == "coffee_shop" or Global.elec_cond["location"] == "office":
+			house.position.y = 3
+	'''if Global.elec_cond["location"] == "traffic_light" or Global.elec_cond["location"] == "factory":
 		house.global_position = Vector3(10,0,0)
 		apartment.global_position = Vector3(0,0,0)
 	if Global.elec_cond["location"] == "apartment":
-		house.global_position = Vector3(0,10,0)
+		house.global_position = Vector3(0,10,0)'''
 
 func check_comp():
 	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
 		#elec_location_pick_ = false
 		fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
-		house.global_position = Vector3(.185,3.0,0)
-		apartment.global_position = Vector3(2.211,3.0,0)
+		house.position.y = 6
+		apartment.position.y = 6
+		factory.position.y = 3.25
+		traffic_light.position.y = 3.25
+		Global.is_elec = false
+		print("elec done")
+		elec_location_pick_ = false

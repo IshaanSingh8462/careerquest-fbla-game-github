@@ -49,6 +49,13 @@ var doc_tool_processing := false
 @onready var tape := $head/camera/tape
 var elec_tool_processing := false
 
+#electrician locations
+@onready var house := $"../electric_scene/house2"
+@onready var coffee := $"../electric_scene/coffee_test"
+@onready var office := $"../electric_scene/office"
+@onready var factory := $"../electric_scene/factory2"
+@onready var apartment := $"../electric_scene/apartment2"
+
 #electrician ui
 @onready var star := $CanvasLayer/elec_options/stars
 
@@ -185,8 +192,8 @@ func _physics_process(delta: float) -> void:
 			if !object.has_method("interact"):
 					label.show()
 					if Input.is_action_just_pressed("interact"):
-						global_position.x = -15
-						global_position.z = -6
+						global_position.x = -20
+						global_position.z = -3
 						global_rotation = Vector3(0,0,0)
 						await get_tree().create_timer(2.0).timeout
 						Global.is_elec = true
@@ -448,6 +455,7 @@ func player_dialogue():
 		player_dia.hide()
 
 func check_comp():
+	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"factory":[factory,4.99],"apartment":[apartment,3.185]}
 	if (outlet1.outlet["is_case_removed"] and outlet1.outlet["is_fixed"]
 	and outlet2.outlet["is_case_removed"] and outlet2.outlet["is_fixed"]
 	and outlet3.outlet["is_case_removed"] and outlet3.outlet["is_fixed"]):
@@ -456,7 +464,6 @@ func check_comp():
 		global_position.x = 25.5
 		global_position.z = -15.5
 		global_rotation = Vector3(0,0,0)
-		print("elec done!")
 		Global.is_elec = false
 		Global.elec_job_comp["breaker"] = false
 		Global.elec_job_comp["outlet"] = false
@@ -468,42 +475,69 @@ func check_comp():
 func move_outlet():
 	var layouts = {
 		"house": [
-			Vector3(3,0,.5),
-			Vector3(4.5,0,.5),
-			Vector3(6,0,.5)
+			Vector3(3.014,0,.592),
+			Vector3(-4.748,0,2.118),
+			Vector3(5.196,0,8.248),
+			Vector3(0,0,0),
+			Vector3(0,deg_to_rad(90),0),
+			Vector3(0,deg_to_rad(-90),0)
 		],
 		"coffee_shop": [
-			Vector3(3,0,3),
-			Vector3(4.5,0,3),
-			Vector3(6,0,3)
+			Vector3(3.014,0,.592),
+			Vector3(-4.748,0,8.105),
+			Vector3(4.828,0,6.206),
+			Vector3(0,0,0),
+			Vector3(0,deg_to_rad(90),0),
+			Vector3(0,deg_to_rad(-90),0)
 		],
 		"office": [
-			Vector3(6,0,3),
-			Vector3(7.5,0,3),
-			Vector3(9,0,3)
+			Vector3(13.007,0,3.069),
+			Vector3(-2.834,0,8.374),
+			Vector3(4,0,13.662),
+			Vector3(0,deg_to_rad(-90),0),
+			Vector3(0,deg_to_rad(90),0),
+			Vector3(0,deg_to_rad(90),0)
 		],
-		"traffic_light": [
-			Vector3(6,0,.5),
-			Vector3(7.5,0,.5),
-			Vector3(9,0,.5)
+		"traffic_light": [		#change to something else
+			Vector3(0,0,0),
+			Vector3(3,0,0),
+			Vector3(6,0,0),
+			Vector3(0,deg_to_rad(-90),0),
+			Vector3(0,deg_to_rad(-180),0),
+			Vector3(0,deg_to_rad(90),0)
 		],
 		"factory": [
-			Vector3(3,1,.5),
-			Vector3(4.5,1,.5),
-			Vector3(6,1,.5)
+			Vector3(7.006,0,-2.331),
+			Vector3(-3,0,7),
+			Vector3(-7,0,-5.65),
+			Vector3(0,deg_to_rad(-90),0),
+			Vector3(0,deg_to_rad(180),0),
+			Vector3(0,deg_to_rad(90),0)
 		],
 		"apartment": [
-			Vector3(3,1,3),
-			Vector3(4.5,1,3),
-			Vector3(6,1,3)
+			Vector3(4.536,0,3.227),
+			Vector3(-3,0,9.787),
+			Vector3(-4.523,0,-.905),
+			Vector3(0,deg_to_rad(-90),0),
+			Vector3(0,deg_to_rad(-180),0),
+			Vector3(0,deg_to_rad(90),0)
 	]}
+	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"factory":[factory,4.99],"apartment":[apartment,3.185]}
 	# find which condition is active
 	for key in layouts.keys():
 		if Global.elec_cond["location"] == key:
 			var pos = layouts[key]
+			for k in loc.keys():
+				loc[k][0].hide()
+				loc[k][0].position.y = 10
+			loc[key][0].show()
+			loc[key][0].position.y = loc[key][1]
 			outlet1.position = pos[0]
 			outlet2.position = pos[1]
 			outlet3.position = pos[2]
+			outlet1.rotation = pos[3]
+			outlet2.rotation = pos[4]
+			outlet3.rotation = pos[5]
 			return
 
 

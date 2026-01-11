@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ckii4ec4evt3b"]
+
+[node name="office" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34617, 0, 0)
+use_collision = true
+size = Vector3(15, 7, 7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70677, 0, 0)
+operation = 2
+size = Vector3(9.721, 8, 6)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15506, -1.41729, -3.35735)
+operation = 2
+size = Vector3(3, 5, 1.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40958, 0, -8.35442)
+use_collision = true
+size = Vector3(15.0796, 7, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2"]
+operation = 2
+size = Vector3(14, 8, 9)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220269, -1.41729, 4.68481)
+operation = 2
+size = Vector3(3, 5, 1.5)

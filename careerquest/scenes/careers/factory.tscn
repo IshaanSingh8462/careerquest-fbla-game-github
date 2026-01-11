@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0ufkbwqin5dv"]
+
+[node name="factory" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(15, 10, 15)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(14, 11, 14)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31956, -2.89603, 1.54672)
+operation = 2
+size = Vector3(1.5, 5, 3)
