@@ -53,6 +53,7 @@ func interact():
 '''Electric Variables'''
 var is_elec = false
 var elec_tutor = true
+var elec_games = true
 
 #switch variables
 var open_fusebox = false
