@@ -11,14 +11,16 @@ const JUMP_VELOCITY = 6.0
 @onready var head := $head
 @onready var camera := $head/camera
 @onready var ray := $head/camera/ray
-@onready var hand := $head/camera/hand
 
 #doctor tools
 @onready var steth := $head/camera/steth
 @onready var therm := $head/camera/therm
+@onready var therm_off := $head/camera/therm/therm_off
+@onready var therm_on_good := $head/camera/therm/therm_on
 @onready var tongue := $head/camera/tongue
 @onready var gluc := $head/camera/gluc
 @onready var tri := $head/camera/tri
+var doc_tool_processing := false
 
 #doctor ui variables
 @onready var label := $CanvasLayer/Interact/interact_button
@@ -45,6 +47,7 @@ const JUMP_VELOCITY = 6.0
 @onready var volt := $head/camera/volt
 @onready var wire := $head/camera/wire
 @onready var tape := $head/camera/tape
+var elec_tool_processing := false
 
 #electrician ui
 @onready var star := $CanvasLayer/elec_options/stars
@@ -55,7 +58,6 @@ const JUMP_VELOCITY = 6.0
 @onready var outlet3 = get_outlet_by_id(2)
 
 @onready var electric = get_node("/root/main/electric_scene")
-@onready var out = get_node("/root/Global")
 
 @onready var doc_npc = get_node("/root/main/npc")
 
@@ -141,12 +143,22 @@ func _physics_process(delta: float) -> void:
 						if Global.active_tool != -1:
 							if Global.active_tool == 0:
 								#Enter Heartbeat Noise Here
-								if Global.condition["asthma"] or Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"] or Global.condition["iron"]:
+								if Global.condition["asthma"] or Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"] or Global.condition["iron"]  and !doc_tool_processing:
 									print("The patient's heartbeat sounds irregular...")
 								else:
 									print("The patient's heartbeat sounds fine...")
-							if Global.active_tool == 1:
+							if Global.active_tool == 1 and !doc_tool_processing:
+								doc_tool_processing = true
+								Global.doc_therm_text = ""
+								for i in range(3):
+									print("whirring...")
+									await get_tree().create_timer(1.0).timeout
+								Global.doc_therm_text = str(Global.condition["temp"])
+								therm_off.hide()
+								therm_on_good.show()
+								Global.doc_therm_text = str(Global.condition["temp"])
 								print("Temp: " + str(Global.condition["temp"]))
+								doc_tool_processing = false
 							if Global.active_tool == 2:
 								if Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"]:
 									print("You see a redness in the patient's throat...")
@@ -202,6 +214,7 @@ func _physics_process(delta: float) -> void:
 							electric.switches_move(i+1)
 							Global.sw_num(i) 
 							Global.calc_load()
+		#plays outlet fixing animation when interacted with
 		if object.is_in_group("outlet"):
 			if !object.has_method("interact"):
 				label.show()
@@ -216,49 +229,7 @@ func _physics_process(delta: float) -> void:
 						outlet.unplug()
 					elif object.is_in_group("outlet_scene3"):
 						outlet.fix_wiring()
-
-		#plays outlet fixing animation when interacted with
-		'''if object.is_in_group("outlet_scene1") and Global.is_elec:
-			if !object.has_method("interact"):
-				label.show()
-				if Input.is_action_just_pressed("interact"):
-					if Global.active_tool != 0:
-						print("use a screwdriver")
-					elif o_scene3.position == Vector3(0,0,0):
-						print("scene 3 in progress")
-					elif o_scene1.position == Vector3(0,1.331,.08):
-						o_scene2.position = Vector3(0,0,0)
-						o_scene2.visible = true
-						o_scene1.position = Vector3(-.55,.275,1)
-						o_scene1.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
-					else:
-						o_scene2.position = Vector3(0,10,0)
-						o_scene2.visible = false
-						o_scene1.position = Vector3(0,1.331,.08)
-						o_scene1.rotation = Vector3(0,0,0)
-		elif object.is_in_group("outlet_scene2") and Global.is_elec:
-			if !object.has_method("interact"):
-				label.show()
-				if Input.is_action_just_pressed("interact"):
-					if Global.active_tool != 0:
-						print("use a screwdriver")
-					elif o_scene2.position == Vector3(0,0,0):
-						o_scene3.position = Vector3(0,0,0)
-						o_scene3.visible = true
-						o_scene2.position = Vector3(1.591,.25,1.672)
-						o_scene2.rotation = Vector3(deg_to_rad(-90),deg_to_rad(35),0)
-					else:
-						o_scene3.position = Vector3(0,10,0)
-						o_scene3.visible = false
-						o_scene2.position = Vector3(0,0,0)
-						o_scene2.rotation = Vector3(0,0,0)
-		elif object.is_in_group("outlet_scene3") and Global.is_elec:
-			if !object.has_method("interact"):
-				label.show()
-				if Input.is_action_just_pressed("interact"):
-					Global.elec_job_comp["outlet"] = true
-					print("Fix elec -> win for now")'''
-
+						
 		'''if object.is_in_group("medicine"):
 			if object.is_in_group("amoxicillin"):
 				if !object.has_method("interact"):
@@ -322,9 +293,9 @@ func _physics_process(delta: float) -> void:
 								print("Amoxicillin is still full")
 							elif pick_peni:
 								print("Penicillin is still full")
-							
-		
-	
+
+
+
 	if Input.is_action_just_pressed("pick_up") and (pick_amox or pick_peni or pick_nasal):
 		Global.pick_item = false
 	pick_or_drop(object)
@@ -364,6 +335,9 @@ func _physics_process(delta: float) -> void:
 					t.visible = false
 				doc_tools[i].visible = true
 				Global.active_tool = i
+				if Global.active_tool == 1:
+					therm_off.show()
+					therm_on_good.hide()
 	if Global.is_elec:
 		for i in range(5):
 			if Input.is_action_just_pressed(input_index[i]):
@@ -378,7 +352,6 @@ func _physics_process(delta: float) -> void:
 				elec_tools[i].visible = true
 				Global.active_tool = i
 
-	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")

@@ -13,7 +13,7 @@ func _ready() -> void:
 	update_stars_visibility()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 	update_stars_visibility()

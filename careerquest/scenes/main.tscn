@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://2c3xn273ioqh" path="res://scenes/characters/npc.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cc78vd5wxk2an" path="res://scenes/ui/center_cursor.tscn" id="4_tipki"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="5_eb6dy"]
-[ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="6_jbj1t"]
-[ext_resource type="Material" uid="uid://dwoxwrydf6qvo" path="res://scenes/materials/light_red.tres" id="7_muem4"]
+[ext_resource type="PackedScene" uid="uid://b8ra7oup1he2q" path="res://scripts/therm_on_good.tscn" id="6_muem4"]
+[ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="7_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://caskeegrftea5" path="res://assets/meshes/therm_off.tscn" id="7_muem4"]
 [ext_resource type="PackedScene" uid="uid://bd2l2d82sh4rd" path="res://assets/meshes/book.tscn" id="7_o6xl0"]
+[ext_resource type="Material" uid="uid://d3utq2qq4jl0p" path="res://scenes/materials/light_yellow.tres" id="8_0ld40"]
 [ext_resource type="Material" uid="uid://d28oag3bivmvk" path="res://scenes/materials/white.tres" id="8_dp3eg"]
-[ext_resource type="Material" uid="uid://cqty4gbuywbs" path="res://scenes/materials/green.tres" id="9_0ld40"]
 [ext_resource type="PackedScene" uid="uid://ckbns68rk4d6f" path="res://scenes/careers/airplane_cockpit__test.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
@@ -33,8 +34,6 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tefeu"]
 albedo_color = Color(0.0196078, 0.741176, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_trceg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbj1t"]
 albedo_color = Color(0.544949, 0.482915, 0.17651, 1)
@@ -89,37 +88,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62633, 0)
 transform = Transform3D(1, 0, 0, 0, -3.02826e-07, -1, 0, 6.92785, -4.37114e-08, -0.0113466, -0.0109539, -0.00569487)
 collision_mask = 18
 
-[node name="hand" type="Node3D" parent="player/head/camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976038, -0.446156, -1.21149)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player/head/camera/hand"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-mesh = SubResource("SphereMesh_trceg")
-
 [node name="steth" type="CSGBox3D" parent="player/head/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
 visible = false
 size = Vector3(0.25, 0.25, 0.25)
 material = ExtResource("5_eb6dy")
 
-[node name="therm" type="CSGBox3D" parent="player/head/camera"]
+[node name="gluc" type="CSGBox3D" parent="player/head/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
 visible = false
 size = Vector3(0.25, 0.25, 0.25)
-material = ExtResource("6_jbj1t")
+material = ExtResource("7_dp3eg")
+
+[node name="therm" type="Node3D" parent="player/head/camera"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.5, -1.25, -1)
+visible = false
+
+[node name="therm_on" parent="player/head/camera/therm" instance=ExtResource("6_muem4")]
+
+[node name="therm_off" parent="player/head/camera/therm" instance=ExtResource("7_muem4")]
 
 [node name="tongue" type="CSGBox3D" parent="player/head/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
 visible = false
 size = Vector3(0.25, 0.25, 0.25)
-material = ExtResource("7_muem4")
-
-[node name="gluc" type="CSGBox3D" parent="player/head/camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
-visible = false
-size = Vector3(0.25, 0.25, 0.25)
-material = ExtResource("9_0ld40")
+material = ExtResource("8_0ld40")
 
 [node name="tri" type="CSGBox3D" parent="player/head/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18977, -0.237433, -1.62354)
