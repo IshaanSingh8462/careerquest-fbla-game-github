@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://2c3xn273ioqh" path="res://scenes/characters/npc.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cc78vd5wxk2an" path="res://scenes/ui/center_cursor.tscn" id="4_tipki"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="5_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://b8ra7oup1he2q" path="res://scripts/therm_on_good.tscn" id="6_muem4"]
+[ext_resource type="PackedScene" uid="uid://b8ra7oup1he2q" path="res://assets/meshes/therm_on_good.tscn" id="6_muem4"]
 [ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="7_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://caskeegrftea5" path="res://assets/meshes/therm_off.tscn" id="7_muem4"]
 [ext_resource type="PackedScene" uid="uid://bd2l2d82sh4rd" path="res://assets/meshes/book.tscn" id="7_o6xl0"]
@@ -158,10 +158,10 @@ material = SubResource("StandardMaterial3D_gqmmt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 
 [node name="npc" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.75, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.589428, 1.75051, 10.0471)
 
 [node name="book" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(0.665175, 0, 0, 0, 0.195492, 0, 0, 0, 1, -4.5, 2.8, -1)
+transform = Transform3D(0.665175, 0, 0, 0, 0.195492, 0, 0, 0, 1, -4.49337, 2.26301, -1.01219)
 
 [node name="pilot_scene" parent="." instance=ExtResource("9_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 25)

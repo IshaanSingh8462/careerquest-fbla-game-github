@@ -31,7 +31,6 @@ window/stretch/aspect="expand"
 [global_group]
 
 book="checks for book"
-medicine="All medicine has this group"
 switch_board_elec="Interact with switch to disasemble"
 electrician_start="start the electrician scene"
 doctor_start="press to let patient enter"

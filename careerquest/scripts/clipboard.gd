@@ -207,9 +207,6 @@ func checkbox_checker():
 			Global.score -= 25
 	remove_check()
 	print(Global.score)
-	if Global.repetition == 5:
-		print()
-		print("Total Score: " + str(Global.score))
 
 #resets all checkboxes
 func remove_check():
@@ -249,20 +246,6 @@ func presc_check(string):
 				if string.find(keyword) != -1:
 					Global.score += 50
 					break  # stop after first match for this condition
-
-'''func text_input():
-	if Input.is_action_just_pressed("pick_up"):
-		if Global.clipboard_info["is_editing"]:
-			print("pick up")
-			first_name.release_focus()
-			Global.clipboard_info["is_editing"] = false
-func _on_first_name_focus_entered() -> void:
-	Global.clipboard_info["is_editing"] = true
-	print("enter")
-
-func _on_first_name_focus_exited() -> void:
-	Global.clipboard_info["is_editing"] = false
-	print("exit")'''
 
 #signals for buttons
 func _on_forward_pressed() -> void:

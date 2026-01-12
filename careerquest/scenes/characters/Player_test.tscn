@@ -1267,6 +1267,38 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 25
 text = "exit"
 
+[node name="load_screen" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.188969, 0.188969, 0.188969, 1)
+custom_minimum_size = Vector2(1150, 650)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -325.0
+offset_right = 575.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_6cpf6")
+
+[node name="loading" type="Label" parent="CanvasLayer/load_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -23.6667
+offset_right = 31.0
+offset_bottom = 23.6667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Loading..."
+
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/escape" to="." method="_on_escape_pressed"]
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/backwards" to="." method="_on_backwards_pressed"]
