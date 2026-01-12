@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bl3a002q2m7xd"]
+[gd_scene load_steps=34 format=3 uid="uid://bl3a002q2m7xd"]
 
 [ext_resource type="PackedScene" uid="uid://bdqka2d3f064w" path="res://scenes/characters/Player_test.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dh27ydv1onqyl" path="res://assets/meshes/doctor_start_button.tscn" id="1_tefeu"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ckii4ec4evt3b" path="res://scenes/careers/office.tscn" id="20_yc10j"]
 [ext_resource type="PackedScene" uid="uid://0ufkbwqin5dv" path="res://scenes/careers/factory.tscn" id="22_jscy8"]
 [ext_resource type="PackedScene" uid="uid://dxi0q5tms3ark" path="res://scenes/careers/apartment.tscn" id="23_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://bsi6a7eefbokb" path="res://scenes/careers/traffic_light.tscn" id="24_y6deb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -205,6 +206,9 @@ visible = false
 [node name="apartment2" parent="electric_scene" instance=ExtResource("23_pm3ni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04953, 3.18502, 3.24904)
 visible = false
+
+[node name="traffic_light2" parent="electric_scene" instance=ExtResource("24_y6deb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251733, 4.15486)
 
 [node name="lobby" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.33, 7.5, -18.805)
