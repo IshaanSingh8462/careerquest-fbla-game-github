@@ -18,6 +18,16 @@ var score = 0
 #clipboard
 var clipboard_info = {"first":null,"last":null,"dob":null,"gender":null,"clip_ui":null,"checkbox_checked":null,
 "clicked":null,"forward":null,"backward":null, "is_editing":null}
+var doc_desc = ["asthma desc", "arthritis desc", "copd desc", "flu desc", "migraine desc", "diabetes desc", "acid desc", "iron desc", "blood pressure desc"]
+
+func pick_doc_desc():
+	var keys = condition.keys()
+	for i in range(keys.size()):
+		var key = keys[i]
+		if condition[key] == true:
+			return doc_desc[i]
+	return ""
+
 
 var move = false
 var submit = false
@@ -59,7 +69,6 @@ var elec_games = true
 var open_fusebox = false
 var sw_states = [false,false,false,false,false,false,false,false,false,false] #switch is in on/off position
 var load_val = [4,5,3,1,3,2,6,6,4,5]
-@warning_ignore("shadowed_global_identifier")
 var load = 0
 var tripped_status = false
 
@@ -68,6 +77,8 @@ var elec_location = ["house","coffee_shop","office","traffic_light","factory","a
 var elec_desc = ["house desc", "coffee_shop desc","office desc","traffic_light desc","factory desc","apartment desc"]
 var elec_job_comp = {"breaker":false,"outlet":false,"light":false}
 func pick_desc(location):
+	if is_doc:
+		return
 	load_val.shuffle()
 	var index = elec_location.find(location)
 	if index != -1:

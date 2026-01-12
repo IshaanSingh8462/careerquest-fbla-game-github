@@ -157,13 +157,6 @@ func loc_coll():
 	node.show()
 	node.position.y = loc[current][1]
 
-
-	'''if Global.elec_cond["location"] == "traffic_light" or Global.elec_cond["location"] == "factory":
-		house.global_position = Vector3(10,0,0)
-		apartment.global_position = Vector3(0,0,0)
-	if Global.elec_cond["location"] == "apartment":
-		house.global_position = Vector3(0,10,0)'''
-
 func check_comp():
 	if Global.elec_games:
 		#elec_location_pick_ = false

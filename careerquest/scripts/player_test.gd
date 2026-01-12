@@ -10,6 +10,7 @@ const JUMP_VELOCITY = 6.0
 @onready var careers := $CanvasLayer/careers
 @onready var career_desc := $CanvasLayer/career_desc
 @onready var pause := $CanvasLayer/pause
+@onready var loading := $CanvasLayer/load_screen
 
 #pick item variables
 @onready var head := $head
@@ -76,6 +77,7 @@ var elec_tool_processing := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	loading.hide()
 	start.show()
 	credits.hide()
 	careers.hide()
@@ -227,77 +229,6 @@ func _physics_process(delta: float) -> void:
 						outlet.unplug()
 					elif object.is_in_group("outlet_scene3"):
 						outlet.fix_wiring()
-						
-		'''if object.is_in_group("medicine"):
-			if object.is_in_group("amoxicillin"):
-				if !object.has_method("interact"):
-					med_pick.show()
-					if Input.is_action_just_pressed("pick_up"):
-						if !Global.pick_item:
-							Global.pick_item = true
-			if object.is_in_group("penicillin"):
-				if !object.has_method("interact"):
-					med_pick.show()
-					if Input.is_action_just_pressed("pick_up"):
-						if !Global.pick_item:
-							Global.pick_item = true
-			if object.is_in_group("nasal_drop"):
-				if !object.has_method("interact"):
-					med_pick.show()
-					if Input.is_action_just_pressed("pick_up"):
-						if !Global.pick_item:
-							Global.pick_item = true
-		if Global.pick_item:
-			if object == npc:
-				label.show()
-				if Input.is_action_just_pressed("interact"):
-					if pick_amox:
-						if Global.gave_amox:
-							print("already used amoxicillin. throw away.")
-							return
-						print("used amoxicillin")
-						Global.gave_amox = true
-					elif pick_peni:
-						if Global.gave_peni:
-							print("already used penicillin. throw away.")
-							return
-						print("used penicillin")
-						Global.gave_peni = true
-					elif pick_nasal:
-						if Global.gave_nasal:
-							print("already used nasal drops. throw away.")
-							return
-						print("used nasal drops")
-						Global.gave_nasal = true
-					return
-			elif object != npc:
-				if object.is_in_group("trash_doctor"):
-					label.show()
-					if Input.is_action_just_pressed("interact"):
-						if Global.gave_amox:
-							pick_amox = false
-							Global.gave_amox = false
-							Global.pick_item = false
-							amoxicillin.global_position = Vector3(0,2.1,15)
-							return
-						elif Global.gave_peni:
-							pick_peni = false
-							Global.gave_peni = false
-							Global.pick_item = false
-							penicillin.global_position = Vector3(2,2,15)
-							return
-						else:
-							if pick_amox:
-								print("Amoxicillin is still full")
-							elif pick_peni:
-								print("Penicillin is still full")
-
-
-
-	if Input.is_action_just_pressed("pick_up") and (pick_amox or pick_peni or pick_nasal):
-		Global.pick_item = false
-	pick_or_drop(object)
-	pick_medicine()'''
 	#hides/shows forward/backward button of doctor book
 	if asthma.visible:
 		backward.hide()
@@ -320,7 +251,7 @@ func _physics_process(delta: float) -> void:
 	var doc_tools = [steth, therm, tongue, gluc, tri]
 	var elec_tools = [screw, plier, volt, wire, tape]
 	var input_index = ["1","2","3","4","5"]
-	if Global.is_doc:
+	if Global.is_doc and Global.mouse_mode == 0:
 		if Global.active_tool == -1:
 			for i in range(5):
 				doc_tools[i].hide()
@@ -339,7 +270,7 @@ func _physics_process(delta: float) -> void:
 				if Global.active_tool == 1:
 					therm_off.show()
 					therm_on_good.hide()
-	if Global.is_elec:
+	if Global.is_elec and Global.mouse_mode == 0:
 		if Global.active_tool == -1:
 			for i in range(5):
 				elec_tools[i].hide()
@@ -457,7 +388,6 @@ func check_comp():
 	and outlet3.outlet["is_case_removed"] and outlet3.outlet["is_fixed"]):
 		Global.elec_job_comp["outlet"] = true
 	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
-		career_desc.show()
 		$CanvasLayer/career_desc/MarginContainer/HBoxContainer/Label.text = Global.pick_desc(Global.elec_cond["location"])
 		global_position.x = 25.5
 		global_position.z = -15.5
@@ -475,6 +405,18 @@ func check_comp():
 		for i in range(5):
 			elec_tools[i].hide()
 		Global.elec_games = true
+		career_desc.show()
+	if Global.is_doc and Global.repetition == 1:
+		print("Score: " + str(Global.score))
+		Global.is_doc = false
+		global_position.x = 25.5
+		global_position.z = -15.5
+		global_rotation = Vector3(0,0,0)
+		$CanvasLayer/career_desc/MarginContainer/HBoxContainer/Label.text = Global.pick_doc_desc()
+		career_desc.show()
+		Global.repetition = 0
+		
+
 
 func move_outlet():
 	var layouts = {
@@ -630,7 +572,9 @@ func _on_elec_pressed() -> void:
 	global_position.x = -20
 	global_position.z = -3
 	global_rotation = Vector3(0,0,0)
+	loading.show()
 	await get_tree().create_timer(2.0).timeout
+	loading.hide()
 	Global.is_elec = true
 	move_outlet()
 	print("elec start") # Replace with function body.
@@ -638,3 +582,4 @@ func _on_elec_pressed() -> void:
 #provides 
 func _on_exit_career_desc_pressed() -> void:
 	career_desc.hide()
+	careers.show()
