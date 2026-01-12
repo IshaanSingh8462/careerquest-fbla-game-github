@@ -5,6 +5,10 @@ const SPEED = 7.5
 const JUMP_VELOCITY = 6.0
 
 #main ui
+@onready var start := $CanvasLayer/main
+@onready var credits := $CanvasLayer/credits
+@onready var careers := $CanvasLayer/careers
+@onready var career_desc := $CanvasLayer/career_desc
 @onready var pause := $CanvasLayer/pause
 
 #pick item variables
@@ -23,6 +27,7 @@ const JUMP_VELOCITY = 6.0
 var doc_tool_processing := false
 
 #doctor ui variables
+@onready var clipboard := $clipboard
 @onready var label := $CanvasLayer/Interact/interact_button
 @onready var book := $CanvasLayer/Book/book
 @onready var book_ui := $CanvasLayer/book_ui
@@ -53,6 +58,7 @@ var elec_tool_processing := false
 @onready var house := $"../electric_scene/house2"
 @onready var coffee := $"../electric_scene/coffee_test"
 @onready var office := $"../electric_scene/office"
+@onready var traffic_light := $"../electric_scene/traffic_light2"
 @onready var factory := $"../electric_scene/factory2"
 @onready var apartment := $"../electric_scene/apartment2"
 
@@ -70,10 +76,14 @@ var elec_tool_processing := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start.show()
+	credits.hide()
+	careers.hide()
+	career_desc.hide()
+	pause.hide()
 	global_position.x = 25.5
 	global_position.z = -15.5
 	global_rotation = Vector3(0,0,0)
-	pause.hide()
 	player_dia.hide()
 	outlet1.position = Vector3(3,0,.5)
 	outlet2.position = Vector3(4.5,0,.5)
@@ -102,9 +112,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			pause.show()
 			return
-
+	
 	#sets mouse value based on ui position
-	if pause.visible:
+	if pause.visible or start.visible or credits.visible or careers.visible or career_desc.visible:
 		Global.mouse_mode = 1
 	elif Global.is_doc:
 		if Global.clipboard_info["clip_ui"].position.y == -300 or Global.flip_book_anim or Global.is_talking:
@@ -118,6 +128,11 @@ func _physics_process(delta: float) -> void:
 			Global.mouse_mode = 0
 	else:
 		Global.mouse_mode = 0
+	
+	if Global.is_elec:
+		clipboard.hide()
+	else:
+		clipboard.show()
 
 	#calls init functions, also hides all ui
 	player_dialogue()
@@ -130,18 +145,7 @@ func _physics_process(delta: float) -> void:
 	#detects what the player is looking at, then performs functions based off of object
 	var object = ray.get_collider()
 	if ray.is_colliding() and !Global.pause_game:
-		if Global.at_start:
-			#starts doctor roleplay
-			if object.is_in_group("doctor_start"):
-				if !object.has_method("interact"):
-					label.show()
-					if Input.is_action_just_pressed("interact"):
-						global_position.x = -1.5
-						global_position.z = 1.5
-						global_rotation = Vector3(0,0,0)
-						await get_tree().create_timer(2.0).timeout
-						Global.interact()
-		else:
+		if !Global.at_start:
 			#allows talking to doctor npc
 			if object == doc_npc:
 				if !object.has_method("interact"):
@@ -186,19 +190,6 @@ func _physics_process(delta: float) -> void:
 				book.show()
 				if Input.is_action_just_pressed("interact"):
 					Global.flip_book_anim = true
-
-		#starts electrician roleplay
-		if object.is_in_group("electrician_start"):
-			if !object.has_method("interact"):
-					label.show()
-					if Input.is_action_just_pressed("interact"):
-						global_position.x = -20
-						global_position.z = -3
-						global_rotation = Vector3(0,0,0)
-						await get_tree().create_timer(2.0).timeout
-						Global.is_elec = true
-						move_outlet()
-						print("elec start")
 		#opens electrician switchboard function
 		if object.is_in_group("switch_board_elec"):
 			if !object.has_method("interact"):
@@ -461,12 +452,13 @@ func player_dialogue():
 		player_dia.hide()
 
 func check_comp():
-	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"factory":[factory,4.99],"apartment":[apartment,3.185]}
 	if (outlet1.outlet["is_case_removed"] and outlet1.outlet["is_fixed"]
 	and outlet2.outlet["is_case_removed"] and outlet2.outlet["is_fixed"]
 	and outlet3.outlet["is_case_removed"] and outlet3.outlet["is_fixed"]):
 		Global.elec_job_comp["outlet"] = true
 	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
+		career_desc.show()
+		$CanvasLayer/career_desc/MarginContainer/HBoxContainer/Label.text = Global.pick_desc(Global.elec_cond["location"])
 		global_position.x = 25.5
 		global_position.z = -15.5
 		global_rotation = Vector3(0,0,0)
@@ -479,6 +471,9 @@ func check_comp():
 		outlet3.reset()
 		Global.elec_cond["difficulty"] = null
 		Global.active_tool = -1
+		var elec_tools = [screw, plier, volt, wire, tape]
+		for i in range(5):
+			elec_tools[i].hide()
 		Global.elec_games = true
 
 func move_outlet():
@@ -531,7 +526,7 @@ func move_outlet():
 			Vector3(0,deg_to_rad(-180),0),
 			Vector3(0,deg_to_rad(90),0)
 	]}
-	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"factory":[factory,4.99],"apartment":[apartment,3.185]}
+	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"traffic_light":[traffic_light,4.99],"factory":[factory,4.99],"apartment":[apartment,3.185]}
 	# find which condition is active
 	for key in layouts.keys():
 		if Global.elec_cond["location"] == key:
@@ -549,13 +544,13 @@ func move_outlet():
 			outlet3.rotation = pos[5]
 			return
 
-
 func get_outlet_by_id(id: int):
 	for child in $"../electric_scene".get_children():
 		if child is Outlet:  # <— IMPORTANT
 			if child.outlet_id == id:
 				return child
 	return null
+
 
 #signals
 func _on_forward_pressed() -> void:
@@ -598,3 +593,48 @@ func _on_resume_pressed() -> void:
 func _on_exit_game_pressed() -> void:
 	print("quit game")
 	get_tree().quit() # Replace with function body.
+
+func _on_start_game_pressed() -> void:
+	start.hide()
+	careers.show() # Replace with function body.
+
+func _on_credits_pressed() -> void:
+	credits.show() # Replace with function body.
+	start.hide()
+
+func _on_quit_pressed() -> void:
+	print("quit game")
+	get_tree().quit() # Replace with function body.
+
+func _on_back_main_pressed() -> void:
+	credits.hide() # Replace with function body.
+	start.show()
+
+func _on_back_career_pressed() -> void:
+	careers.hide()
+	start.shows()
+
+#starts doctor roleplay
+func _on_start_doc_pressed() -> void:
+	careers.hide()
+	if Global.at_start:
+		global_position.x = -1.5
+		global_position.z = 1.5
+		global_rotation = Vector3(0,0,0)
+		await get_tree().create_timer(2.0).timeout
+		Global.interact() # Replace with function body.
+
+#starts electrician roleplay
+func _on_elec_pressed() -> void:
+	careers.hide()
+	global_position.x = -20
+	global_position.z = -3
+	global_rotation = Vector3(0,0,0)
+	await get_tree().create_timer(2.0).timeout
+	Global.is_elec = true
+	move_outlet()
+	print("elec start") # Replace with function body.
+
+#provides 
+func _on_exit_career_desc_pressed() -> void:
+	career_desc.hide()

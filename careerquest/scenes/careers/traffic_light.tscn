@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bsi6a7eefbokb"]
+
+[node name="traffic_light" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(5, 0.25, 5)

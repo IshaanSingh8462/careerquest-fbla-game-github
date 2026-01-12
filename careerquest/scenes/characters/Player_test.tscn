@@ -1096,6 +1096,177 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "resume"
 
+[node name="main" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(600, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -225.0
+offset_right = 300.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/main"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "CareerQuest"
+horizontal_alignment = 1
+
+[node name="play" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Play"
+
+[node name="credits" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Credits"
+
+[node name="quit" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Quit
+"
+
+[node name="credits" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(600, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/credits"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/credits/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Credits will go Here
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Button" parent="CanvasLayer/credits/MarginContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[node name="careers" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(600, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/careers"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="doc" type="Button" parent="CanvasLayer/careers/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Doctor"
+
+[node name="elec" type="Button" parent="CanvasLayer/careers/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Electrician"
+
+[node name="back" type="Button" parent="CanvasLayer/careers/MarginContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="career_desc" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(600, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/career_desc"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/career_desc/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/career_desc/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="CanvasLayer/career_desc/MarginContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 25
+text = "exit"
+
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/escape" to="." method="_on_escape_pressed"]
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/backwards" to="." method="_on_backwards_pressed"]
@@ -1107,3 +1278,11 @@ text = "resume"
 [connection signal="pressed" from="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer/5star" to="." method="_on_star5_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2/exit" to="." method="_on_exit_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/play" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/credits/MarginContainer/back" to="." method="_on_back_main_pressed"]
+[connection signal="pressed" from="CanvasLayer/careers/MarginContainer/HBoxContainer/doc" to="." method="_on_start_doc_pressed"]
+[connection signal="pressed" from="CanvasLayer/careers/MarginContainer/HBoxContainer/elec" to="." method="_on_elec_pressed"]
+[connection signal="pressed" from="CanvasLayer/careers/MarginContainer/back" to="." method="_on_back_career_pressed"]
+[connection signal="pressed" from="CanvasLayer/career_desc/MarginContainer/exit" to="." method="_on_exit_career_desc_pressed"]
