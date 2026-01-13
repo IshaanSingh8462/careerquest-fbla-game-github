@@ -3,4 +3,11 @@
 [node name="traffic_light" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(5, 0.25, 5)
+use_collision = true
+size = Vector3(16, 10, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+operation = 2
+use_collision = true
+size = Vector3(15, 10, 9)

@@ -33,7 +33,6 @@ extends Node3D
 @onready var outlet3 := $outlet3
 
 #locations
-@onready var traffic_light := $traffic_light
 @onready var factory := $factory
 @onready var apartment := $apartment
 @onready var house := $house
@@ -55,7 +54,6 @@ func _ready():
 	for s in all_switches:
 		s.global_rotation.y = deg_to_rad(-30)
 	fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
-	traffic_light.hide()
 	factory.hide()
 	apartment.hide()
 	house.hide()
@@ -124,7 +122,7 @@ func sw_values():
 func elec_location_pick():
 	if Global.is_elec and not elec_location_pick_:
 		var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
-		var locations = [house, house, house, traffic_light, factory, apartment]
+		var locations = [house, house, house, house, factory, apartment]
 		for i in range(6):
 			if Global.elec_cond["location"] == elec_location[i]:
 				locations[i].show()
@@ -141,7 +139,7 @@ func loc_coll():
 		"coffee_shop": [house, 3],
 		"office": [house, 3],
 		"factory": [factory, 3],
-		"traffic_light": [traffic_light, 3],
+		"nasa": [house, 3],
 		"apartment": [apartment, 3]
 	}
 	var current = Global.elec_cond["location"]
@@ -164,7 +162,7 @@ func check_comp():
 		house.position.y = 3
 		apartment.position.y = 3
 		factory.position.y = 3
-		traffic_light.position.y = 3
+		house.position.y = 3
 		Global.is_elec = false
 		print("elec done")
 		elec_location_pick_ = false

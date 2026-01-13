@@ -28,7 +28,6 @@ func pick_doc_desc():
 			return doc_desc[i]
 	return ""
 
-
 var move = false
 var submit = false
 var at_start = true
@@ -73,8 +72,8 @@ var load = 0
 var tripped_status = false
 
 #pick options variables (stars, card, etc.)
-var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
-var elec_desc = ["house desc", "coffee_shop desc","office desc","traffic_light desc","factory desc","apartment desc"]
+var elec_location = ["house","coffee_shop","office","nasa","factory","apartment"]
+var elec_desc = ["house desc", "coffee_shop desc","office desc","nasa desc","factory desc","apartment desc"]
 var elec_job_comp = {"breaker":false,"outlet":false,"light":false}
 func pick_desc(location):
 	if is_doc:
