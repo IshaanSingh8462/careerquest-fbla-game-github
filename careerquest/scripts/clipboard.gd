@@ -247,6 +247,13 @@ func presc_check(string):
 					Global.score += 50
 					break  # stop after first match for this condition
 
+func go_to_info():
+	page1.hide()
+	page2.hide()
+	presc.hide()
+	info.show()
+
+
 #signals for buttons
 func _on_forward_pressed() -> void:
 	Global.clipboard_info["forward"] = true

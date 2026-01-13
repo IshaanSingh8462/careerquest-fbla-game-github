@@ -136,33 +136,92 @@ func change_color(col):
 #generates dialogue for npc when player interacts with it
 var last_request = ""
 
+var chosen_dialogue := ""
 func npc_dialogue(delta):
-	# If a new request starts, reset the timer
-	if Global.ask_name or Global.ask_feel:
-		if total_time == 0:
-			dialogue.text = ""   # clear old dialogue immediately
+	# If a new request starts, reset the timer and chosen line
+	if (Global.ask_name or Global.ask_feel) and total_time == 0:
+		dialogue.text = ""
+		chosen_dialogue = ""
+
 	# NAME dialogue
 	if Global.ask_name:
-		# If both are true, prioritize feel and cancel name
 		if Global.ask_feel:
 			Global.ask_name = false
+
 		dialogue.text = "My name is %s %s,\nand my dob is %s" % [
 			dictionary["first_name"],
 			dictionary["last_name"],
 			dictionary["dob"]
 		]
+
 		total_time += delta
+
 	# FEEL dialogue
 	elif Global.ask_feel:
-		if Global.ask_name:
-			Global.ask_feel = false
-		dialogue.text = "My condition is %s" % dictionary["condition"]
+		var cond_dialogue = {
+			"asthma": [
+				"I feel like I can’t catch my breath.",
+				"My chest feels tight today.",
+				"I get winded really easily."
+			],
+			"arthritis": [
+				"My joints feel stiff and sore.",
+				"It hurts more when I move around.",
+				"My hands feel swollen."
+			],
+			"copd": [
+				"I’ve been coughing a lot lately, and my lungs hurt.",
+				"I feel short of breath even when resting.",
+				"My chest feels heavy and tight."
+			],
+			"flu": [
+				"I feel feverish and weak. Also i've had a sore throat",
+				"My whole body aches, and.",
+				"I can’t stop coughing."
+			],
+			"migraine": [
+				"My head is pounding and i feel like vomiting.",
+				"Bright lights make my head hurt and nauseas.",
+				"I feel nauseous when the pain spikes."
+			],
+			"diabetes": [
+				"I’ve been really thirsty and out of energy lately.",
+				"My blood sugar feels low and i go to the bathroom too much.",
+				"My energy crashes suddenly."
+			],
+			"acid": [
+				"I feel a burning sensation in my chest and throat sometimes.",
+				"My stomach gets worse after I eat.",
+				"I keep having coughs and chest pain"
+			],
+			"iron": [
+				"I feel tired and fatigued all the time.",
+				"I get dizzy when I stand up, as well as short breath.",
+				"My breathing feels shallow and i always feel fatiqued."
+			],
+			"blood_pressure": [
+				"I’ve had a bad headache all day.",
+				"I feel lightheaded and dizzy sometimes.",
+				"I always have a headache and am dizzy all the time."
+			]
+		}
+
+		if chosen_dialogue == "":
+			for cond in all_symptoms:
+				if Global.condition[cond]:
+					chosen_dialogue = cond_dialogue[cond].pick_random()
+					break
+
+		dialogue.text = chosen_dialogue
 		total_time += delta
+
 	# No dialogue
 	else:
 		dialogue.text = ""
+
 	# End dialogue after 5 seconds
 	if total_time >= 5:
 		Global.ask_name = false
 		Global.ask_feel = false
 		total_time = 0
+		chosen_dialogue = ""

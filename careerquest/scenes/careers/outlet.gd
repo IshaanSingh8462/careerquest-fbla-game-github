@@ -7,12 +7,26 @@ class_name Outlet
 @onready var case := $case
 @onready var plug := $plug
 @onready var wiring := $wiring
+@onready var outlet_ui := $CanvasLayer/outlet_game
+@onready var wire1 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control/wire1
+@onready var wire2 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control2/wire2
+
 
 var outlet = {"is_case_removed":false,"is_unplugged":false,"is_fixed":false}
+
+func _ready() -> void:
+	outlet_ui.hide()
+
+func _process(delta: float) -> void:
+	if outlet_ui.visible:
+		Global.mouse_mode = 1
+	if !wire1.visible and !wire2.visible:
+		outlet_ui.hide()
 
 func remove_case():
 	if Global.active_tool != 0:
 		print("use a screwdriver")
+		print("case")
 		return
 	if outlet["is_case_removed"]:
 		if outlet["is_unplugged"]:
@@ -31,6 +45,7 @@ func remove_case():
 func unplug():
 	if Global.active_tool != 0:
 		print("use a screwdriver")
+		print("unplug")
 		return
 	if outlet["is_unplugged"]:
 		outlet["is_unplugged"] = false
@@ -44,11 +59,13 @@ func unplug():
 		print("Plug removed on outlet ", outlet_id)
 
 func fix_wiring():
-	if Global.active_tool != 0:
-		print("use a screwdriver")
+	if Global.active_tool != 1:
+		print("use a wrench")
 		return
-	outlet["is_fixed"] = true
-	print("Outlet fixed! ", outlet_id)
+	outlet_ui.show()
+	if !wire1.visible and !wire2.visible:
+		outlet["is_fixed"] = true
+		print("Outlet fixed! ", outlet_id)
 
 func reset():
 	case.position = Vector3(0,1.331,.08)
@@ -58,4 +75,10 @@ func reset():
 	outlet["is_case_removed"] = false
 	outlet["is_unplugged"] = false
 	outlet["is_fixed"] = false
-	
+
+
+func _on_wire_1_pressed() -> void:
+	wire1.hide() # Replace with function body.
+
+func _on_wire_2_pressed() -> void:
+	wire2.hide() # Replace with function body.

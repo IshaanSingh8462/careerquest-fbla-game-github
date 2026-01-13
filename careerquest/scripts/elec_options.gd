@@ -1,6 +1,6 @@
 extends Control
 
-@onready var stars := $stars
+@onready var stars := $"."
 @onready var star1 := $"stars/MarginContainer/VBoxContainer/HBoxContainer/1star"
 @onready var star3 := $"stars/MarginContainer/VBoxContainer/HBoxContainer/3star"
 @onready var star5 := $"stars/MarginContainer/VBoxContainer/HBoxContainer/5star"

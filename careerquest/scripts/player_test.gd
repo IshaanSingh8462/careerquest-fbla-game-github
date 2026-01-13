@@ -12,6 +12,8 @@ const JUMP_VELOCITY = 6.0
 @onready var pause := $CanvasLayer/pause
 @onready var loading := $CanvasLayer/load_screen
 
+@onready var tutorial := $CanvasLayer/tutorial
+
 #pick item variables
 @onready var head := $head
 @onready var camera := $head/camera
@@ -59,12 +61,12 @@ var elec_tool_processing := false
 @onready var house := $"../electric_scene/house2"
 @onready var coffee := $"../electric_scene/coffee_test"
 @onready var office := $"../electric_scene/office"
-@onready var traffic_light := $"../electric_scene/traffic_light2"
+@onready var nasa := $"../electric_scene/nasa"
 @onready var factory := $"../electric_scene/factory2"
 @onready var apartment := $"../electric_scene/apartment2"
 
 #electrician ui
-@onready var star := $CanvasLayer/elec_options/stars
+@onready var star := $CanvasLayer/elec_options
 
 #electrician outlet scene
 @onready var outlet1 = get_outlet_by_id(0)
@@ -77,12 +79,15 @@ var elec_tool_processing := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	tutorial.hide()
+	clipboard.hide()
 	loading.hide()
 	start.show()
 	credits.hide()
 	careers.hide()
 	career_desc.hide()
 	pause.hide()
+	star.hide()
 	global_position.x = 25.5
 	global_position.z = -15.5
 	global_rotation = Vector3(0,0,0)
@@ -107,7 +112,7 @@ func _physics_process(delta: float) -> void:
 	elif Global.mouse_mode == 1:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#pause game
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and !start.visible and !careers.visible and !loading.visible and !career_desc.visible and !credits.visible:
 		if Global.pause_game:
 			pause.hide()
 			return
@@ -116,7 +121,7 @@ func _physics_process(delta: float) -> void:
 			return
 	
 	#sets mouse value based on ui position
-	if pause.visible or start.visible or credits.visible or careers.visible or career_desc.visible:
+	if pause.visible or start.visible or credits.visible or careers.visible or career_desc.visible or tutorial.visible:
 		Global.mouse_mode = 1
 	elif Global.is_doc:
 		if Global.clipboard_info["clip_ui"].position.y == -300 or Global.flip_book_anim or Global.is_talking:
@@ -130,16 +135,10 @@ func _physics_process(delta: float) -> void:
 			Global.mouse_mode = 0
 	else:
 		Global.mouse_mode = 0
-	
-	if Global.is_elec:
-		clipboard.hide()
-	else:
-		clipboard.show()
 
 	#calls init functions, also hides all ui
 	player_dialogue()
 	move_clip()
-	label.hide()
 	book.hide()
 	book_ui.hide()
 	flip_book()
@@ -219,9 +218,6 @@ func _physics_process(delta: float) -> void:
 			if !object.has_method("interact"):
 				label.show()
 				if Input.is_action_just_pressed("interact"):
-					if Global.active_tool != 0:
-						print("use a screwdriver")
-						return
 					var outlet = object.get_parent()
 					if object.is_in_group("outlet_scene1"):
 						outlet.remove_case()
@@ -229,6 +225,8 @@ func _physics_process(delta: float) -> void:
 						outlet.unplug()
 					elif object.is_in_group("outlet_scene3"):
 						outlet.fix_wiring()
+	else:
+		label.hide()
 	#hides/shows forward/backward button of doctor book
 	if asthma.visible:
 		backward.hide()
@@ -238,7 +236,7 @@ func _physics_process(delta: float) -> void:
 		forward.hide()
 	else:
 		forward.show()
-	
+
 	# Add the gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -246,7 +244,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_info["checkbox_checked"].position.y == 0 and !Global.pause_game:
 		velocity.y = JUMP_VELOCITY
-	
+
 	#doctor inventory selection - select tools for analysis
 	var doc_tools = [steth, therm, tongue, gluc, tri]
 	var elec_tools = [screw, plier, volt, wire, tape]
@@ -291,7 +289,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if Global.clipboard_info["clip_ui"].position.y == 0 and !Global.pause_game:
+	if Global.clipboard_info["clip_ui"].position.y == 0 and !Global.pause_game and !start.visible and !careers.visible and !loading.visible and !career_desc.visible and !credits.visible:
 		if direction and $head/camera.current:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
@@ -300,7 +298,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-	
+
 #clipboard animation (pull out/keep back)
 func move_clip():
 	if Input.is_action_just_pressed("clipboard") and !Global.clipboard_info["is_editing"] and Global.is_doc:
@@ -308,44 +306,6 @@ func move_clip():
 			Global.clipboard_info["clip_ui"].position.y = 0
 		elif Global.clipboard_info["clip_ui"].position.y == 0:
 			Global.clipboard_info["clip_ui"].position.y = -300
-
-'''func pick_or_drop(object=null):
-	if object == null:
-		if !Global.pick_item:
-			pick_amox = false
-			pick_peni = false
-			pick_nasal = false
-			return
-	if Global.pick_item:
-		if pick_peni:
-			return
-		elif pick_nasal:
-			return
-		if object == amoxicillin:
-			pick_amox = true
-		elif object == penicillin:
-			pick_peni = true
-		elif object == nasal:
-			pick_nasal = true
-	if !Global.pick_item:
-		pick_amox = false
-		pick_peni = false
-		pick_nasal = false
-		return
-
-func pick_medicine():
-	if pick_amox:
-		amoxicillin.global_position = hand.global_position
-		amoxicillin.global_rotation = hand.global_rotation - Vector3(0,0,0.25)
-		amoxicillin.linear_velocity = Vector3(0.1,1.5,0.1)
-	elif pick_peni:
-		penicillin.global_position = hand.global_position
-		penicillin.global_rotation = hand.global_rotation - Vector3(0,0,0.25)
-		penicillin.linear_velocity = Vector3(0.1,1.5,0.1)
-	elif pick_nasal:
-		nasal.global_position = hand.global_position
-		nasal.global_rotation = hand.global_rotation - Vector3(0,0,0.25)
-		nasal.linear_velocity = Vector3(0.1,1.5,0.1)'''
 
 #doctor book animation (flip pages)
 func flip_book():
@@ -374,7 +334,6 @@ func flip_book():
 		pages[current_index - 1].show()
 		Global.doc_backward = false
 
-
 #player dialogue to doctor npc
 func player_dialogue():
 	if Global.is_talking:
@@ -388,7 +347,7 @@ func check_comp():
 	and outlet3.outlet["is_case_removed"] and outlet3.outlet["is_fixed"]):
 		Global.elec_job_comp["outlet"] = true
 	if Global.elec_job_comp["breaker"] and Global.elec_job_comp["outlet"]:
-		$CanvasLayer/career_desc/MarginContainer/HBoxContainer/Label.text = Global.pick_desc(Global.elec_cond["location"])
+		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/Label.text = Global.pick_desc(Global.elec_cond["location"])
 		global_position.x = 25.5
 		global_position.z = -15.5
 		global_rotation = Vector3(0,0,0)
@@ -407,16 +366,17 @@ func check_comp():
 		Global.elec_games = true
 		career_desc.show()
 	if Global.is_doc and Global.repetition == 1:
+		book_ui.hide()
+		clipboard.hide()
 		print("Score: " + str(Global.score))
 		Global.is_doc = false
 		global_position.x = 25.5
 		global_position.z = -15.5
 		global_rotation = Vector3(0,0,0)
-		$CanvasLayer/career_desc/MarginContainer/HBoxContainer/Label.text = Global.pick_doc_desc()
+		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/Label.text = Global.pick_doc_desc()
+		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/score.text = str(Global.score)
 		career_desc.show()
 		Global.repetition = 0
-		
-
 
 func move_outlet():
 	var layouts = {
@@ -444,10 +404,10 @@ func move_outlet():
 			Vector3(0,deg_to_rad(90),0),
 			Vector3(0,deg_to_rad(90),0)
 		],
-		"traffic_light": [		#change to something else
-			Vector3(0,0,0),
-			Vector3(3,0,0),
-			Vector3(6,0,0),
+		"nasa": [
+			Vector3(7.485,0,.721),
+			Vector3(-3,0,8.676),
+			Vector3(-7.502,0,1.431),
 			Vector3(0,deg_to_rad(-90),0),
 			Vector3(0,deg_to_rad(-180),0),
 			Vector3(0,deg_to_rad(90),0)
@@ -468,7 +428,7 @@ func move_outlet():
 			Vector3(0,deg_to_rad(-180),0),
 			Vector3(0,deg_to_rad(90),0)
 	]}
-	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"traffic_light":[traffic_light,4.99],"factory":[factory,4.99],"apartment":[apartment,3.185]}
+	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"nasa":[nasa,4.99],"factory":[factory,4.99],"apartment":[apartment,3.185]}
 	# find which condition is active
 	for key in layouts.keys():
 		if Global.elec_cond["location"] == key:
@@ -554,20 +514,26 @@ func _on_back_main_pressed() -> void:
 
 func _on_back_career_pressed() -> void:
 	careers.hide()
-	start.shows()
+	start.show()
 
 #starts doctor roleplay
 func _on_start_doc_pressed() -> void:
+	Global.clipboard_info["clip_ui"].go_to_info()
+	Global.clipboard_info["clip_ui"].position.y = 0
+	clipboard.show()
 	careers.hide()
 	if Global.at_start:
 		global_position.x = -1.5
 		global_position.z = 1.5
 		global_rotation = Vector3(0,0,0)
 		await get_tree().create_timer(2.0).timeout
+		tutorial.show()
 		Global.interact() # Replace with function body.
 
 #starts electrician roleplay
 func _on_elec_pressed() -> void:
+	clipboard.hide()
+	Global.clipboard_info["clip_ui"].position.y = 0
 	careers.hide()
 	global_position.x = -20
 	global_position.z = -3
@@ -577,9 +543,14 @@ func _on_elec_pressed() -> void:
 	loading.hide()
 	Global.is_elec = true
 	move_outlet()
+	tutorial.show()
+	star.show()
 	print("elec start") # Replace with function body.
 
 #provides 
 func _on_exit_career_desc_pressed() -> void:
 	career_desc.hide()
 	careers.show()
+
+func _on_exit_tut_pressed() -> void:
+	tutorial.hide() # Replace with function body.

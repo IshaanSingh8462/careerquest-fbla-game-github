@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu5cfsyhhot41"]
+[gd_scene load_steps=7 format=3 uid="uid://cu5cfsyhhot41"]
 
 [ext_resource type="PackedScene" uid="uid://cofcy6el4epr0" path="res://assets/meshes/chair.tscn" id="1_8qq0c"]
 [ext_resource type="PackedScene" uid="uid://dqt251iuk1tvo" path="res://assets/blender/cabinets.blend" id="2_clnsk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nv80"]
 albedo_color = Color(0.578977, 0.346807, 0.12932, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clnsk"]
+albedo_color = Color(0.445245, 0.302645, 0.0889732, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_clnsk"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
@@ -41,8 +44,8 @@ size = Vector3(15, 8, 1)
 
 [node name="doorHole" type="CSGBox3D" parent="wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.559936, -1.5, -0.0209999)
-operation = 2
 size = Vector3(4, 5, 2)
+material = SubResource("StandardMaterial3D_clnsk")
 
 [node name="chair" parent="." instance=ExtResource("1_8qq0c")]
 transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 5.5, 0.5, 3.5)
@@ -69,5 +72,6 @@ shape = SubResource("ConvexPolygonShape3D_51iwl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.4613, 0)
 size = Vector3(14, 0.5, 10)
 
-[node name="LightmapProbe" type="LightmapProbe" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.37771, -0.00544477)
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.31815, 0)
+omni_range = 12.3132

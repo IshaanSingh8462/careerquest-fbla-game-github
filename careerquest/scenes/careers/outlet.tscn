@@ -80,3 +80,95 @@ collision_layer = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.331, -0.033)
 size = Vector3(0.4, 0.55, 0.025)
 material = ExtResource("1_4puoi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="outlet_game" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/outlet_game"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="wire1" type="Button" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Wire 1"
+
+[node name="Control2" type="Control" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="wire2" type="Button" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Wire 2"
+
+[connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control/wire1" to="." method="_on_wire_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control2/wire2" to="." method="_on_wire_2_pressed"]
