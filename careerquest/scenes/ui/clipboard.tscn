@@ -18,6 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_js5ej")
 
 [node name="info" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 2
@@ -83,6 +84,7 @@ layout_mode = 2
 placeholder_text = "Gender"
 
 [node name="page1" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 2
@@ -145,6 +147,7 @@ layout_mode = 2
 text = "headache"
 
 [node name="page2" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 2
@@ -201,6 +204,7 @@ layout_mode = 2
 text = "Thirsty/Hungry"
 
 [node name="prescriptions" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 2

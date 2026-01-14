@@ -24,7 +24,6 @@ shape = SubResource("CapsuleShape3D_hsp13")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -1320,6 +1319,7 @@ theme_override_font_sizes/font_size = 100
 text = "Loading..."
 
 [node name="tutorial" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(600, 500)
 anchors_preset = 8
 anchor_left = 0.5
