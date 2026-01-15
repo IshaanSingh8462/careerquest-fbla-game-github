@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dawgf7v5np6sq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2urhm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82983, 0, 0)
+size = Vector3(20, 0.5, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.94195, 0.397718, 0)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="floor"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -7.98666, 1.16978, 0)
+operation = 2
+mesh = SubResource("CapsuleMesh_2urhm")
+
+[node name="walls" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.58864, 0)
+size = Vector3(11, 7, 11)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls"]
+operation = 2
+size = Vector3(10, 8, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13028, -1.73459, 0)
+operation = 2
+size = Vector3(1.5, 5, 3)
