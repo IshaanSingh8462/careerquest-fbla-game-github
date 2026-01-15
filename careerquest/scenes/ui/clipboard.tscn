@@ -1,12 +1,119 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpjrfiwexdooa"]
+[gd_scene load_steps=17 format=3 uid="uid://dpjrfiwexdooa"]
 
 [ext_resource type="Script" uid="uid://dpdibpqixraho" path="res://scripts/clipboard.gd" id="1_js5ej"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byv16"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b63by"]
+bg_color = Color(0.781407, 0.781407, 0.781407, 1)
+border_width_bottom = 5
+border_color = Color(0.654232, 0.654232, 0.654232, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8tpj"]
+bg_color = Color(0.86683, 0.86683, 0.866829, 1)
+border_width_bottom = 5
+border_color = Color(0.654232, 0.654232, 0.654232, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b63by"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_leevr"]
+bg_color = Color(0.927533, 0.927533, 0.927533, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mje68"]
+bg_color = Color(0.839216, 0.839216, 0.839216, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8tpj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp2nn"]
+bg_color = Color(0.839216, 0.839216, 0.839216, 1)
+border_width_bottom = 1
+border_color = Color(0.237539, 0.237539, 0.237539, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pdu8"]
+bg_color = Color(0.400698, 0.400698, 0.400698, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byv16"]
+bg_color = Color(0.838897, 0.838897, 0.838897, 1)
+border_width_left = 10
+border_width_top = 15
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0.282353, 0.133333, 0.0745098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mje68"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6big"]
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_mje68"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_byv16")
+Button/styles/hover = SubResource("StyleBoxFlat_b63by")
+Button/styles/normal = SubResource("StyleBoxFlat_h8tpj")
+Button/styles/pressed = null
+CheckBox/colors/font_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_disabled_color = Color(0.226707, 0.226708, 0.226707, 1)
+CheckBox/colors/font_focus_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_hover_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_b63by")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_leevr")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_leevr")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_mje68")
+Label/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.435294)
+LineEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_uneditable_color = Color(0, 0, 0, 0.5)
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_h8tpj")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_cp2nn")
+Panel/styles/panel = SubResource("StyleBoxFlat_3pdu8")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_byv16")
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.427451)
+TextEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+TextEdit/colors/word_highlighted_color = Color(0, 0, 0, 1)
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_mje68")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_w6big")
+
 [sub_resource type="LabelSettings" id="LabelSettings_leevr"]
 font_size = 25
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cp2nn"]
 font_size = 25
+font_color = Color(0, 0, 0, 1)
 
 [node name="clipboard" type="Control"]
 layout_mode = 3
@@ -15,6 +122,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_mje68")
 script = ExtResource("1_js5ej")
 
 [node name="info" type="PanelContainer" parent="."]
@@ -35,6 +143,8 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = -55
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="info/MarginContainer"]
@@ -44,15 +154,22 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 5
 
+[node name="Label" type="Label" parent="info/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Patient Info"
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="info/MarginContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 5
+alignment = 1
 
 [node name="first_name" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(147, 30)
+custom_minimum_size = Vector2(140, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -60,21 +177,21 @@ theme_override_constants/minimum_character_width = 0
 placeholder_text = "First Name"
 
 [node name="last_name" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(147, 30)
+custom_minimum_size = Vector2(140, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 placeholder_text = "Last Name"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="info/MarginContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(300, 325)
+custom_minimum_size = Vector2(280, 275)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 3
 
 [node name="dob" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(300, 30)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 4
 placeholder_text = "Date of Birth"
@@ -101,6 +218,7 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_left = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="page1/MarginContainer"]
 layout_mode = 2
@@ -110,7 +228,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Page 1"
+text = "Symptoms"
 label_settings = SubResource("LabelSettings_leevr")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -164,15 +282,18 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="page2/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="Label" type="Label" parent="page2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Page 2"
+text = "Symptoms"
 label_settings = SubResource("LabelSettings_cp2nn")
 
 [node name="nausea" type="CheckBox" parent="page2/MarginContainer/VBoxContainer"]
@@ -204,7 +325,6 @@ layout_mode = 2
 text = "Thirsty/Hungry"
 
 [node name="prescriptions" type="PanelContainer" parent="."]
-visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 2
@@ -221,6 +341,9 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = -5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="prescriptions/MarginContainer"]
 layout_mode = 2
@@ -238,13 +361,13 @@ text = "Write the patient's prescription"
 horizontal_alignment = 1
 
 [node name="presc" type="TextEdit" parent="prescriptions/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 175)
+custom_minimum_size = Vector2(100, 175)
 layout_mode = 2
-placeholder_text = "write prescription here"
+placeholder_text = "            write prescription here"
 wrap_mode = 1
 
 [node name="confirm" type="Button" parent="prescriptions/MarginContainer"]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(175, 35)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -255,10 +378,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 300.0
-offset_top = 259.5
-offset_right = 335.0
-offset_bottom = 294.5
+offset_left = 290.0
+offset_top = 252.0
+offset_right = 325.0
+offset_bottom = 287.0
 grow_vertical = 0
 text = ">"
 
@@ -267,12 +390,23 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 259.5
-offset_right = 60.0
-offset_bottom = 294.5
+offset_left = 40.0
+offset_top = 252.0
+offset_right = 75.0
+offset_bottom = 287.0
 grow_vertical = 0
 text = "<"
+
+[node name="clip" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.100694
+anchor_top = 0.910494
+anchor_right = 0.216146
+anchor_bottom = 0.969136
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="prescriptions/MarginContainer/confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="forward" to="." method="_on_forward_pressed"]

@@ -78,7 +78,6 @@ shape = SubResource("CapsuleShape3D_hsp13")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -1023,6 +1022,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="player_dialogue_main" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -1085,6 +1085,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_6cpf6")
 script = ExtResource("3_hc7jq")
 
 [node name="stars" type="PanelContainer" parent="CanvasLayer/elec_options"]
@@ -1136,27 +1137,27 @@ texture = ExtResource("3_8pp3b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 21
 alignment = 1
 
 [node name="1star" type="Button" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer"]
 process_mode = 3
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "1 star"
+theme_override_font_sizes/font_size = 40
+text = "Easy"
 
 [node name="3star" type="Button" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer"]
 process_mode = 3
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "3 star
+theme_override_font_sizes/font_size = 40
+text = "Medium
 "
 
 [node name="5star" type="Button" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer"]
 process_mode = 3
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "5 star
+theme_override_font_sizes/font_size = 40
+text = "Hard
 "
 
 [node name="main" type="PanelContainer" parent="CanvasLayer"]
