@@ -1,14 +1,68 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdqka2d3f064w"]
+[gd_scene load_steps=20 format=3 uid="uid://bdqka2d3f064w"]
 
 [ext_resource type="Script" uid="uid://yk7kd85cj3ga" path="res://scripts/player_test.gd" id="1_hsp13"]
 [ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="3_8pp3b"]
 [ext_resource type="Script" uid="uid://u1kqhcqr8l66" path="res://scripts/elec_options.gd" id="3_hc7jq"]
+[ext_resource type="Theme" uid="uid://deffnhbprtfok" path="res://scenes/themes/doc_npc_dialogue_buttons.tres" id="4_rduta"]
 [ext_resource type="Texture2D" uid="uid://dplkl0fsnj3" path="res://icon.svg" id="5_6cpf6"]
 [ext_resource type="Script" uid="uid://65rwq1uac1fs" path="res://scripts/timer.gd" id="5_o0pbu"]
+[ext_resource type="Theme" uid="uid://bxx1chvk1fi8r" path="res://scenes/themes/main_button.tres" id="6_6cpf6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pdv6x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hsp13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0pbu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rduta"]
+bg_color = Color(0.113725, 0.470588, 0.686275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0pbu"]
+bg_color = Color(0.23463, 0.632029, 0.891878, 1)
+border_width_bottom = 5
+border_color = Color(0.111966, 0.47038, 0.688065, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cpf6"]
+bg_color = Color(0.235294, 0.631373, 0.890196, 1)
+border_width_top = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_bl0rr"]
+offsets = PackedFloat32Array(0.00324675, 0.295455, 0.551948, 0.811688, 1)
+colors = PackedColorArray(0.0195334, 0.358001, 0.522388, 1, 0.167495, 0.49569, 0.673469, 1, 0.232159, 0.573258, 0.76889, 1, 0.206977, 0.606936, 0.863729, 1, 0.413289, 0.733065, 0.961941, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_12cqp"]
+gradient = SubResource("Gradient_bl0rr")
+fill_from = Vector2(0.504587, 0.0756881)
+fill_to = Vector2(0.516055, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43apo"]
+texture = SubResource("GradientTexture2D_12cqp")
+
+[sub_resource type="Theme" id="Theme_6cpf6"]
+Button/styles/focus = SubResource("StyleBoxEmpty_o0pbu")
+Button/styles/hover = SubResource("StyleBoxFlat_rduta")
+Button/styles/normal = SubResource("StyleBoxFlat_o0pbu")
+Button/styles/pressed = SubResource("StyleBoxFlat_6cpf6")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_43apo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aawdi"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_rduta"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_aawdi")
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_hsp13")
@@ -24,6 +78,7 @@ shape = SubResource("CapsuleShape3D_hsp13")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,6 +91,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_6cpf6")
 
 [node name="menu" type="PanelContainer" parent="CanvasLayer/pause"]
 custom_minimum_size = Vector2(600, 400)
@@ -967,7 +1023,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="player_dialogue_main" type="PanelContainer" parent="CanvasLayer"]
-visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -979,6 +1034,7 @@ offset_right = -27.0
 offset_bottom = -23.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_rduta")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/player_dialogue_main"]
 layout_mode = 2
@@ -1105,7 +1161,7 @@ text = "5 star
 
 [node name="main" type="PanelContainer" parent="CanvasLayer"]
 visible = false
-custom_minimum_size = Vector2(600, 450)
+custom_minimum_size = Vector2(1200, 750)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1117,12 +1173,13 @@ offset_right = 300.0
 offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_6cpf6")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/main"]
 layout_mode = 2
-theme_override_constants/margin_left = 150
+theme_override_constants/margin_left = 300
 theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 150
+theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/MarginContainer"]
@@ -1154,7 +1211,7 @@ text = "Quit
 
 [node name="credits" type="PanelContainer" parent="CanvasLayer"]
 visible = false
-custom_minimum_size = Vector2(600, 450)
+custom_minimum_size = Vector2(1200, 750)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1166,13 +1223,14 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_6cpf6")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/credits"]
 layout_mode = 2
 theme_override_constants/margin_left = 75
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 75
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_bottom = 60
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/credits/MarginContainer"]
 layout_mode = 2
@@ -1191,7 +1249,7 @@ text = "Back"
 
 [node name="careers" type="PanelContainer" parent="CanvasLayer"]
 visible = false
-custom_minimum_size = Vector2(600, 450)
+custom_minimum_size = Vector2(1200, 750)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1203,17 +1261,18 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_6cpf6")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/careers"]
 layout_mode = 2
 theme_override_constants/margin_left = 75
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 75
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_bottom = 60
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="doc" type="Button" parent="CanvasLayer/careers/MarginContainer/HBoxContainer"]
@@ -1221,7 +1280,7 @@ custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 100
 text = "Doctor"
 
 [node name="elec" type="Button" parent="CanvasLayer/careers/MarginContainer/HBoxContainer"]
@@ -1229,7 +1288,7 @@ custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 100
 text = "Electrician"
 
 [node name="back" type="Button" parent="CanvasLayer/careers/MarginContainer"]
@@ -1242,7 +1301,7 @@ text = "Back"
 
 [node name="career_desc" type="PanelContainer" parent="CanvasLayer"]
 visible = false
-custom_minimum_size = Vector2(600, 450)
+custom_minimum_size = Vector2(1200, 750)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1254,13 +1313,14 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_6cpf6")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/career_desc"]
 layout_mode = 2
 theme_override_constants/margin_left = 75
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 75
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_bottom = 60
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/career_desc/MarginContainer"]
 layout_mode = 2
@@ -1285,10 +1345,10 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 25
 text = "exit"
 
-[node name="load_screen" type="TextureRect" parent="CanvasLayer"]
+[node name="load_screen" type="PanelContainer" parent="CanvasLayer"]
 visible = false
 self_modulate = Color(0.188969, 0.188969, 0.188969, 1)
-custom_minimum_size = Vector2(1150, 650)
+custom_minimum_size = Vector2(1200, 750)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1300,23 +1360,7 @@ offset_right = 575.0
 offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_6cpf6")
-
-[node name="loading" type="Label" parent="CanvasLayer/load_screen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -31.0
-offset_top = -23.6667
-offset_right = 31.0
-offset_bottom = 23.6667
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 100
-text = "Loading..."
+theme = SubResource("Theme_rduta")
 
 [node name="tutorial" type="PanelContainer" parent="CanvasLayer"]
 visible = false

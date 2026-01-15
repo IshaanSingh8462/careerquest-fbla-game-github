@@ -487,13 +487,11 @@ func _on_star5_pressed() -> void:
 	print("hard mode")
 
 func _on_resume_pressed() -> void:
-	print("resume")
 	Global.pause_game = false
 	pause.hide()
 	 # Replace with function body.
 
 func _on_exit_game_pressed() -> void:
-	print("quit game")
 	get_tree().quit() # Replace with function body.
 
 func _on_start_game_pressed() -> void:
@@ -505,7 +503,6 @@ func _on_credits_pressed() -> void:
 	start.hide()
 
 func _on_quit_pressed() -> void:
-	print("quit game")
 	get_tree().quit() # Replace with function body.
 
 func _on_back_main_pressed() -> void:

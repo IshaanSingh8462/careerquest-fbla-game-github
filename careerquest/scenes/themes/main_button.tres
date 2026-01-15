@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bxx1chvk1fi8r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0pbu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl0rr"]
+bg_color = Color(0.303211, 0.677926, 0.932907, 1)
+border_width_bottom = 5
+border_color = Color(0.111966, 0.47038, 0.688065, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0pbu"]
+bg_color = Color(0.23463, 0.632029, 0.891878, 1)
+border_width_bottom = 5
+border_color = Color(0.111966, 0.47038, 0.688065, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cpf6"]
+bg_color = Color(0.235294, 0.631373, 0.890196, 1)
+border_width_top = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_bl0rr"]
+offsets = PackedFloat32Array(0.00324675, 0.295455, 0.551948, 0.811688, 1)
+colors = PackedColorArray(0.0195334, 0.358001, 0.522388, 1, 0.167495, 0.49569, 0.673469, 1, 0.232159, 0.573258, 0.76889, 1, 0.206977, 0.606936, 0.863729, 1, 0.413289, 0.733065, 0.961941, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_12cqp"]
+gradient = SubResource("Gradient_bl0rr")
+fill_from = Vector2(0.504587, 0.0756881)
+fill_to = Vector2(0.516055, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43apo"]
+texture = SubResource("GradientTexture2D_12cqp")
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_o0pbu")
+Button/styles/hover = SubResource("StyleBoxFlat_bl0rr")
+Button/styles/normal = SubResource("StyleBoxFlat_o0pbu")
+Button/styles/pressed = SubResource("StyleBoxFlat_6cpf6")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_43apo")

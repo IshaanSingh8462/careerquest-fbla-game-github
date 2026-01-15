@@ -17,7 +17,7 @@ var outlet = {"is_case_removed":false,"is_unplugged":false,"is_fixed":false}
 func _ready() -> void:
 	outlet_ui.hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if outlet_ui.visible:
 		Global.mouse_mode = 1
 	if !wire1.visible and !wire2.visible:
