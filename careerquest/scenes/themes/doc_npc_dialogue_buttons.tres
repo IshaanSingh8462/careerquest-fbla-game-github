@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://deffnhbprtfok"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://deffnhbprtfok"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cpf6"]
 
@@ -29,8 +29,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duw51"]
+bg_color = Color(0.09, 0.03126, 0.0099, 1)
+
 [resource]
 Button/styles/focus = SubResource("StyleBoxEmpty_6cpf6")
 Button/styles/hover = SubResource("StyleBoxFlat_y1wan")
 Button/styles/normal = SubResource("StyleBoxFlat_p84as")
 Button/styles/pressed = SubResource("StyleBoxFlat_flcmq")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_duw51")

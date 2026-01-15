@@ -31,8 +31,8 @@ var doc_tool_processing := false
 
 #doctor ui variables
 @onready var clipboard := $clipboard
-@onready var label := $CanvasLayer/Interact/interact_button
-@onready var book := $CanvasLayer/Book/book
+@onready var label := $CanvasLayer/Interact
+@onready var book := $CanvasLayer/Book
 @onready var book_ui := $CanvasLayer/book_ui
 @onready var asthma := $CanvasLayer/book_ui/asthma
 @onready var arthritis := $CanvasLayer/book_ui/arthritis
