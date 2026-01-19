@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://2c3xn273ioqh"]
+[gd_scene load_steps=7 format=3 uid="uid://2c3xn273ioqh"]
 
 [ext_resource type="Script" uid="uid://pw810kyi61kc" path="res://scripts/npc_doctor.gd" id="1_84hc2"]
+[ext_resource type="PackedScene" uid="uid://24hf3gs6lhq" path="res://assets/man_walk.tscn" id="2_84hc2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7qyh0"]
 
@@ -9,20 +10,29 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_ceaqc"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84hc2"]
+albedo_color = Color(0.16, 0.16, 0.16, 0.407843)
+
 [node name="npc" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_84hc2")
 
+[node name="man_walk" parent="." instance=ExtResource("2_84hc2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.24016, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
 lod_bias = 0.001
 mesh = SubResource("CapsuleMesh_7qyh0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_ceaqc")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.938732, 0)
 billboard = 2
 no_depth_test = true
 texture = SubResource("ViewportTexture_ceaqc")
@@ -37,12 +47,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -135.0
-offset_top = -200.0
-offset_right = 672.0
-offset_bottom = 447.438
+offset_left = 90.0
+offset_top = -165.0
+offset_right = 174.0
+offset_bottom = 482.438
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
 text = "hello"
-horizontal_alignment = 1
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25666, 0)
+height = 0.0375977
+sides = 20
+material = SubResource("StandardMaterial3D_84hc2")
