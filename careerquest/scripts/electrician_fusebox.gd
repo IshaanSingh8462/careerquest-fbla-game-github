@@ -36,6 +36,7 @@ extends Node3D
 @onready var factory := $factory
 @onready var apartment := $apartment
 @onready var house := $house
+@onready var tutor := $hinge/CSGBox3D/tutor
 
 @onready var red = load("res://scenes/materials/light_red.tres")
 @onready var green = load("res://scenes/materials/green.tres")
@@ -63,6 +64,10 @@ func _physics_process(_delta: float) -> void:
 	elec_location_pick()
 	open_fuse()
 	sw_values()
+	if Global.elec_tutor:
+		tutor.show()
+	else:
+		tutor.hide()
 	ind_num.text = str(Global.load)
 	if Global.load == Global.elec_cond["load_limit"]:
 		indicator.material = green

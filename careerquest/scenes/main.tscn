@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bl3a002q2m7xd"]
+[gd_scene load_steps=34 format=3 uid="uid://bl3a002q2m7xd"]
 
 [ext_resource type="PackedScene" uid="uid://bdqka2d3f064w" path="res://scenes/characters/Player_test.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dh27ydv1onqyl" path="res://assets/meshes/doctor_start_button.tscn" id="1_tefeu"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cq1t24qf85052" path="res://assets/meshes/electrician_start_button.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://fpy2vicl51or" path="res://assets/meshes/book_sign.tscn" id="12_y6deb"]
 [ext_resource type="PackedScene" uid="uid://ckftj6snpsvt" path="res://scenes/careers/outlet.tscn" id="17_muem4"]
 [ext_resource type="PackedScene" uid="uid://c66kqnkfy0xkc" path="res://scenes/careers/coffee_test.tscn" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://dgy033mxhe56w" path="res://scenes/careers/house.tscn" id="20_gqmmt"]
@@ -156,11 +157,14 @@ material = SubResource("StandardMaterial3D_gqmmt")
 [node name="DoctorRoom" parent="." instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 
+[node name="book_sign" parent="DoctorRoom" instance=ExtResource("12_y6deb")]
+transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -5.05195, 2.63498, -0.864067)
+
 [node name="npc" parent="." instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.589428, 0.577635, 7.93699)
 
 [node name="book" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(0.665175, 0, 0, 0, 0.195492, 0, 0, 0, 1, -4.49337, 2.26301, -1.01219)
+transform = Transform3D(0.665175, 0, 0, 0, 0.195492, 0, 0, 0, 1, -4.49337, 2.26301, 0.0275201)
 
 [node name="hospital_bed" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(-0.06, 0, -5.24537e-09, 0, 0.06, 0, 5.24537e-09, 0, -0.06, 3.754, 0.225, -2.79084)

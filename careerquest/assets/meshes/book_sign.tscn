@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://fpy2vicl51or"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tytl"]
+albedo_color = Color(0.355314, 0.355314, 0.355314, 1)
+metallic = 0.5
+metallic_specular = 0.48
+roughness = 0.3
+
+[sub_resource type="PrismMesh" id="PrismMesh_6tytl"]
+
+[node name="book_sign" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.89065, 0.45469, 0, -0.45469, 0.89065, 0, 0, 0.0795082)
+text = "Doctor Handbook
+"
+font_size = 25
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(-9.83767e-09, 0, 1.25241, 0, 0.276443, 0, -0.22506, 0, -5.47446e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_6tytl")
+mesh = SubResource("PrismMesh_6tytl")
