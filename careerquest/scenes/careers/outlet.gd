@@ -25,12 +25,17 @@ func _process(_delta: float) -> void:
 
 func remove_case():
 	if Global.active_tool != 0:
-		print("use a screwdriver")
-		print("case")
+		if Global.score > 5:
+			Global.score -= 5
+		Global.notification = "Ow! Use a screwdriver."
+		await get_tree().create_timer(2.0).timeout
+		Global.notification = ""
 		return
 	if outlet["is_case_removed"]:
 		if outlet["is_unplugged"]:
-			print("fix plug first")
+			Global.notification = "fix plug first"
+			await get_tree().create_timer(2.0).timeout
+			Global.notification = ""
 			return
 		outlet["is_case_removed"] = false
 		case.position = Vector3(0,1.331,.08)
@@ -41,11 +46,15 @@ func remove_case():
 		case.position = Vector3(-.55,.275,1)
 		case.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
 		print("Case removed on outlet ", outlet_id)
+	print(Global.score)
 
 func unplug():
 	if Global.active_tool != 0:
-		print("use a screwdriver")
-		print("unplug")
+		if Global.score > 5:
+			Global.score -= 5
+		Global.notification = "Ow! Use a screwdriver."
+		await get_tree().create_timer(2.0).timeout
+		Global.notification = ""
 		return
 	if outlet["is_unplugged"]:
 		outlet["is_unplugged"] = false
@@ -57,15 +66,25 @@ func unplug():
 		plug.position = Vector3(1.591,.25,1.672)
 		plug.rotation = Vector3(deg_to_rad(-90),deg_to_rad(35),0)
 		print("Plug removed on outlet ", outlet_id)
+	print(Global.score)
 
 func fix_wiring():
 	if Global.active_tool != 1:
-		print("use a wrench")
+		if Global.score > 5:
+			Global.score -= 5
+		Global.notification = "Ow! Use a wrench."
+		await get_tree().create_timer(2.0).timeout
+		Global.notification = ""
 		return
 	outlet_ui.show()
 	if !wire1.visible and !wire2.visible:
+		if !outlet["is_fixed"]:
+			Global.score += 50
 		outlet["is_fixed"] = true
-		print("Outlet fixed! ", outlet_id)
+		Global.notification = "Outlet fixed! " + str(outlet_id)
+		await get_tree().create_timer(2.0).timeout
+		Global.notification = ""
+	print(Global.score)
 
 func reset():
 	case.position = Vector3(0,1.331,.08)
@@ -75,7 +94,8 @@ func reset():
 	outlet["is_case_removed"] = false
 	outlet["is_unplugged"] = false
 	outlet["is_fixed"] = false
-
+	wire1.show()
+	wire2.show()
 
 func _on_wire_1_pressed() -> void:
 	wire1.hide() # Replace with function body.
