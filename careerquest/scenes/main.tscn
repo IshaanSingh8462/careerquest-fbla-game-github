@@ -10,13 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://b8ra7oup1he2q" path="res://assets/meshes/therm_on_good.tscn" id="6_muem4"]
 [ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="7_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://caskeegrftea5" path="res://assets/meshes/therm_off.tscn" id="7_muem4"]
-[ext_resource type="PackedScene" uid="uid://bd2l2d82sh4rd" path="res://assets/meshes/book.tscn" id="7_o6xl0"]
 [ext_resource type="Material" uid="uid://d28oag3bivmvk" path="res://scenes/materials/white.tres" id="8_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://b5uuv8v1rrh5q" path="res://assets/meshes/popsicle.tscn" id="9_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://w52ivpn8bbqm" path="res://scenes/careers/electrician_switch_repair.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://d2aiw1b6iekbg" path="res://assets/meshes/hospital_bed.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cq1t24qf85052" path="res://assets/meshes/electrician_start_button.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://fpy2vicl51or" path="res://assets/meshes/book_sign.tscn" id="12_y6deb"]
+[ext_resource type="PackedScene" uid="uid://b8okw61u6r1or" path="res://assets/meshes/book_asset.tscn" id="14_y6deb"]
 [ext_resource type="PackedScene" uid="uid://ckftj6snpsvt" path="res://scenes/careers/outlet.tscn" id="17_muem4"]
 [ext_resource type="PackedScene" uid="uid://c66kqnkfy0xkc" path="res://scenes/careers/coffee_test.tscn" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://dgy033mxhe56w" path="res://scenes/careers/house.tscn" id="20_gqmmt"]
@@ -158,13 +158,10 @@ material = SubResource("StandardMaterial3D_gqmmt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 
 [node name="book_sign" parent="DoctorRoom" instance=ExtResource("12_y6deb")]
-transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -5.05195, 2.63498, -0.864067)
+transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -5.05181, 2.63498, -0.868651)
 
 [node name="npc" parent="." instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.589428, 0.577635, 7.93699)
-
-[node name="book" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(0.665175, 0, 0, 0, 0.195492, 0, 0, 0, 1, -4.49337, 2.26301, 0.0275201)
 
 [node name="hospital_bed" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(-0.06, 0, -5.24537e-09, 0, 0.06, 0, 5.24537e-09, 0, -0.06, 3.754, 0.225, -2.79084)
@@ -201,10 +198,10 @@ visible = false
 
 [node name="factory2" parent="electric_scene" instance=ExtResource("22_jscy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.99024, 0)
-visible = false
 
 [node name="apartment2" parent="electric_scene" instance=ExtResource("23_pm3ni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04953, 3.18502, 3.24904)
+visible = false
 
 [node name="nasa" parent="electric_scene" instance=ExtResource("24_y6deb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251733, 4.15486)
@@ -222,3 +219,6 @@ size = Vector3(14, 16, 14)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 7.523)
 operation = 2
 size = Vector3(4, 6, 4)
+
+[node name="book" parent="." instance=ExtResource("14_y6deb")]
+transform = Transform3D(0.124346, 0, -0.216883, 0, 0.1, 0, 0.216883, 0, 0.124346, -3.98344, 2.34303, 0)

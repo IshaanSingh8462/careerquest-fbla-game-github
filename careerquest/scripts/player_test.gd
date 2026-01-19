@@ -50,7 +50,7 @@ var doc_tool_processing := false
 @onready var backward := $CanvasLayer/book_ui/buttons/backwards
 @onready var player_dia := $CanvasLayer/player_dialogue_main
 @onready var player_dia_exit := $CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2/exit
-@onready var pages = [toc, tools, asthma, arthritis, flu, copd, migraine, diabetes, gerd, iron, blood]
+@onready var pages = [toc, asthma, arthritis, flu, copd, migraine, diabetes, gerd, iron, blood, tools]
 
 #electrician tools
 @onready var screw := $head/camera/screw
@@ -283,7 +283,7 @@ func _physics_process(delta: float) -> void:
 		backward.hide()
 	else:
 		backward.show()
-	if blood.visible:
+	if tools.visible:
 		forward.hide()
 	else:
 		forward.show()
