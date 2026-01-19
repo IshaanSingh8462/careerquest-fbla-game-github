@@ -559,7 +559,6 @@ layout_mode = 2
 text = "Press E to interact"
 
 [node name="book_ui" type="PanelContainer" parent="CanvasLayer"]
-visible = false
 custom_minimum_size = Vector2(450, 350)
 anchors_preset = 8
 anchor_left = 0.5
@@ -573,7 +572,89 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="toc" type="PanelContainer" parent="CanvasLayer/book_ui"]
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/toc"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/toc"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/book_ui/toc/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Table of Contents"
+horizontal_alignment = 1
+
+[node name="tools" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/tools"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = -50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+
+[node name="tool" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Tools        "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 13
+text = "
+All Tools and Descriptions"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 275)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "  More tools     "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "More Tool 
+Descriptions
+"
+horizontal_alignment = 1
+
 [node name="asthma" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
@@ -1335,7 +1416,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="forward" type="Button" parent="CanvasLayer/book_ui/buttons"]
-custom_minimum_size = Vector2(15, 15)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -1343,7 +1424,7 @@ action_mode = 0
 text = ">"
 
 [node name="escape" type="Button" parent="CanvasLayer/book_ui/buttons"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -1351,6 +1432,7 @@ action_mode = 0
 text = "X"
 
 [node name="backwards" type="Button" parent="CanvasLayer/book_ui/buttons"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -1802,22 +1884,32 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/tutorial"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/tutorial/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/tutorial/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/tutorial/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 75
 text = "Tutorial Here"
 
-[node name="exit" type="Button" parent="CanvasLayer/tutorial/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/tutorial/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="yes" type="Button" parent="CanvasLayer/tutorial/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Got It"
+text = "Yes"
+
+[node name="no" type="Button" parent="CanvasLayer/tutorial/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "No"
 
 [node name="finance_dialoge" type="PanelContainer" parent="CanvasLayer"]
 visible = false
@@ -2672,7 +2764,6 @@ action_mode = 0
 text = "<"
 
 [node name="notification" type="Label" parent="CanvasLayer"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.326
 anchor_top = 0.848765
@@ -2740,12 +2831,18 @@ texture = ExtResource("5_6cpf6")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
 alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Tutorial"
 
 [node name="exit" type="Button" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Exit"
+theme_override_font_sizes/font_size = 35
+text = "Exit Game"
 
 [node name="resume" type="Button" parent="CanvasLayer/pause/menu/MarginContainer"]
 layout_mode = 2
@@ -2770,9 +2867,11 @@ text = "resume"
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer/elec" to="." method="_on_elec_pressed"]
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/back" to="." method="_on_back_career_pressed"]
 [connection signal="pressed" from="CanvasLayer/career_desc/MarginContainer/exit" to="." method="_on_exit_career_desc_pressed"]
-[connection signal="pressed" from="CanvasLayer/tutorial/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_tut_pressed"]
+[connection signal="pressed" from="CanvasLayer/tutorial/MarginContainer/HBoxContainer/yes" to="." method="_on_yes_tutorial_pressed"]
+[connection signal="pressed" from="CanvasLayer/tutorial/MarginContainer/HBoxContainer/no" to="." method="_on_exit_tut_pressed"]
 [connection signal="pressed" from="CanvasLayer/finance_book/buttons/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/finance_book/buttons/escape" to="." method="_on_escape_pressed"]
 [connection signal="pressed" from="CanvasLayer/finance_book/buttons/backwards" to="." method="_on_backwards_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2/exit" to="." method="_on_exit_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/resume" to="." method="_on_resume_pressed"]

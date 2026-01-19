@@ -174,37 +174,36 @@ func npc_dialogue(delta):
 				"My chest feels heavy and tight."
 			],
 			"flu": [
-				"I feel feverish and weak. Also i've had a sore throat",
-				"My whole body aches, and.",
+				"I feel feverish and weak, and I’ve had a sore throat.",
+				"My whole body aches.",
 				"I can’t stop coughing."
 			],
 			"migraine": [
-				"My head is pounding and i feel like vomiting.",
-				"Bright lights make my head hurt and nauseas.",
+				"My head is pounding and I feel like vomiting.",
+				"Bright lights make my head hurt and make me feel nauseous.",
 				"I feel nauseous when the pain spikes."
 			],
 			"diabetes": [
-				"I’ve been really thirsty and out of energy lately.",
-				"My blood sugar feels low and i go to the bathroom too much.",
+				"I’ve been really thirsty and low on energy lately.",
+				"My blood sugar feels low, and I’m going to the bathroom a lot.",
 				"My energy crashes suddenly."
 			],
 			"acid": [
 				"I feel a burning sensation in my chest and throat sometimes.",
-				"My stomach gets worse after I eat.",
-				"I keep having coughs and chest pain"
+				"My stomach feels worse after I eat.",
+				"I keep having coughing fits and chest discomfort."
 			],
 			"iron": [
 				"I feel tired and fatigued all the time.",
-				"I get dizzy when I stand up, as well as short breath.",
-				"My breathing feels shallow and i always feel fatiqued."
+				"I get dizzy when I stand up, and I feel short of breath.",
+				"My breathing feels shallow, and I always feel fatigued."
 			],
 			"blood_pressure": [
 				"I’ve had a bad headache all day.",
 				"I feel lightheaded and dizzy sometimes.",
-				"I always have a headache and am dizzy all the time."
+				"I keep getting headaches and feeling dizzy."
 			]
 		}
-
 		if chosen_dialogue == "":
 			for cond in all_symptoms:
 				if Global.condition[cond]:

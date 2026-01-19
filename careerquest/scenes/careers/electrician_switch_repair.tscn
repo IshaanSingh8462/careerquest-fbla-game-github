@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://w52ivpn8bbqm"]
+[gd_scene load_steps=12 format=3 uid="uid://w52ivpn8bbqm"]
 
 [ext_resource type="Script" uid="uid://cwa7mnk7e17lg" path="res://scripts/electrician_fusebox.gd" id="1_sgqtv"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_xpqt5"]
 [ext_resource type="Material" uid="uid://cckr4glkoaqdu" path="res://scenes/materials/dark_yellow.tres" id="2_1qikm"]
+[ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="4_6f78w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgqtv"]
 albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
@@ -12,6 +13,9 @@ albedo_color = Color(0.4, 0.4, 0.4, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f78w"]
 albedo_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6f78w"]
+viewport_path = NodePath("hinge/CSGBox3D/tutor/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sgqtv"]
 viewport_path = NodePath("switch1_label/SubViewport")
@@ -103,6 +107,18 @@ use_collision = true
 collision_layer = 16
 size = Vector3(1.425, 1.75, 0.05)
 material = ExtResource("1_xpqt5")
+
+[node name="tutor" type="Sprite3D" parent="hinge/CSGBox3D"]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 0.0112112, 0, -0.0252553)
+texture = SubResource("ViewportTexture_6f78w")
+
+[node name="SubViewport" type="SubViewport" parent="hinge/CSGBox3D/tutor"]
+size = Vector2i(125, 175)
+
+[node name="TextureRect" type="TextureRect" parent="hinge/CSGBox3D/tutor/SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_6f78w")
 
 [node name="circuit_button1" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw1"]]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.7, 0.3)

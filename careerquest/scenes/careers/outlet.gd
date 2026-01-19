@@ -10,7 +10,7 @@ class_name Outlet
 @onready var outlet_ui := $CanvasLayer/outlet_game
 @onready var wire1 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control/wire1
 @onready var wire2 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control2/wire2
-
+@onready var tutor := $CanvasLayer/outlet_game/MarginContainer/tutor
 
 var outlet = {"is_case_removed":false,"is_unplugged":false,"is_fixed":false}
 
@@ -22,12 +22,16 @@ func _process(_delta: float) -> void:
 		Global.mouse_mode = 1
 	if !wire1.visible and !wire2.visible:
 		outlet_ui.hide()
+	if Global.elec_tutor:
+		tutor.show()
+	else:
+		tutor.hide()
 
 func remove_case():
 	if Global.active_tool != 0:
 		if Global.score > 5:
 			Global.score -= 5
-		Global.notification = "Ow! Use a screwdriver."
+		Global.notification = "Ow! Use a screwdriver to disasemble the outlet. -5 points"
 		await get_tree().create_timer(2.0).timeout
 		Global.notification = ""
 		return
@@ -52,7 +56,7 @@ func unplug():
 	if Global.active_tool != 0:
 		if Global.score > 5:
 			Global.score -= 5
-		Global.notification = "Ow! Use a screwdriver."
+		Global.notification = "Ow! Use a screwdriver to disasemble the outlet. -5 points"
 		await get_tree().create_timer(2.0).timeout
 		Global.notification = ""
 		return
@@ -69,19 +73,24 @@ func unplug():
 	print(Global.score)
 
 func fix_wiring():
-	if Global.active_tool != 1:
+	if Global.active_tool != 1 and wire1.visible and wire2.visible:
 		if Global.score > 5:
 			Global.score -= 5
-		Global.notification = "Ow! Use a wrench."
+		Global.notification = "Ow! Use a wrench to access the wires. -5 points"
 		await get_tree().create_timer(2.0).timeout
 		Global.notification = ""
 		return
 	outlet_ui.show()
 	if !wire1.visible and !wire2.visible:
+		if Global.active_tool == 2:
+			Global.notification = "Ow! Use tape to fix the wire. -5 points"
+			await get_tree().create_timer(2.0).timeout
+			Global.notification = ""
+			return
 		if !outlet["is_fixed"]:
 			Global.score += 50
 		outlet["is_fixed"] = true
-		Global.notification = "Outlet fixed! " + str(outlet_id)
+		Global.notification = "Outlet fixed! " + str(outlet_id) + " +50 points"
 		await get_tree().create_timer(2.0).timeout
 		Global.notification = ""
 	print(Global.score)

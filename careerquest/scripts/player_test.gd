@@ -35,6 +35,8 @@ var doc_tool_processing := false
 @onready var label := $CanvasLayer/Interact
 @onready var book := $CanvasLayer/Book
 @onready var book_ui := $CanvasLayer/book_ui
+@onready var toc := $CanvasLayer/book_ui/toc
+@onready var tools := $CanvasLayer/book_ui/tools
 @onready var asthma := $CanvasLayer/book_ui/asthma
 @onready var arthritis := $CanvasLayer/book_ui/arthritis
 @onready var flu := $CanvasLayer/book_ui/flu
@@ -48,7 +50,7 @@ var doc_tool_processing := false
 @onready var backward := $CanvasLayer/book_ui/buttons/backwards
 @onready var player_dia := $CanvasLayer/player_dialogue_main
 @onready var player_dia_exit := $CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2/exit
-@onready var pages = [asthma, arthritis, flu, copd, migraine, diabetes, gerd, iron, blood]
+@onready var pages = [toc, tools, asthma, arthritis, flu, copd, migraine, diabetes, gerd, iron, blood]
 
 #electrician tools
 @onready var screw := $head/camera/screw
@@ -175,6 +177,7 @@ func _physics_process(delta: float) -> void:
 	book_ui.hide()
 	flip_book()
 	check_comp()
+
 	#detects what the player is looking at, then performs functions based off of object
 	var object = ray.get_collider()
 	if ray.is_colliding() and !Global.pause_game:
@@ -198,9 +201,13 @@ func _physics_process(delta: float) -> void:
 							if Global.active_tool == 1 and !doc_tool_processing:
 								doc_tool_processing = true
 								Global.doc_therm_text = ""
-								for i in range(3):
-									print("whirring...")
-									await get_tree().create_timer(1.0).timeout
+								Global.notification = "wirrring ."
+								await get_tree().create_timer(1.0).timeout
+								Global.notification = "wirrring . ."
+								await get_tree().create_timer(1.0).timeout
+								Global.notification = "wirrring . . ."
+								await get_tree().create_timer(1.0).timeout
+								Global.notification = ""
 								Global.doc_therm_text = str(Global.condition["temp"])
 								therm_off.hide()
 								therm_on_good.show()
@@ -272,7 +279,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		label.hide()
 	#hides/shows forward/backward button of doctor book
-	if asthma.visible:
+	if toc.visible:
 		backward.hide()
 	else:
 		backward.show()
@@ -639,11 +646,25 @@ func _on_elec_pressed() -> void:
 	tutorial.show()
 	star.show()
 	print("elec start") # Replace with function body.
-
-#provides 
+ 
 func _on_exit_career_desc_pressed() -> void:
 	career_desc.hide()
 	careers.show()
 
 func _on_exit_tut_pressed() -> void:
 	tutorial.hide() # Replace with function body.
+	if Global.is_doc:
+		Global.doc_tutor = false
+	elif Global.is_elec:
+		Global.elec_tutor = false
+
+func _on_yes_tutorial_pressed() -> void:
+	tutorial.hide() # Replace with function body.
+	if Global.is_doc:
+		Global.doc_tutor = true
+	elif Global.is_elec:
+		Global.elec_tutor = false
+
+func _on_button_pressed() -> void:
+	tutorial.show() # Replace with function body.
+	pause.hide()
