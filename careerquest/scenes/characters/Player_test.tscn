@@ -1,13 +1,17 @@
-[gd_scene load_steps=44 format=3 uid="uid://bdqka2d3f064w"]
+[gd_scene load_steps=55 format=3 uid="uid://bdqka2d3f064w"]
 
 [ext_resource type="Script" uid="uid://yk7kd85cj3ga" path="res://scripts/player_test.gd" id="1_hsp13"]
 [ext_resource type="Theme" uid="uid://cxrydcyxxpyyo" path="res://scenes/themes/hotbar_theme.tres" id="2_aawdi"]
 [ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="3_8pp3b"]
 [ext_resource type="Script" uid="uid://u1kqhcqr8l66" path="res://scripts/elec_options.gd" id="3_hc7jq"]
 [ext_resource type="Theme" uid="uid://deffnhbprtfok" path="res://scenes/themes/doc_npc_dialogue_buttons.tres" id="4_rduta"]
+[ext_resource type="Texture2D" uid="uid://bbl0gbm650hly" path="res://assets/ui/toc (1).png" id="4_y1wan"]
 [ext_resource type="Texture2D" uid="uid://dplkl0fsnj3" path="res://icon.svg" id="5_6cpf6"]
 [ext_resource type="Script" uid="uid://65rwq1uac1fs" path="res://scripts/timer.gd" id="5_o0pbu"]
+[ext_resource type="Texture2D" uid="uid://b2um5jl44bvhi" path="res://assets/ui/asthma (1).png" id="5_umnwt"]
 [ext_resource type="Theme" uid="uid://bxx1chvk1fi8r" path="res://scenes/themes/main_button.tres" id="6_6cpf6"]
+[ext_resource type="Theme" uid="uid://sua8phdbddqc" path="res://scenes/themes/book_buttons_theme.tres" id="6_umnwt"]
+[ext_resource type="Texture2D" uid="uid://o15gbefnhabt" path="res://assets/ui/doc_tut.png" id="8_p84as"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pdv6x"]
 
@@ -159,6 +163,45 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_rduta"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_aawdi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4ujy"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_hv7wh"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o4ujy")
+
+[sub_resource type="Theme" id="Theme_f50n0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43jgg"]
+bg_color = Color(0.92631, 0.190819, 0.26507, 1)
+border_width_bottom = 5
+border_color = Color(0.541176, 0.0666667, 0.12549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14mdm"]
+bg_color = Color(0.757587, 0.118826, 0.195877, 1)
+border_width_bottom = 5
+border_color = Color(0.541176, 0.0666667, 0.12549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjpnl"]
+bg_color = Color(0.539572, 0.0658531, 0.126666, 1)
+border_width_top = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_62hnx"]
+Button/styles/hover = SubResource("StyleBoxFlat_43jgg")
+Button/styles/normal = SubResource("StyleBoxFlat_14mdm")
+Button/styles/pressed = SubResource("StyleBoxFlat_xjpnl")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0pbu"]
 
@@ -394,6 +437,7 @@ layout_mode = 2
 text = "5. Reflex Hammer"
 
 [node name="elec_hotbar" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.282
 anchor_top = 0.031
@@ -578,158 +622,16 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/toc"]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/toc"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = 0
-
-[node name="Label" type="Label" parent="CanvasLayer/book_ui/toc/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Table of Contents"
-horizontal_alignment = 1
-
-[node name="tools" type="PanelContainer" parent="CanvasLayer/book_ui"]
-visible = false
-custom_minimum_size = Vector2(450, 350)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/tools"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 45
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-
-[node name="tool" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Tools        "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 13
-text = "
-All Tools and Descriptions"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 275)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "  More tools     "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "More Tool 
-Descriptions
-"
-horizontal_alignment = 1
+texture = ExtResource("4_y1wan")
 
 [node name="asthma" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/asthma"]
-custom_minimum_size = Vector2(400, 300)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/asthma"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/asthma/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 45
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-
-[node name="asthma" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Asthma         "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 13
-text = "
-Symptoms:
-- Cough
-- Shortness of breath
-- Chest pain
-
-Prescription
-- Inhaler
-
-Lifestyle Change
-- Avoid triggers (smoke, 
-allergens, cold air, etc.)
-- Regular exercise"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 275)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description     "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/asthma/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "Asthma is a Chronic
-Lung Disease where 
-airways become
- inflamed, swollen,
- and narrow, leading 
-to symptoms like 
-coughing, chest
- tightness, and 
-shortness of breath"
-horizontal_alignment = 1
+texture = ExtResource("5_umnwt")
 
 [node name="arthritis" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
@@ -1409,11 +1311,73 @@ indicate hypertension
 "
 horizontal_alignment = 1
 
+[node name="tools" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/tools"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = -50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+
+[node name="tool" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Tools        "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 13
+text = "
+All Tools and Descriptions"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 275)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="description" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "  More tools     "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "More Tool 
+Descriptions
+"
+horizontal_alignment = 1
+
 [node name="buttons" type="MarginContainer" parent="CanvasLayer/book_ui"]
 custom_minimum_size = Vector2(425, 325)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("6_umnwt")
 
 [node name="forward" type="Button" parent="CanvasLayer/book_ui/buttons"]
 custom_minimum_size = Vector2(30, 30)
@@ -1440,6 +1404,7 @@ action_mode = 0
 text = "<"
 
 [node name="timer" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -1464,6 +1429,7 @@ offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 31
+text = "01:35"
 
 [node name="Timer" type="Timer" parent="CanvasLayer/timer"]
 
@@ -1715,7 +1681,6 @@ size_flags_vertical = 8
 text = "Back"
 
 [node name="careers" type="PanelContainer" parent="CanvasLayer"]
-visible = false
 custom_minimum_size = Vector2(1200, 750)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1751,7 +1716,7 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="doc" type="Button" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -1770,6 +1735,14 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 75
 text = "Electrician"
 
+[node name="elec2" type="Button" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 75
+text = "Finance"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 150
@@ -1782,6 +1755,12 @@ text = "High Score: 0"
 horizontal_alignment = 1
 
 [node name="elec" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "High Score: 0"
+horizontal_alignment = 1
+
+[node name="elec2" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "High Score: 0"
@@ -1880,6 +1859,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_hv7wh")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/tutorial"]
 layout_mode = 2
@@ -1889,27 +1869,26 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/tutorial/MarginContainer"]
+[node name="Label" type="TextureRect" parent="CanvasLayer/tutorial/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 75
-text = "Tutorial Here"
+texture = ExtResource("8_p84as")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/tutorial/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme = SubResource("Theme_f50n0")
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="yes" type="Button" parent="CanvasLayer/tutorial/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Yes"
-
 [node name="no" type="Button" parent="CanvasLayer/tutorial/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_62hnx")
 theme_override_font_sizes/font_size = 35
-text = "No"
+text = "X"
 
 [node name="finance_dialoge" type="PanelContainer" parent="CanvasLayer"]
 visible = false
@@ -2865,9 +2844,9 @@ text = "resume"
 [connection signal="pressed" from="CanvasLayer/credits/MarginContainer/back" to="." method="_on_back_main_pressed"]
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer/doc" to="." method="_on_start_doc_pressed"]
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer/elec" to="." method="_on_elec_pressed"]
+[connection signal="pressed" from="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer/elec2" to="." method="_on_elec_pressed"]
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/back" to="." method="_on_back_career_pressed"]
 [connection signal="pressed" from="CanvasLayer/career_desc/MarginContainer/exit" to="." method="_on_exit_career_desc_pressed"]
-[connection signal="pressed" from="CanvasLayer/tutorial/MarginContainer/HBoxContainer/yes" to="." method="_on_yes_tutorial_pressed"]
 [connection signal="pressed" from="CanvasLayer/tutorial/MarginContainer/HBoxContainer/no" to="." method="_on_exit_tut_pressed"]
 [connection signal="pressed" from="CanvasLayer/finance_book/buttons/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/finance_book/buttons/escape" to="." method="_on_escape_pressed"]
