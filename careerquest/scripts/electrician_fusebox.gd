@@ -102,7 +102,9 @@ func switches_move(switch):
 				switches[i].global_rotation.y = deg_to_rad(30)
 			elif abs(angle - deg_to_rad(30)) < 0.01:
 				switches[i].global_rotation.y = deg_to_rad(-30)
+			print(Global.score)
 
+var electrified = false
 func sw_values():
 	if Global.elec_job_comp["breaker"]:
 		return
@@ -113,11 +115,17 @@ func sw_values():
 		else:
 			sw_value[i].material = red
 	if Global.tripped_status:
+		if !electrified:
+			if Global.score > 5:
+				Global.score -= 5
+			electrified = true
 		indicator.material = red
 		for i in sw_value:
 			i.material = red
 	else:
 		indicator.material = yellow
+	if !Global.tripped_status and electrified:
+		electrified = false
 
 func elec_location_pick():
 	if Global.is_elec and not elec_location_pick_:
@@ -131,7 +139,6 @@ func elec_location_pick():
 		loc_coll()
 		openingFuse = true
 		rot = Vector3(0,0,0)
-
 
 func loc_coll():
 	var loc = {
@@ -157,7 +164,6 @@ func loc_coll():
 
 func check_comp():
 	if Global.elec_games:
-		#elec_location_pick_ = false
 		fuse_door.global_rotation = Vector3(0,deg_to_rad(179.5),0)
 		house.position.y = 3
 		apartment.position.y = 3

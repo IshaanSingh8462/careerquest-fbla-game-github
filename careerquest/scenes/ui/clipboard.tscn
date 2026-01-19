@@ -325,6 +325,7 @@ layout_mode = 2
 text = "Thirsty/Hungry"
 
 [node name="prescriptions" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 2

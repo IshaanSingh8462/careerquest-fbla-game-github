@@ -3,13 +3,15 @@ extends Node
 var pause_game = null
 var mouse_mode = 0 #0=captured, 1=visible
 
+var notification = ""
+
 '''doctor variables'''
 var is_doc = false
 var doc_tutor = true
 
 #condition
 var condition = {"asthma":false, "arthritis":false, "copd":false, "flu":false, "migraine":false,
-"diabetes":false, "acid":false, "iron":false, "blood_pressure":false, "temp":0, "sugar":0}
+"diabetes":false, "acid":false, "iron":false, "blood_pressure":false, "temp":0, "sugar":0, "symptoms":""}
 
 var random_symp = false
 var repetition = 0
@@ -94,7 +96,7 @@ var elec_cond = {
 
 func calc_load():
 	load = 0
-	var load_limits = [29, 22, 15]
+	var load_limits = [15, 22, 29]
 
 	# Calculate load
 	for i in range(10):

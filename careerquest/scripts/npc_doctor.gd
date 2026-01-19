@@ -97,7 +97,6 @@ func random():
 			dictionary["dob"] = (str(2) + "/" + str(random_month) + "/" + str(random_year))
 		print(dictionary["condition"], ", ", dictionary["first_name"], " ", dictionary["last_name"], ", ", dictionary["gender"], ", ", dictionary["dob"])
 		Global.random_symp = false
-	
 #tests to see what condition the npc has
 func get_condition():
 	for i in all_symptoms:

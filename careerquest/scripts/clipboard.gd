@@ -106,7 +106,7 @@ func button_visible():
 	else:
 		forward.show()
 
-#grades player checkbox input based on condition, also totals points after 5 rounds
+#grades player checkbox input based on condition -> point add up to 100 if all correct
 func checkbox_checker():
 	if Global.condition["asthma"]:
 		if short_breath.button_pressed:
@@ -116,6 +116,7 @@ func checkbox_checker():
 		if (joint_pain.button_pressed or swell.button_pressed or cough.button_pressed or sore_throat.button_pressed or headache.button_pressed or 
 			nausea.button_pressed or vomit.button_pressed or urination.button_pressed or dizzy.button_pressed or fever.button_pressed or fatigue.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "short breath and chest pain"
 	if Global.condition["arthritis"]:
 		if joint_pain.button_pressed:
 			Global.score += 50
@@ -125,76 +126,83 @@ func checkbox_checker():
 			nausea.button_pressed or vomit.button_pressed or urination.button_pressed or dizzy.button_pressed or fever.button_pressed or 
 			fatigue.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "joint pain and swelling"
 	if Global.condition["flu"]:
 		if fever.button_pressed:
-			Global.score += 50
+			Global.score += 20
 		if cough.button_pressed:
-			Global.score += 50
+			Global.score += 20
 		if sore_throat.button_pressed:
-			Global.score += 50
+			Global.score += 20
 		if headache.button_pressed:
-			Global.score += 50
+			Global.score += 20
 		if fatigue.button_pressed:
-			Global.score += 50
+			Global.score += 20
 		if (short_breath.button_pressed or chest_pain.button_pressed or joint_pain.button_pressed or 
 			swell.button_pressed or nausea.button_pressed or vomit.button_pressed or urination.button_pressed or dizzy.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "fever, cough, sore throat, headache, and fatique"
 	if Global.condition["copd"]:
 		if cough.button_pressed:
-			Global.score += 50
+			Global.score += 25
 		if short_breath.button_pressed:
-			Global.score += 50
+			Global.score += 25
 		if fatigue.button_pressed:
-			Global.score += 50
+			Global.score += 25
 		if chest_pain.button_pressed:
-			Global.score += 50
+			Global.score += 25
 		if (joint_pain.button_pressed or swell.button_pressed or sore_throat.button_pressed or headache.button_pressed or nausea.button_pressed or vomit.button_pressed
 			 or urination.button_pressed or dizzy.button_pressed or fever.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "cough, short breath, fatigue, chest pain"
 	if Global.condition["migraine"]:
 		if headache.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if nausea.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if vomit.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if (short_breath.button_pressed or chest_pain.button_pressed or joint_pain.button_pressed or 
 			swell.button_pressed or cough.button_pressed or sore_throat.button_pressed or urination.button_pressed or dizzy.button_pressed or fever.button_pressed or 
 			fatigue.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "headache, nausea and vomit"
 	if Global.condition["diabetes"]:
 		if urination.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if fatigue.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if thirst_hunger.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if (short_breath.button_pressed or chest_pain.button_pressed or joint_pain.button_pressed or 
 			swell.button_pressed or cough.button_pressed or sore_throat.button_pressed or headache.button_pressed or 
 			nausea.button_pressed or vomit.button_pressed or dizzy.button_pressed or fever.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "urination, fatigue and thirsty/hungery"
 	if Global.condition["acid"]:
 		if chest_pain.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if cough.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if sore_throat.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if (short_breath.button_pressed or joint_pain.button_pressed or swell.button_pressed or 
 		headache.button_pressed or nausea.button_pressed or vomit.button_pressed or urination.button_pressed 
 		or dizzy.button_pressed or fever.button_pressed or fatigue.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "chest pain, cough, and sore throat"
 	if Global.condition["iron"]:
 		if short_breath.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if fatigue.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if dizzy.button_pressed:
-			Global.score += 50
+			Global.score += 33.34
 		if (chest_pain.button_pressed or joint_pain.button_pressed or 
 			swell.button_pressed or cough.button_pressed or sore_throat.button_pressed or headache.button_pressed or 
 			nausea.button_pressed or vomit.button_pressed or urination.button_pressed or fever.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "short breath, fatigue, and dizziness"
 	if Global.condition["blood_pressure"]:
 		if headache.button_pressed:
 			Global.score += 50
@@ -205,8 +213,8 @@ func checkbox_checker():
 			nausea.button_pressed or vomit.button_pressed or urination.button_pressed or fever.button_pressed or 
 			fatigue.button_pressed or thirst_hunger.button_pressed):
 			Global.score -= 25
+		Global.clipboard_info["symptoms"] = "headache and dizziness"
 	remove_check()
-	print(Global.score)
 
 #resets all checkboxes
 func remove_check():
@@ -231,7 +239,7 @@ func timer_scoring():
 	var sec = Global.timer_info[1]
 	sec += minu
 	if sec <= 90:
-		Global.score += 20
+		Global.score += 50
 	elif sec > 90 and sec <= 120:
 		Global.score += 30
 	elif (minu >= 2 and sec >= 30):
@@ -246,6 +254,7 @@ func presc_check(string):
 				if string.find(keyword) != -1:
 					Global.score += 50
 					break  # stop after first match for this condition
+			Global.clipboard_info["prescription"] = prescription[condition]
 
 func go_to_info():
 	page1.hide()
