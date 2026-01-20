@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckftj6snpsvt"]
+[gd_scene load_steps=12 format=3 uid="uid://ckftj6snpsvt"]
 
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_4puoi"]
 [ext_resource type="Script" uid="uid://bw5fxfg4j84dx" path="res://scenes/careers/outlet.gd" id="1_65d66"]
+[ext_resource type="Texture2D" uid="uid://l0kmqy4bna1l" path="res://scenes/ui/wires_full.png" id="3_6ovc1"]
+[ext_resource type="Texture2D" uid="uid://cy6vg5uw1lyc3" path="res://scenes/ui/wires_blue_cut.png" id="4_26w5i"]
+[ext_resource type="Texture2D" uid="uid://d2yogtu2taos5" path="res://scenes/ui/wires_red_cut.png" id="5_arlk1"]
+[ext_resource type="Texture2D" uid="uid://b8dp8nrs0pmjr" path="res://scenes/ui/wires_cut.png" id="6_1hjii"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tw7mg"]
 albedo_color = Color(0.295867, 0.295866, 0.295866, 1)
@@ -11,6 +15,15 @@ albedo_color = Color(0.151276, 0.151276, 0.151276, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ndne"]
 albedo_color = Color(0.414066, 0.414066, 0.414066, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ovc1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_26w5i"]
+Button/styles/focus = SubResource("StyleBoxFlat_6ovc1")
+Button/styles/hover = SubResource("StyleBoxFlat_6ovc1")
+Button/styles/normal = SubResource("StyleBoxFlat_6ovc1")
+Button/styles/pressed = SubResource("StyleBoxFlat_6ovc1")
 
 [node name="outlet" type="Node3D"]
 script = ExtResource("1_65d66")
@@ -97,84 +110,65 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/outlet_game"]
+[node name="wire_full" type="TextureRect" parent="CanvasLayer/outlet_game"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+texture = ExtResource("3_6ovc1")
+expand_mode = 2
 
-[node name="tutor" type="RichTextLabel" parent="CanvasLayer/outlet_game/MarginContainer"]
+[node name="wire_blue_cut" type="TextureRect" parent="CanvasLayer/outlet_game"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
-text = "Cut the wires to make them ready for replacement"
+texture = ExtResource("4_26w5i")
+expand_mode = 2
+
+[node name="wire_red_cut" type="TextureRect" parent="CanvasLayer/outlet_game"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_arlk1")
+expand_mode = 2
+
+[node name="wire_cut" type="TextureRect" parent="CanvasLayer/outlet_game"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_1hjii")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/outlet_game"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/outlet_game/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Cut the wires to make them
+ ready for replacement"
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/outlet_game"]
 layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 75
-alignment = 1
-
-[node name="Panel" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 75
-alignment = 1
-
-[node name="Panel" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer3"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer2/HBoxContainer3"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/outlet_game/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme = SubResource("Theme_26w5i")
+theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="wire1" type="Button" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
-
-[node name="wire1" type="Button" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
-text = "Wire 1"
 
-[node name="Control2" type="Control" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="wire2" type="Button" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
-
-[node name="wire2" type="Button" parent="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control2"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
-text = "Wire 2"
 
-[connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control/wire1" to="." method="_on_wire_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control2/wire2" to="." method="_on_wire_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/wire1" to="." method="_on_wire_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/wire2" to="." method="_on_wire_2_pressed"]
