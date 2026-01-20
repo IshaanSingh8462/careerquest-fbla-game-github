@@ -21,7 +21,15 @@ var score = 0
 #clipboard
 var clipboard_info = {"first":null,"last":null,"dob":null,"gender":null,"clip_ui":null,"checkbox_checked":null,
 "clicked":null,"forward":null,"backward":null, "is_editing":null}
-var doc_desc = ["asthma desc", "arthritis desc", "copd desc", "flu desc", "migraine desc", "diabetes desc", "acid desc", "iron desc", "blood pressure desc"]
+var doc_desc = ["Asthma is a long-term condition where the airways become inflamed and narrow, making it hard to breathe. People may experience wheezing, coughing, chest tightness, or shortness of breath, often triggered by exercise, allergens, or cold air.", 
+"Arthritis causes inflammation in the joints, leading to pain, stiffness, and swelling. It can make everyday movements difficult and often worsens with age or repeated joint use.", 
+"Chronic Obstructive Pulmonary Disease (COPD) is a progressive lung disease that makes breathing increasingly difficult. It is commonly caused by long-term smoking and includes symptoms like chronic cough and shortness of breath.c", 
+"The flu is a contagious viral infection that affects the respiratory system. Common symptoms include fever, chills, body aches, fatigue, and a sore throat.", 
+"A migraine is a severe headache often accompanied by nausea, light sensitivity, or visual disturbances. Attacks can last for hours or even days and may be triggered by stress, food, or lack of sleep.",
+ "Diabetes is a condition where the body has trouble regulating blood sugar levels. This can happen when the body does not make enough insulin or cannot use it effectively.", 
+"GERD is a chronic condition where stomach acid frequently flows back into the esophagus. This can cause heartburn, chest discomfort, and irritation of the throat, especially after eating or when lying down.", 
+"Iron deficiency occurs when the body does not have enough iron to produce healthy red blood cells. This can lead to fatigue, weakness, and difficulty concentrating.", 
+"High blood pressure happens when the force of blood against artery walls is consistently too strong. Over time, it can damage the heart and increase the risk of serious health problems."]
 
 func pick_doc_desc():
 	var keys = condition.keys()
