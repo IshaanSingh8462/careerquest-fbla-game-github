@@ -8,9 +8,12 @@ class_name Outlet
 @onready var plug := $plug
 @onready var wiring := $wiring
 @onready var outlet_ui := $CanvasLayer/outlet_game
-@onready var wire1 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control/wire1
-@onready var wire2 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/Control2/wire2
-@onready var tutor := $CanvasLayer/outlet_game/MarginContainer/tutor
+@onready var wire1 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/wire1
+@onready var wire2 := $CanvasLayer/outlet_game/MarginContainer/VBoxContainer/wire2
+@onready var wire_full := $CanvasLayer/outlet_game/wire_full
+@onready var wire_blue_cut := $CanvasLayer/outlet_game/wire_blue_cut
+@onready var wire_red_cut := $CanvasLayer/outlet_game/wire_red_cut
+@onready var wire_cut := $CanvasLayer/outlet_game/wire_cut
 
 var outlet = {"is_case_removed":false,"is_unplugged":false,"is_fixed":false}
 
@@ -20,12 +23,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if outlet_ui.visible:
 		Global.mouse_mode = 1
-	if !wire1.visible and !wire2.visible:
+	if wire_cut.visible:
 		outlet_ui.hide()
-	if Global.elec_tutor:
-		tutor.show()
-	else:
-		tutor.hide()
 
 func remove_case():
 	if Global.active_tool != 0:
@@ -73,7 +72,12 @@ func unplug():
 	print(Global.score)
 
 func fix_wiring():
-	if Global.active_tool != 1 and wire1.visible and wire2.visible:
+	if outlet["is_fixed"]:
+		Global.notification = "Outlet already fixed!"
+		await get_tree().create_timer(2.0).timeout
+		Global.notification = ""
+		return
+	if Global.active_tool != 1 and !wire_cut.visible:
 		if Global.score > 5:
 			Global.score -= 5
 		Global.notification = "Ow! Use a wrench to access the wires. -5 points"
@@ -81,8 +85,8 @@ func fix_wiring():
 		Global.notification = ""
 		return
 	outlet_ui.show()
-	if !wire1.visible and !wire2.visible:
-		if Global.active_tool == 2:
+	if wire_cut.visible:
+		if Global.active_tool != 2:
 			Global.notification = "Ow! Use tape to fix the wire. -5 points"
 			await get_tree().create_timer(2.0).timeout
 			Global.notification = ""
@@ -103,11 +107,21 @@ func reset():
 	outlet["is_case_removed"] = false
 	outlet["is_unplugged"] = false
 	outlet["is_fixed"] = false
-	wire1.show()
-	wire2.show()
+	wire_full.show()
+	wire_red_cut.hide()
+	wire_blue_cut.hide()
+	wire_cut.hide()
 
 func _on_wire_1_pressed() -> void:
-	wire1.hide() # Replace with function body.
+	wire_full.hide()
+	if wire_blue_cut.visible:
+		wire_cut.show()
+	else:
+		wire_red_cut.show()
 
 func _on_wire_2_pressed() -> void:
-	wire2.hide() # Replace with function body.
+	wire_full.hide()
+	if wire_red_cut.visible:
+		wire_cut.show()
+	else:
+		wire_blue_cut.show() # Replace with function body.

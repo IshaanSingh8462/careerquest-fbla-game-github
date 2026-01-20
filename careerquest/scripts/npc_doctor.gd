@@ -95,7 +95,6 @@ func random():
 			dictionary["dob"] = (str(random_month) + "/" + str(birth_day_31.pick_random()) + "/" + str(random_year))
 		else:
 			dictionary["dob"] = (str(2) + "/" + str(random_month) + "/" + str(random_year))
-		dictionary["condition"] = "asthma"
 		print(dictionary["condition"], ", ", dictionary["first_name"], " ", dictionary["last_name"], ", ", dictionary["gender"], ", ", dictionary["dob"])
 		Global.random_symp = false
 		
@@ -103,7 +102,7 @@ func random():
 func get_condition():
 	for i in all_symptoms:
 		if dictionary["condition"] == i:
-			Global.condition["asthma"] = true
+			Global.condition[i] = true
 	
 
 #scores player input on clipboard

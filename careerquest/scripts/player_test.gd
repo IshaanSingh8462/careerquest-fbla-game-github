@@ -13,6 +13,9 @@ const JUMP_VELOCITY = 6.0
 @onready var loading := $CanvasLayer/load_screen
 
 @onready var tutorial := $CanvasLayer/tutorial
+@onready var doc_tutorial := $CanvasLayer/tutorial/MarginContainer/doc
+@onready var elec_tutorial := $CanvasLayer/tutorial/MarginContainer/elec
+
 @onready var notif := $CanvasLayer/notification
 
 #pick item variables
@@ -111,6 +114,8 @@ var elec_highscore = 0
 func _ready():
 	doc_hotbar.hide()
 	elec_hotbar.hide()
+	doc_tutorial.hide()
+	elec_tutorial.hide()
 	tutorial.hide()
 	clipboard.hide()
 	loading.hide()
@@ -618,6 +623,8 @@ func _on_start_doc_pressed() -> void:
 		doc_hotbar.show()
 		elec_hotbar.hide()
 		tutorial.show()
+		doc_tutorial.show()
+		elec_tutorial.hide()
 		label1.text = "1. Stethescope"
 		label2.text = "2. Thermometer"
 		label3.text = "3. Popsicle Stick"
@@ -643,7 +650,7 @@ func _on_elec_pressed() -> void:
 	elec_label3.text = "3. Tape                       "
 	Global.is_elec = true
 	move_outlet()
-	tutorial.show()
+	elec_tutorial.show()
 	star.show()
 	print("elec start") # Replace with function body.
  
@@ -652,19 +659,18 @@ func _on_exit_career_desc_pressed() -> void:
 	careers.show()
 
 func _on_exit_tut_pressed() -> void:
-	tutorial.hide() # Replace with function body.
+	tutorial.hide()
+	doc_tutorial.hide() # Replace with function body.
+	elec_tutorial.hide()
 	if Global.is_doc:
 		Global.doc_tutor = false
 	elif Global.is_elec:
 		Global.elec_tutor = false
 
-func _on_yes_tutorial_pressed() -> void:
-	tutorial.hide() # Replace with function body.
-	if Global.is_doc:
-		Global.doc_tutor = true
-	elif Global.is_elec:
-		Global.elec_tutor = false
-
 func _on_button_pressed() -> void:
-	tutorial.show() # Replace with function body.
+	tutorial.show()
+	if Global.is_doc:
+		doc_tutorial.show() # Replace with function body.
+	if Global.is_elec:
+		elec_tutorial.show()
 	pause.hide()
