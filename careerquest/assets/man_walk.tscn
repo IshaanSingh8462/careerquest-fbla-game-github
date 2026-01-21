@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://24hf3gs6lhq"]
 
-[ext_resource type="PackedScene" uid="uid://r8kmw1wgqjbj" path="res://assets/anim/man_walk.blend" id="1_mo1ss"]
+[ext_resource type="PackedScene" uid="uid://r8kmw1wgqjbj" path="res://assets/doc_npc_stuff/man_walk.blend" id="1_mo1ss"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uw5lv"]
 height = 3.5618

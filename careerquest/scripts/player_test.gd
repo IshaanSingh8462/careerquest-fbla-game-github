@@ -494,7 +494,7 @@ func move_outlet():
 		"nasa": [
 			Vector3(7.485,0,.721),
 			Vector3(-3,0,8.676),
-			Vector3(-7.502,0,1.431),
+			Vector3(-7.038,0,1.431),
 			Vector3(0,deg_to_rad(-90),0),
 			Vector3(0,deg_to_rad(-180),0),
 			Vector3(0,deg_to_rad(90),0)

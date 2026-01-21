@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq7k2l082j34e"]
+
+[ext_resource type="PackedScene" uid="uid://lb4phgqrcik5" path="res://assets/blender/plier.blend" id="1_iqw3c"]
+
+[node name="plier" instance=ExtResource("1_iqw3c")]
+transform = Transform3D(0.546369, 0, 0.651138, 0, 0.85, 0, -0.651138, 0, 0.546369, 0, 0, 0)

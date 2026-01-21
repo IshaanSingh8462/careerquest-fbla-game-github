@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8ra7oup1he2q"]
 
 [ext_resource type="PackedScene" uid="uid://ma0nka587t21" path="res://assets/blender/therm_on_good.blend" id="1_32nku"]
-[ext_resource type="Script" uid="uid://dmatc7vb2v7kd" path="res://assets/meshes/therm_on_good.gd" id="2_8fxm1"]
+[ext_resource type="Script" uid="uid://dmatc7vb2v7kd" path="res://scripts/therm_on_good.gd" id="2_8fxm1"]
 [ext_resource type="PackedScene" uid="uid://d050jfgrmu37n" path="res://assets/blender/therm_on_bad.blend" id="3_qfav6"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8fxm1"]
