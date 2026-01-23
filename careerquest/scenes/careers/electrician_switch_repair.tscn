@@ -64,7 +64,6 @@ material = SubResource("StandardMaterial3D_6f78w")
 
 [node name="factory" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 3, 0)
-visible = false
 use_collision = true
 size = Vector3(1.925, 2.25, 1)
 material = SubResource("StandardMaterial3D_sgqtv")
@@ -76,12 +75,13 @@ size = Vector3(1.425, 1.75, 0.205)
 material = SubResource("StandardMaterial3D_1qikm")
 
 [node name="CSGCylinder3D" type="CSGBox3D" parent="factory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.914)
-size = Vector3(1, 10, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -0.914)
+size = Vector3(1, 14, 1)
 material = SubResource("StandardMaterial3D_6f78w")
 
 [node name="apartment" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21063, 3, 0)
+visible = false
 use_collision = true
 size = Vector3(6, 6, 1)
 material = ExtResource("2_1qikm")

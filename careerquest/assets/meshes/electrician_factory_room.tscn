@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu3dee32rxwob"]
+
+[ext_resource type="PackedScene" uid="uid://dju5fca70lqok" path="res://assets/blender/electrician_factory_room.blend" id="1_aagdd"]
+
+[node name="electrician_factory_room" instance=ExtResource("1_aagdd")]
