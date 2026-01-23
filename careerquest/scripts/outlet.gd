@@ -46,7 +46,7 @@ func remove_case():
 		print("Case attached on outlet ", outlet_id)
 	elif !outlet["is_case_removed"]:
 		outlet["is_case_removed"] = true
-		case.position = Vector3(-.55,.275,1)
+		case.position = Vector3(-.55,.5,1)
 		case.rotation = Vector3(deg_to_rad(90),deg_to_rad(-35),0)
 		print("Case removed on outlet ", outlet_id)
 	print(Global.score)
@@ -66,7 +66,7 @@ func unplug():
 		print("Plug attached on outlet ", outlet_id)
 	elif !outlet["is_unplugged"]:
 		outlet["is_unplugged"] = true
-		plug.position = Vector3(1.591,.25,1.672)
+		plug.position = Vector3(1.591,.45,1.672)
 		plug.rotation = Vector3(deg_to_rad(-90),deg_to_rad(35),0)
 		print("Plug removed on outlet ", outlet_id)
 	print(Global.score)

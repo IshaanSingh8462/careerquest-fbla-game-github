@@ -73,7 +73,7 @@ func interact():
 '''Electric Variables'''
 var is_elec = false
 var elec_tutor = true
-var elec_games = true
+var elec_games = false
 
 #switch variables
 var open_fusebox = false
@@ -98,7 +98,7 @@ var random_location = elec_location.pick_random()
 
 var elec_cond = {
 	"difficulty": null,
-	"location": random_location,
+	"location": "factory", #random_location,
 	"desc": pick_desc(random_location),
 	"load_limit":null
 }# difficulty: 1-star, 3-star, 5-star; 

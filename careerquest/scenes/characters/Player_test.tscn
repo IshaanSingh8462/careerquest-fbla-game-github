@@ -604,7 +604,6 @@ layout_mode = 2
 text = "Press E to interact"
 
 [node name="book_ui" type="PanelContainer" parent="CanvasLayer"]
-visible = false
 custom_minimum_size = Vector2(450, 350)
 anchors_preset = 8
 anchor_left = 0.5
@@ -627,7 +626,6 @@ layout_mode = 2
 texture = ExtResource("4_y1wan")
 
 [node name="asthma" type="PanelContainer" parent="CanvasLayer/book_ui"]
-visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
@@ -1849,6 +1847,7 @@ text = "Loading..."
 horizontal_alignment = 1
 
 [node name="tutorial" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(600, 500)
 anchors_preset = 8
 anchor_left = 0.5

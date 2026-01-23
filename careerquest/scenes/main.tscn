@@ -166,14 +166,14 @@ script = null
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -21.3881, 0, 0)
 
 [node name="outlet" parent="electric_scene" instance=ExtResource("17_muem4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.006, 0, -2.331)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83309, 0, -7.05035)
 
 [node name="outlet2" parent="electric_scene" instance=ExtResource("17_muem4")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, 7)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.89287, 0, 7)
 outlet_id = 1
 
 [node name="outlet3" parent="electric_scene" instance=ExtResource("17_muem4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.03816, 0, 1.431)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.03816, 0, -1.97683)
 outlet_id = 2
 
 [node name="coffee_test" parent="electric_scene" instance=ExtResource("19_0ld40")]
@@ -189,7 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 2.491, 5.372)
 visible = false
 
 [node name="factory2" parent="electric_scene" instance=ExtResource("22_jscy8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.99024, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.27, 0)
 
 [node name="apartment2" parent="electric_scene" instance=ExtResource("23_pm3ni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04953, 3.18502, 3.24904)

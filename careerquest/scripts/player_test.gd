@@ -440,7 +440,6 @@ func check_comp():
 		var elec_tools = [screw, plier, volt, wire, tape]
 		for i in range(5):
 			elec_tools[i].hide()
-		Global.elec_games = true
 		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/score.text = "Score: " + str(int(Global.score)) + "/250"
 		if Global.score > elec_highscore:
 			$CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2/elec.text = "Highscore: " + str(int(Global.score)) + "/250"
@@ -448,6 +447,7 @@ func check_comp():
 		Global.score = 0
 		$CanvasLayer/timer.hide()
 		career_desc.show()
+		Global.elec_games = true
 	if Global.is_doc and Global.repetition == 1:
 		clipboard.hide()
 		print("Score: " + str(Global.score))
@@ -500,10 +500,10 @@ func move_outlet():
 			Vector3(0,deg_to_rad(90),0)
 		],
 		"factory": [
-			Vector3(7.006,0,-2.331),
-			Vector3(-3,0,7),
-			Vector3(-7,0,-5.65),
-			Vector3(0,deg_to_rad(-90),0),
+			Vector3(3.833,0,-7.05),
+			Vector3(5.893,0,7),
+			Vector3(-7.038,0,-1.977),
+			Vector3(0,0,0),
 			Vector3(0,deg_to_rad(180),0),
 			Vector3(0,deg_to_rad(90),0)
 		],
@@ -515,7 +515,7 @@ func move_outlet():
 			Vector3(0,deg_to_rad(-180),0),
 			Vector3(0,deg_to_rad(90),0)
 	]}
-	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"nasa":[nasa,4.99],"factory":[factory,4.99],"apartment":[apartment,3.185]}
+	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"nasa":[nasa,4.99],"factory":[factory,7.5],"apartment":[apartment,3.185]}
 	# find which condition is active
 	for key in layouts.keys():
 		if Global.elec_cond["location"] == key:

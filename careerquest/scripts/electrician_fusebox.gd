@@ -174,7 +174,6 @@ func check_comp():
 		apartment.position.y = 3
 		factory.position.y = 3
 		house.position.y = 3
-		Global.is_elec = false
 		print("elec done")
 		elec_location_pick_ = false
 		var rand_loc = Global.elec_location.pick_random()
