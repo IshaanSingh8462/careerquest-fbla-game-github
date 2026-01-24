@@ -98,7 +98,7 @@ var random_location = elec_location.pick_random()
 
 var elec_cond = {
 	"difficulty": null,
-	"location": "factory", #random_location,
+	"location": "house", #random_location,
 	"desc": pick_desc(random_location),
 	"load_limit":null
 }# difficulty: 1-star, 3-star, 5-star; 

@@ -80,7 +80,7 @@ func fix_wiring():
 	if Global.active_tool != 1 and !wire_cut.visible:
 		if Global.score > 5:
 			Global.score -= 5
-		Global.notification = "Ow! Use a wrench to access the wires. -5 points"
+		Global.notification = "Ow! Use a plier to access the wires. -5 points"
 		await get_tree().create_timer(2.0).timeout
 		Global.notification = ""
 		return
