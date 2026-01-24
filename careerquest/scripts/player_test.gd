@@ -468,10 +468,10 @@ func check_comp():
 func move_outlet():
 	var layouts = {
 		"house": [
-			Vector3(3.014,0,.592),
-			Vector3(-4.748,0,2.118),
-			Vector3(5.196,0,8.248),
-			Vector3(0,0,0),
+			Vector3(5.006,0,2.118),
+			Vector3(-4.801,0,2.118),
+			Vector3(5.006,0,7.632),
+			Vector3(0,deg_to_rad(-90),0),
 			Vector3(0,deg_to_rad(90),0),
 			Vector3(0,deg_to_rad(-90),0)
 		],
@@ -515,14 +515,14 @@ func move_outlet():
 			Vector3(0,deg_to_rad(-180),0),
 			Vector3(0,deg_to_rad(90),0)
 	]}
-	var loc = {"house":[house,2.491],"coffee_shop":[coffee,0],"office":[office,2.491],"nasa":[nasa,4.99],"factory":[factory,7.5],"apartment":[apartment,3.185]}
+	var loc = {"house":[house,6.16],"coffee_shop":[coffee,0],"office":[office,2.491],"nasa":[nasa,4.99],"factory":[factory,7.5],"apartment":[apartment,3.185]}
 	# find which condition is active
 	for key in layouts.keys():
 		if Global.elec_cond["location"] == key:
 			var pos = layouts[key]
 			for k in loc.keys():
 				loc[k][0].hide()
-				loc[k][0].position.y = 10
+				loc[k][0].position.y = 20
 			loc[key][0].show()
 			loc[key][0].position.y = loc[key][1]
 			outlet1.position = pos[0]

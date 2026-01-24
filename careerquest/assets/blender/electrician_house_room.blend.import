@@ -1,0 +1,99 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bi6td14dng4sg"
+path="res://.godot/imported/electrician_house_room.blend-b969286c4d2922c634174c302dc929b8.scn"
+
+[deps]
+
+source_file="res://assets/blender/electrician_house_room.blend"
+dest_files=["res://.godot/imported/electrician_house_room.blend-b969286c4d2922c634174c302dc929b8.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:accent_chair/Collada visual scene group/Flick_Accent_Chair/FABRIC": {
+"physics/shape_type": 3
+},
+"PATH:accent_chair/Collada visual scene group/Flick_Accent_Chair/WOOD": {
+"physics/shape_type": 3
+},
+"PATH:accent_chair_table": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:bookshelf/d42886a06ddf41dba23177b13424e646_fbx/RootNode_001/Cubo_17/Cubo_17__0": {
+"physics/shape_type": 3
+},
+"PATH:door": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:room": {
+"physics/shape_type": 1
+},
+"PATH:sofa/sofa_fbx/RootNode/sofa_002/sofa_001/sofa_sofa_0": {
+"physics/shape_type": 3
+},
+"PATH:sofa_table": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:tall_house_plant/Plant2_fbx/RootNode_003/Cylinder/Cylinder_Leaves_0": {
+"physics/shape_type": 3
+},
+"PATH:tall_house_plant/Plant2_fbx/RootNode_003/Cylinder_001/Cylinder_001_Leaves_0": {
+"physics/shape_type": 3
+},
+"PATH:tall_house_plant/Plant2_fbx/RootNode_003/Cylinder_002/Cylinder_002_Pot_0": {
+"physics/shape_type": 3
+},
+"PATH:tall_house_plant/Plant2_fbx/RootNode_003/Cylinder_002/Cylinder_002_Soil_0": {
+"physics/shape_type": 3
+},
+"PATH:tv_table": {
+"generate/physics": true,
+"physics/shape_type": 3
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=true
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=true
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
