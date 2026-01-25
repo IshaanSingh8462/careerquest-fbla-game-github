@@ -37,6 +37,7 @@ script = ExtResource("1_sgqtv")
 
 [node name="house" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185, 3, 0)
+visible = false
 use_collision = true
 size = Vector3(10, 15, 1)
 material = SubResource("StandardMaterial3D_212gu")
@@ -87,7 +88,6 @@ material = SubResource("StandardMaterial3D_6f78w")
 
 [node name="apartment" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21063, 3, 0)
-visible = false
 use_collision = true
 size = Vector3(6, 6, 1)
 material = ExtResource("2_1qikm")
