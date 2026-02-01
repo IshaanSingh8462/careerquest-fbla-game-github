@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://sua8phdbddqc"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://sua8phdbddqc"]
+
+[ext_resource type="FontFile" uid="uid://bnbvc77kem3es" path="res://assets/LuckiestGuy-Regular.ttf" id="1_uhuvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0ml1"]
 bg_color = Color(0.947199, 0.947199, 0.947199, 1)
@@ -29,6 +31,7 @@ corner_radius_bottom_left = 5
 
 [resource]
 Button/colors/font_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+Button/fonts/font = ExtResource("1_uhuvr")
 Button/styles/hover = SubResource("StyleBoxFlat_c0ml1")
 Button/styles/normal = SubResource("StyleBoxFlat_hv7wh")
 Button/styles/pressed = SubResource("StyleBoxFlat_oaubu")

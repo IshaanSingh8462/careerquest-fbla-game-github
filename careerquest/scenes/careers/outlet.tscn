@@ -1,17 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckftj6snpsvt"]
+[gd_scene load_steps=18 format=3 uid="uid://ckftj6snpsvt"]
 
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_4puoi"]
 [ext_resource type="Script" uid="uid://bw5fxfg4j84dx" path="res://scripts/outlet.gd" id="1_65d66"]
-[ext_resource type="Texture2D" uid="uid://l0kmqy4bna1l" path="res://scenes/ui/wires_full.png" id="3_6ovc1"]
-[ext_resource type="Texture2D" uid="uid://cy6vg5uw1lyc3" path="res://scenes/ui/wires_blue_cut.png" id="4_26w5i"]
-[ext_resource type="Texture2D" uid="uid://d2yogtu2taos5" path="res://scenes/ui/wires_red_cut.png" id="5_arlk1"]
-[ext_resource type="Texture2D" uid="uid://b8dp8nrs0pmjr" path="res://scenes/ui/wires_cut.png" id="6_1hjii"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tw7mg"]
-albedo_color = Color(0.295867, 0.295866, 0.295866, 1)
+[ext_resource type="Material" uid="uid://bve53bjkyu70t" path="res://scenes/materials/light_blue_apartment.tres" id="2_26w5i"]
+[ext_resource type="Material" uid="uid://deqhnrjb1nmoh" path="res://assets/meshes/textures/grey.tres" id="3_1hjii"]
+[ext_resource type="Texture2D" uid="uid://l0kmqy4bna1l" path="res://assets/ui/wires_full.png" id="3_6ovc1"]
+[ext_resource type="Texture2D" uid="uid://cy6vg5uw1lyc3" path="res://assets/ui/wires_blue_cut.png" id="4_26w5i"]
+[ext_resource type="Texture2D" uid="uid://d2yogtu2taos5" path="res://assets/ui/wires_red_cut.png" id="5_arlk1"]
+[ext_resource type="Texture2D" uid="uid://b8dp8nrs0pmjr" path="res://assets/ui/wires_cut.png" id="6_1hjii"]
+[ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="8_arlk1"]
+[ext_resource type="AudioStream" uid="uid://dgt8tii2ke3bs" path="res://assets/music/electric_zap_001-6374.mp3" id="10_adlwx"]
+[ext_resource type="AudioStream" uid="uid://gq36mkgh131x" path="res://assets/music/ding-402325.mp3" id="11_0au7w"]
+[ext_resource type="AudioStream" uid="uid://bgvlgkmioriaf" path="res://assets/music/scissors-snip-1-422255.mp3" id="12_n1xav"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65d66"]
 albedo_color = Color(0.151276, 0.151276, 0.151276, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arlk1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ndne"]
 albedo_color = Color(0.414066, 0.414066, 0.414066, 1)
@@ -25,9 +30,6 @@ Button/styles/hover = SubResource("StyleBoxFlat_6ovc1")
 Button/styles/normal = SubResource("StyleBoxFlat_6ovc1")
 Button/styles/pressed = SubResource("StyleBoxFlat_6ovc1")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ovc1"]
-albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
-
 [node name="outlet" type="Node3D"]
 script = ExtResource("1_65d66")
 
@@ -35,13 +37,18 @@ script = ExtResource("1_65d66")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 use_collision = true
 size = Vector3(1, 7, 0.15)
-material = SubResource("StandardMaterial3D_tw7mg")
+material = ExtResource("2_26w5i")
 
 [node name="hole" type="CSGBox3D" parent="wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.16922, 0.0201969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.16922, 0.0771494)
 operation = 2
 size = Vector3(0.4, 0.55, 0.123)
 material = SubResource("StandardMaterial3D_65d66")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+size = Vector3(1, 7, 0.15)
+material = ExtResource("2_26w5i")
 
 [node name="case" type="CSGCombiner3D" parent="." groups=["outlet", "outlet_scene1"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.331, 0.08)
@@ -52,18 +59,59 @@ collision_layer = 16
 size = Vector3(0.45, 0.65, 0.05)
 
 [node name="plug1" type="CSGCylinder3D" parent="case/switch"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.119, 0.012)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.119, 0.00203907)
 operation = 2
 radius = 0.075
-height = 0.05
+height = 0.0699219
 sides = 14
 
 [node name="plug2" type="CSGCylinder3D" parent="case/switch"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.107, 0.012)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.107, -0.00137895)
 operation = 2
 radius = 0.075
+height = 0.0767578
+sides = 14
+
+[node name="hide" type="CSGBox3D" parent="case"]
+size = Vector3(0.45, 0.65, 0.05)
+
+[node name="plug1" type="CSGCylinder3D" parent="case/hide"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.115355, 0.0274905)
+radius = 0.08
 height = 0.05
 sides = 14
+material = SubResource("StandardMaterial3D_arlk1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="case/hide/plug1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="case/hide/plug1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
+
+[node name="plug2" type="CSGCylinder3D" parent="case/hide"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.109645, 0.0274905)
+radius = 0.08
+height = 0.05
+sides = 14
+material = SubResource("StandardMaterial3D_arlk1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="case/hide/plug2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="case/hide/plug2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
 
 [node name="plug" type="CSGCombiner3D" parent="." groups=["outlet", "outlet_scene2"]]
 use_collision = true
@@ -81,14 +129,38 @@ radius = 0.075
 height = 0.05
 sides = 14
 
+[node name="CSGBox3D" type="CSGBox3D" parent="plug/plug1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="plug/plug1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
+
 [node name="plug2" type="CSGCylinder3D" parent="plug"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.225, 0.094)
 radius = 0.075
 height = 0.05
 sides = 14
 
+[node name="CSGBox3D" type="CSGBox3D" parent="plug/plug2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="plug/plug2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0.024, 0)
+operation = 2
+size = Vector3(0.00976562, 0.00843811, 0.0628662)
+material = ExtResource("3_1hjii")
+
 [node name="wiring" type="CSGCombiner3D" parent="." groups=["outlet", "outlet_scene3"]]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0563213)
 use_collision = true
 collision_layer = 16
 
@@ -173,10 +245,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 0)
-size = Vector3(1, 7, 0.15)
-material = SubResource("StandardMaterial3D_6ovc1")
+[node name="base" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 1.283, -0.302254)
+visible = false
+size = Vector3(0.6, 1, 0.723)
+material = ExtResource("8_arlk1")
+
+[node name="hole" type="CSGBox3D" parent="base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0259635, 0.312349)
+operation = 2
+size = Vector3(0.4, 0.55, 0.123)
+material = SubResource("StandardMaterial3D_65d66")
+
+[node name="ElectricZap001-6374" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_adlwx")
+pitch_scale = 2.0
+bus = &"zap"
+
+[node name="Ding-402325" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_0au7w")
+
+[node name="Scissors-snip-1-422255" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_n1xav")
 
 [connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/wire1" to="." method="_on_wire_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/outlet_game/MarginContainer/VBoxContainer/wire2" to="." method="_on_wire_2_pressed"]

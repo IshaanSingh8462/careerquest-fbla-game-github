@@ -8,11 +8,15 @@ var going_back = false
 
 @onready var mesh_mat = $MeshInstance3D
 @onready var dialogue = $Sprite3D/SubViewport/Label
+@onready var walk_man: AnimationPlayer = $walk_man/AnimationPlayer
+@onready var idle_man: AnimationPlayer = $idle_man/AnimationPlayer
+@onready var npc_walk_man := $walk_man
+@onready var npc_idle_man := $idle_man
+@onready var walk_girl: AnimationPlayer = $walk_girl/AnimationPlayer
+@onready var idle_girl: AnimationPlayer = $idle_girl/AnimationPlayer
+@onready var npc_walk_girl := $walk_girl
+@onready var npc_idle_girl := $idle_girl
 
-var red = load("res://scenes/materials/light_red.tres")
-var white = load("res://scenes/materials/white.tres")
-var green = load("res://scenes/materials/green.tres")
-var blue = load("res://scenes/materials/light_blue.tres")
 
 var all_symptoms = ["asthma", "arthritis", "copd", "flu", "migraine", "diabetes", "acid", "iron", "blood_pressure"]
 var boy_first_names = ["aiden","liam","noah","ethan","mason","lucas","james",
@@ -42,7 +46,6 @@ var total_time = 0
 func _ready() -> void:
 	get_condition()
 	position = start
-	change_color(white)
 	dialogue.text = ""
 	if Global.condition["asthma"] or Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"] or Global.condition["iron"]:
 		Global.condition["temp"] = randi_range(100,103)
@@ -58,9 +61,32 @@ func _physics_process(delta: float) -> void:
 	random()
 	get_condition()
 	npc_dialogue(delta)
-	#move npc into room animation, then resets global condition varialbe
+	npc_idle_man.hide()
+	npc_idle_girl.hide()
+	if dictionary["gender"] == "male":
+		npc_walk_man.show()
+		npc_walk_girl.hide()
+	else:
+		npc_walk_man.hide()
+		npc_walk_girl.show()
+	#move npc into room animation, then resets global condition variable
 	if Global.move:
 		position = position.move_toward(move_into, SPEED * delta)
+		if dictionary["gender"] == "male":
+			walk_man.play("Walking")
+		else:
+			walk_girl.play("Walking")
+		if position == move_into:
+			if dictionary["gender"] == "male":
+				walk_man.stop()
+				npc_walk_man.hide()
+				npc_idle_man.show()
+				idle_man.seek(0, true)
+			else:
+				walk_girl.stop()
+				npc_walk_girl.hide()
+				npc_idle_girl.show()
+				idle_girl.seek(0, true)
 	if position == start:
 		Global.at_start = true
 		for i in all_symptoms:
@@ -68,6 +94,14 @@ func _physics_process(delta: float) -> void:
 	#npc leaves room animation
 	if going_back:
 		position = position.move_toward(start, SPEED * delta)
+		if Global.clipboard_info["gender"] == "male":
+			npc_idle_man.hide()
+			npc_walk_man.show()
+			walk_man.play("Walking")
+		else:
+			npc_idle_girl.hide()
+			npc_walk_girl.show()
+			walk_girl.play("Walking")
 		if position == start:
 			going_back = false
 	#tests to confirm condition, then calls condition function
@@ -80,7 +114,7 @@ func random():
 	if Global.random_symp:
 		var first_names = [boy_first_names.pick_random(), girl_first_names.pick_random()]
 		var birth_month = [birth_month_30.pick_random(), birth_month_31.pick_random(), 2]
-		dictionary["condition"] = all_symptoms.pick_random()
+		dictionary["condition"] = "asthma" #all_symptoms.pick_random()
 		dictionary["first_name"] = first_names.pick_random()
 		if dictionary["first_name"] == first_names[0]:
 			dictionary["gender"] = "male"
@@ -98,6 +132,7 @@ func random():
 		print(dictionary["condition"], ", ", dictionary["first_name"], " ", dictionary["last_name"], ", ", dictionary["gender"], ", ", dictionary["dob"])
 		Global.random_symp = false
 		
+		
 #tests to see what condition the npc has
 func get_condition():
 	for i in all_symptoms:
@@ -107,7 +142,6 @@ func get_condition():
 
 #scores player input on clipboard
 func submit():
-	change_color(blue)
 	if Global.clipboard_info["clicked"]:
 		dict_comp["first_name"] = Global.clipboard_info["first"]
 		dict_comp["last_name"] = Global.clipboard_info["last"]
@@ -149,7 +183,7 @@ func npc_dialogue(delta):
 		if Global.ask_feel:
 			Global.ask_name = false
 
-		dialogue.text = "My name is %s %s,\nand my dob is %s" % [
+		dialogue.text = "My name is %s %s, and my date of birth is %s" % [
 			dictionary["first_name"],
 			dictionary["last_name"],
 			dictionary["dob"]

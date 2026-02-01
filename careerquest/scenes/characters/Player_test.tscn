@@ -1,17 +1,39 @@
-[gd_scene load_steps=55 format=3 uid="uid://bdqka2d3f064w"]
+[gd_scene load_steps=79 format=3 uid="uid://bdqka2d3f064w"]
 
 [ext_resource type="Script" uid="uid://yk7kd85cj3ga" path="res://scripts/player_test.gd" id="1_hsp13"]
 [ext_resource type="Theme" uid="uid://cxrydcyxxpyyo" path="res://scenes/themes/hotbar_theme.tres" id="2_aawdi"]
-[ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="3_8pp3b"]
+[ext_resource type="Theme" uid="uid://dti5m8s234qp5" path="res://scenes/themes/font_theme.tres" id="3_5ougp"]
+[ext_resource type="Texture2D" uid="uid://djx2mqbe5bkrp" path="res://assets/ui/screwdriver_hotbar.png" id="3_f50n0"]
 [ext_resource type="Script" uid="uid://u1kqhcqr8l66" path="res://scripts/elec_options.gd" id="3_hc7jq"]
+[ext_resource type="Texture2D" uid="uid://cospxub7lx3tx" path="res://assets/ui/stethescope.png" id="3_lg8nj"]
+[ext_resource type="Texture2D" uid="uid://bqs5j7ch7jyye" path="res://assets/ui/thermometer.png" id="4_7og4u"]
 [ext_resource type="Theme" uid="uid://deffnhbprtfok" path="res://scenes/themes/doc_npc_dialogue_buttons.tres" id="4_rduta"]
-[ext_resource type="Texture2D" uid="uid://bbl0gbm650hly" path="res://assets/ui/toc (1).png" id="4_y1wan"]
-[ext_resource type="Texture2D" uid="uid://dplkl0fsnj3" path="res://icon.svg" id="5_6cpf6"]
+[ext_resource type="Theme" uid="uid://ddrnby01mvfbw" path="res://scenes/themes/hotbar_label_theme.tres" id="4_xjpnl"]
+[ext_resource type="Texture2D" uid="uid://calbanagtmicb" path="res://assets/ui/popsicle.png" id="5_0fy3m"]
 [ext_resource type="Script" uid="uid://65rwq1uac1fs" path="res://scripts/timer.gd" id="5_o0pbu"]
-[ext_resource type="Texture2D" uid="uid://b2um5jl44bvhi" path="res://assets/ui/asthma (1).png" id="5_umnwt"]
+[ext_resource type="Texture2D" uid="uid://dolxa8ahnwpmv" path="res://assets/ui/glucose_meter.png" id="6_0fy3m"]
 [ext_resource type="Theme" uid="uid://bxx1chvk1fi8r" path="res://scenes/themes/main_button.tres" id="6_6cpf6"]
+[ext_resource type="Texture2D" uid="uid://mog37017bee6" path="res://assets/ui/plier.png" id="6_62hnx"]
 [ext_resource type="Theme" uid="uid://sua8phdbddqc" path="res://scenes/themes/book_buttons_theme.tres" id="6_umnwt"]
-[ext_resource type="Texture2D" uid="uid://o15gbefnhabt" path="res://assets/ui/doc_tut.png" id="8_p84as"]
+[ext_resource type="Texture2D" uid="uid://b16cv7bk5i25d" path="res://assets/ui/arthritis.png" id="7_14mdm"]
+[ext_resource type="Texture2D" uid="uid://bliamx8sg5lin" path="res://assets/ui/tape_hotbar.png" id="7_62hnx"]
+[ext_resource type="Texture2D" uid="uid://cc5asu4d1y44v" path="res://assets/ui/reflex_hammer.png" id="7_ayhjn"]
+[ext_resource type="Texture2D" uid="uid://dvl2xjnvoyq77" path="res://assets/ui/doc_tut.png" id="8_p84as"]
+[ext_resource type="Texture2D" uid="uid://c6khjxx65b6i1" path="res://assets/ui/flu.png" id="8_xjpnl"]
+[ext_resource type="Texture2D" uid="uid://d4h41g7atjniv" path="res://assets/ui/copd.png" id="9_62hnx"]
+[ext_resource type="Texture2D" uid="uid://dxyuwose2p41i" path="res://assets/ui/migraine.png" id="10_lg8nj"]
+[ext_resource type="Texture2D" uid="uid://c7pd3r82seu37" path="res://assets/ui/diabetes.png" id="11_cxcy4"]
+[ext_resource type="Texture2D" uid="uid://b4el22u7akuly" path="res://assets/ui/gerd.png" id="12_7og4u"]
+[ext_resource type="Texture2D" uid="uid://cv7lgms4dvmnm" path="res://assets/ui/iron.png" id="13_0fy3m"]
+[ext_resource type="Texture2D" uid="uid://c56s52adv87m4" path="res://assets/ui/toc.png" id="14_5ougp"]
+[ext_resource type="Texture2D" uid="uid://bv5221l4kjd7w" path="res://assets/ui/blood.png" id="14_ayhjn"]
+[ext_resource type="Texture2D" uid="uid://dyhvhbci4y5e0" path="res://assets/ui/asthma.png" id="15_da5eq"]
+[ext_resource type="Texture2D" uid="uid://cu8cled7n6fo" path="res://assets/ui/tools.png" id="24_j3pel"]
+[ext_resource type="FontFile" uid="uid://bnbvc77kem3es" path="res://assets/LuckiestGuy-Regular.ttf" id="30_da5eq"]
+[ext_resource type="Texture2D" uid="uid://qpymko5bkcx6" path="res://assets/ui/elec_tut.png" id="30_j3pel"]
+[ext_resource type="Texture2D" uid="uid://dieits3wc0jso" path="res://assets/ui/Star 1.png" id="30_yqe8c"]
+[ext_resource type="Texture2D" uid="uid://ciptm436t60uv" path="res://assets/ui/Star 3.png" id="31_mjycy"]
+[ext_resource type="Texture2D" uid="uid://25x20o7m7c6d" path="res://assets/ui/Star 5.png" id="32_no503"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pdv6x"]
 
@@ -33,6 +55,7 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_o4ujy"]
 Label/colors/font_color = Color(0.252028, 0.252028, 0.252028, 1)
+Label/fonts/font = ExtResource("30_da5eq")
 Label/styles/normal = SubResource("StyleBoxFlat_5dl2g")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umnwt"]
@@ -50,6 +73,8 @@ anti_aliasing_size = 10.0
 
 [sub_resource type="Theme" id="Theme_d144m"]
 Label/styles/normal = SubResource("StyleBoxFlat_umnwt")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe8c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rduta"]
 
@@ -156,7 +181,9 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="Theme" id="Theme_5dl2g"]
 Label/colors/font_color = Color(1, 1, 1, 1)
+Label/constants/shadow_outline_size = 100
 Label/font_sizes/font_size = 90
+Label/fonts/font = ExtResource("30_da5eq")
 Label/styles/normal = SubResource("StyleBoxFlat_q2qie")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aawdi"]
@@ -231,6 +258,18 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ougp"]
+bg_color = Color(0.562705, 0.792556, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(2.48355e-05, 0.61221, 0.98615, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="Gradient" id="Gradient_bl0rr"]
 offsets = PackedFloat32Array(0.00324675, 0.295455, 0.551948, 0.811688, 1)
 colors = PackedColorArray(0.0195334, 0.358001, 0.522388, 1, 0.167495, 0.49569, 0.673469, 1, 0.232159, 0.573258, 0.76889, 1, 0.206977, 0.606936, 0.863729, 1, 0.413289, 0.733065, 0.961941, 1)
@@ -248,6 +287,8 @@ Button/styles/focus = SubResource("StyleBoxEmpty_o0pbu")
 Button/styles/hover = SubResource("StyleBoxFlat_rduta")
 Button/styles/normal = SubResource("StyleBoxFlat_o0pbu")
 Button/styles/pressed = SubResource("StyleBoxFlat_6cpf6")
+Label/fonts/font = ExtResource("30_da5eq")
+Label/styles/normal = SubResource("StyleBoxFlat_5ougp")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_43apo")
 
 [node name="player" type="CharacterBody3D"]
@@ -292,6 +333,7 @@ offset_right = 247.5
 offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_5ougp")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 5
@@ -304,6 +346,7 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_xjpnl")
 theme_override_constants/separation = 75
 alignment = 1
 
@@ -325,8 +368,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("3_lg8nj")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -346,8 +390,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel2/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("4_7og4u")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -367,8 +412,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel3/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("5_0fy3m")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="Panel4" type="Panel" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -388,8 +434,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel4/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("6_0fy3m")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -409,8 +456,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel5/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("7_ayhjn")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/doc_hotbar/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -466,6 +514,7 @@ offset_right = 247.5
 offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_5ougp")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 5
@@ -478,6 +527,7 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_xjpnl")
 theme_override_constants/separation = 75
 alignment = 1
 
@@ -499,8 +549,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("3_f50n0")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -520,8 +571,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel2/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("6_62hnx")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -541,8 +593,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer/HBoxContainer/Panel3/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
-stretch_mode = 3
+texture = ExtResource("7_62hnx")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -556,7 +609,7 @@ label_settings = SubResource("LabelSettings_p84as")
 
 [node name="Label2" type="Label" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "2. Wrench        "
+text = "2. Plier       "
 label_settings = SubResource("LabelSettings_p84as")
 
 [node name="Label3" type="Label" parent="CanvasLayer/elec_hotbar/MarginContainer/VBoxContainer/HBoxContainer2"]
@@ -581,6 +634,7 @@ grow_vertical = 2
 [node name="book" type="Label" parent="CanvasLayer/Book"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("30_da5eq")
 text = "Open Book"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -601,9 +655,11 @@ grow_vertical = 2
 
 [node name="interact_button" type="Label" parent="CanvasLayer/Interact"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("30_da5eq")
 text = "Press E to interact"
 
 [node name="book_ui" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(450, 350)
 anchors_preset = 8
 anchor_left = 0.5
@@ -623,754 +679,97 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/toc"]
 layout_mode = 2
-texture = ExtResource("4_y1wan")
+texture = ExtResource("14_5ougp")
 
 [node name="asthma" type="PanelContainer" parent="CanvasLayer/book_ui"]
+visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/asthma"]
 layout_mode = 2
-texture = ExtResource("5_umnwt")
+texture = ExtResource("15_da5eq")
 
 [node name="arthritis" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/arthritis"]
-custom_minimum_size = Vector2(400, 300)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/arthritis"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-
-[node name="arthritis" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Arthritis       "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- Joint pain
-- Swelling
-
-Prescription
-- corticosteroids
-- DMARDs
-
-Lifestyle change
-- Light exercise
-- Weight management
-- Avoid tobacco and have
-a balanced diet"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 300)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 25
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description    "
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/arthritis/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "Arthritis is a 
-general term for 
-joint pain and 
-inflammation, 
-encompassing over 
-100 conditions that 
-affect joints, tissues, 
-and connective tissues, 
-causing pain, swelling, 
-stiffness, and reduced 
-movement. "
-horizontal_alignment = 1
+texture = ExtResource("7_14mdm")
 
 [node name="flu" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/flu"]
-custom_minimum_size = Vector2(375, 275)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/flu"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -75
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/flu/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="flu" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Influenze (Flu)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "Symptoms:
-- Fever
-- Cough
-- Fatigue
-- Headache
-
-Prescription
-- Antiviral drugs
-- Pain reliever
-
-Lifestyle changes
-- Good hygiene
-- Rest and hydrate"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "The flu is a contagious
- respiratory illness caused 
-by viruses, leading to
- symptoms like fever,
- cough, sore throat, 
-headaches, and fatigue,
- often appearing 
-suddenly"
-horizontal_alignment = 1
+texture = ExtResource("8_xjpnl")
 
 [node name="copd" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/copd"]
-custom_minimum_size = Vector2(375, 275)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/copd"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = 15
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/copd/MarginContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="copd" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Chronic Obstructive 
-Pulmonary Disease (COPD)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- Cough
-- Shortness of breath
-- Chest pain
-- Fatigue
-
-Prescription
-- Inhaled bronchodilators
-
-Lifestyle change
-- Avoid smoking, dust, pollution, etc.
-- Regular exercise"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/copd/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-text = "COPD is a lung 
-condition that 
-makes breathing 
-difficult, involving 
-inflamed, damaged 
-airways and air sacs
-(alveoli) that block 
-airflow, leading to 
-symptoms like  cough, 
-shortness of breath,
- and chest tightness,
- primarily caused 
-by long-term irritant
- exposure  like smoking"
-horizontal_alignment = 1
+texture = ExtResource("9_62hnx")
 
 [node name="migraine" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/migraine"]
-custom_minimum_size = Vector2(400, 300)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/migraine"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_top = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/migraine/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="migraine" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Migraine"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-text = "Symptoms:
-- Headache
-- Nausea
-- Vomiting
-
-Prescription
-- Triptans 
-- Antiemetics 
--Ppreventive medications 
-(beta-blockers, anticonvulsants)
-
-Lifestyle changes
-- Sleep and hydration
-- Identify and avoid triggers
-(stress, food, etc.)"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/migraine/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Migraine's are a 
-neurological condition
- causing moderate to
- severe head pain, 
-usually on one side,
-accompanied by
- symptoms like nausea 
-and vomiting."
-horizontal_alignment = 1
+texture = ExtResource("10_lg8nj")
 
 [node name="diabetes" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/diabetes"]
-custom_minimum_size = Vector2(400, 300)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/diabetes"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = -20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/diabetes/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="diabetes" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Diabetes"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Symptoms:
--  frequent urination 
-- thirsty/hungry
-- fatigue
-
-Prescription
-- metformin + 
-sulfonylureas
-
-Lifestyle changes
-- Healthy diet
-- Regular exercise"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/diabetes/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-text = "Diabetes is a chronic 
-condition where your 
-blood sugar (glucose) 
-levels are too high
- because your body 
-either doesn't make 
-enough insulin or can't 
-use it effectively,
-preventing sugar from 
-entering cells for energy, 
-leading to potential 
-damage to the heart, 
-eyes, kidneys, and 
-nerves over time"
-horizontal_alignment = 1
+texture = ExtResource("11_cxcy4")
 
 [node name="gerd" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/gerd"]
-custom_minimum_size = Vector2(375, 275)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/gerd"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2"]
-custom_minimum_size = Vector2(350, 250)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 20
-
-[node name="gerd" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Gastroesophageal Reflux 
-Disease (GERD)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- chest pain
-- cough 
-- sore throat
-
-Prescription
-- Proton pump inhibitors
-- H2 blockers
-
-Lifestyle changes
-- Eat small meals
-- Lose excess weight
-- Quit smoking"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/book_ui/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "GERD is a chronic 
-digestive disorder 
-where stomach acid 
-frequently flows back 
-(refluxes) into the 
-esophagus (food pipe), 
-irritating its lining due to
- a weak or poorly closing 
-lower esophageal sphincter
- (LES) muscle, leading to 
-symptoms like chest pain,
-cough, and sore throat"
-horizontal_alignment = 1
+texture = ExtResource("12_7og4u")
 
 [node name="iron" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/iron"]
-custom_minimum_size = Vector2(375, 275)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/iron"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2"]
-custom_minimum_size = Vector2(350, 250)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 20
-
-[node name="iron" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 18
-text = "Iron-Deficiency Anemia"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 25
-
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- Fatigue
-- shortness of breath
-- dizziness
-
-Prescription
-- Iron supplements
-
-Lifestyle change
-- Iron-rich foods 
-(red meat, beans, 
-leafy greens)
-"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/book_ui/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Anemia is a condition
- in which the blood
- doesn't have enough 
-healthy red blood
- cells. Red blood 
-cells carry oxygen
- to the body's
- tissues. Not getting
-enough iron can 
-cause iron deficiency."
-horizontal_alignment = 1
+texture = ExtResource("13_0fy3m")
 
 [node name="blood" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/book_ui/blood"]
-custom_minimum_size = Vector2(375, 275)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/blood"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2"]
-custom_minimum_size = Vector2(350, 250)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 20
-
-[node name="blood" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Hypertension 
-(High Blood Pressure)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-
-[node name="detail" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- headache
-- dizziness
-
-Prescription
-- ACE inhibitors
-- beta-blockers
-
-Lifestyle changes
-- Reduce salt intake
-Regular exercise
-Stress management 
-and weight control"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/book_ui/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Hypertension is the force
- of blood against your
- artery walls is consistently
- too high, making your 
-heart work harder and
-damaging arteries over
- time, leading to risks of 
-heart attackand stroke. 
-It's often called the
- \"silent killer\"  symptoms,
- but readings of 130/80
- mmHg or higher 
-indicate hypertension
-"
-horizontal_alignment = 1
+texture = ExtResource("14_ayhjn")
 
 [node name="tools" type="PanelContainer" parent="CanvasLayer/book_ui"]
 visible = false
 custom_minimum_size = Vector2(450, 350)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/book_ui/tools"]
-custom_minimum_size = Vector2(400, 300)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book_ui/tools"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 45
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-
-[node name="tool" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Tools        "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 13
-text = "
-All Tools and Descriptions"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 275)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="description" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "  More tools     "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/book_ui/tools/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "More Tool 
-Descriptions
-"
-horizontal_alignment = 1
+texture = ExtResource("24_j3pel")
 
 [node name="buttons" type="MarginContainer" parent="CanvasLayer/book_ui"]
 custom_minimum_size = Vector2(425, 325)
@@ -1429,6 +828,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 31
 text = "01:35"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Timer" type="Timer" parent="CanvasLayer/timer"]
 
@@ -1481,11 +882,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "What's your name and
 date of birth?"
+vertical_icon_alignment = 2
 
 [node name="feelings" type="Button" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "What's the problem?"
+vertical_icon_alignment = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox"]
 layout_mode = 2
@@ -1494,6 +897,7 @@ theme_override_constants/separation = 20
 [node name="exit" type="Button" parent="CanvasLayer/player_dialogue_main/MarginContainer/vbox/VBoxContainer2"]
 layout_mode = 2
 text = "Exit"
+vertical_icon_alignment = 2
 
 [node name="elec_options" type="Control" parent="CanvasLayer"]
 visible = false
@@ -1542,23 +946,23 @@ theme_override_constants/separation = 15
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 45
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/star_pic"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
+texture = ExtResource("30_yqe8c")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/star_pic"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
+texture = ExtResource("31_mjycy")
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/star_pic"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("3_8pp3b")
+texture = ExtResource("32_no503")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -1608,32 +1012,44 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/main/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/main/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(600, 70)
+layout_mode = 2
+theme = SubResource("Theme_d144m")
+theme_override_colors/font_outline_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqe8c")
+text = "CareerQuest"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_d144m")
-theme_override_font_sizes/font_size = 70
-text = "CareerQuest"
-horizontal_alignment = 1
-
-[node name="play" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+[node name="play" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
-[node name="credits" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+[node name="credits" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = SubResource("Theme_0u3lf")
 theme_override_font_sizes/font_size = 30
 text = "Credits"
 
-[node name="quit" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+[node name="quit" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = SubResource("Theme_43jgg")
@@ -1707,12 +1123,17 @@ layout_mode = 2
 theme_override_constants/separation = 75
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(900, 100)
 layout_mode = 2
 size_flags_vertical = 0
 theme = SubResource("Theme_5dl2g")
 text = "Pick Your Character"
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -1720,50 +1141,76 @@ theme_override_constants/separation = 50
 alignment = 1
 
 [node name="doc" type="Button" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(270, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 text = "Doctor"
 
 [node name="elec" type="Button" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 text = "Electrician"
 
 [node name="elec2" type="Button" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(290, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 text = "Finance"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="doc" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="doc" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "High Score: 0"
+text = "High Score:"
 horizontal_alignment = 1
 
-[node name="elec" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="elec" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "High Score: 0"
+text = "High Score:"
 horizontal_alignment = 1
 
-[node name="elec2" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="finance" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "High Score: 0"
+text = "High Score:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 240
+alignment = 1
+
+[node name="doc" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "0/400"
+horizontal_alignment = 1
+
+[node name="elec" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "0/250"
+horizontal_alignment = 1
+
+[node name="finance" type="Label" parent="CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "0/250"
 horizontal_alignment = 1
 
 [node name="back" type="Button" parent="CanvasLayer/careers/MarginContainer"]
@@ -1802,7 +1249,16 @@ layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
+[node name="condition" type="Label" parent="CanvasLayer/career_desc/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Arthritis"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="desc" type="Label" parent="CanvasLayer/career_desc/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
@@ -1842,6 +1298,7 @@ theme = SubResource("Theme_rduta")
 [node name="Label" type="Label" parent="CanvasLayer/load_screen"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("30_da5eq")
 theme_override_font_sizes/font_size = 90
 text = "Loading..."
 horizontal_alignment = 1
@@ -1871,8 +1328,8 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="elec" type="TextureRect" parent="CanvasLayer/tutorial/MarginContainer"]
-visible = false
 layout_mode = 2
+texture = ExtResource("30_j3pel")
 
 [node name="doc" type="TextureRect" parent="CanvasLayer/tutorial/MarginContainer"]
 layout_mode = 2
@@ -1895,858 +1352,6 @@ theme = SubResource("Theme_62hnx")
 theme_override_font_sizes/font_size = 35
 text = "X"
 
-[node name="finance_dialoge" type="PanelContainer" parent="CanvasLayer"]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -277.0
-offset_top = -273.0
-offset_right = -27.0
-offset_bottom = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_dialoge"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="vbox" type="VBoxContainer" parent="CanvasLayer/finance_dialoge/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 32
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_dialoge/MarginContainer/vbox"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="names" type="Button" parent="CanvasLayer/finance_dialoge/MarginContainer/vbox/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "What's your name and
-date of birth?"
-
-[node name="feelings" type="Button" parent="CanvasLayer/finance_dialoge/MarginContainer/vbox/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "What's the problem?"
-
-[node name="feelings2" type="Button" parent="CanvasLayer/finance_dialoge/MarginContainer/vbox/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "next answer"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_dialoge/MarginContainer/vbox"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="exit" type="Button" parent="CanvasLayer/finance_dialoge/MarginContainer/vbox/VBoxContainer2"]
-layout_mode = 2
-text = "Exit"
-
-[node name="finance_book" type="PanelContainer" parent="CanvasLayer"]
-visible = false
-custom_minimum_size = Vector2(450, 350)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -225.0
-offset_top = -175.0
-offset_right = 225.0
-offset_bottom = 175.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="asthma" type="PanelContainer" parent="CanvasLayer/finance_book"]
-custom_minimum_size = Vector2(450, 350)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/asthma"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/asthma/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 45
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/asthma/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-
-[node name="asthma" type="Label" parent="CanvasLayer/finance_book/asthma/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Asthma         "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/asthma/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 13
-text = "
-Symptoms:
-- Cough
-- Shortness of breath
-- Chest pain
-
-Prescription
-- Inhaler
-
-Lifestyle Change
-- Avoid triggers (smoke, 
-allergens, cold air, etc.)
-- Regular exercise"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/asthma/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 275)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/asthma/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description     "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/asthma/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "Asthma is a Chronic
-Lung Disease where 
-airways become
- inflamed, swollen,
- and narrow, leading 
-to symptoms like 
-coughing, chest
- tightness, and 
-shortness of breath"
-horizontal_alignment = 1
-
-[node name="arthritis" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(450, 350)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/arthritis"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/arthritis/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/arthritis/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-
-[node name="arthritis" type="Label" parent="CanvasLayer/finance_book/arthritis/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Arthritis       "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/arthritis/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/arthritis/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- Joint pain
-- Swelling
-
-Prescription
-- corticosteroids
-- DMARDs
-
-Lifestyle change
-- Light exercise
-- Weight management
-- Avoid tobacco and have
-a balanced diet"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/arthritis/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 300)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 25
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/arthritis/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description    "
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/arthritis/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "Arthritis is a 
-general term for 
-joint pain and 
-inflammation, 
-encompassing over 
-100 conditions that 
-affect joints, tissues, 
-and connective tissues, 
-causing pain, swelling, 
-stiffness, and reduced 
-movement. "
-horizontal_alignment = 1
-
-[node name="flu" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/flu"]
-custom_minimum_size = Vector2(375, 275)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = -75
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/flu/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/flu/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="flu" type="Label" parent="CanvasLayer/finance_book/flu/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Influenze (Flu)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/flu/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "Symptoms:
-- Fever
-- Cough
-- Fatigue
-- Headache
-
-Prescription
-- Antiviral drugs
-- Pain reliever
-
-Lifestyle changes
-- Good hygiene
-- Rest and hydrate"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/flu/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/flu/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "The flu is a contagious
- respiratory illness caused 
-by viruses, leading to
- symptoms like fever,
- cough, sore throat, 
-headaches, and fatigue,
- often appearing 
-suddenly"
-horizontal_alignment = 1
-
-[node name="copd" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/copd"]
-custom_minimum_size = Vector2(375, 275)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_right = 15
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/copd/MarginContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/copd/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="copd" type="Label" parent="CanvasLayer/finance_book/copd/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Chronic Obstructive 
-Pulmonary Disease (COPD)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/copd/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/copd/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- Cough
-- Shortness of breath
-- Chest pain
-- Fatigue
-
-Prescription
-- Inhaled bronchodilators
-
-Lifestyle change
-- Avoid smoking, dust, pollution, etc.
-- Regular exercise"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/copd/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/copd/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="details" type="Label" parent="CanvasLayer/finance_book/copd/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-text = "COPD is a lung 
-condition that 
-makes breathing 
-difficult, involving 
-inflamed, damaged 
-airways and air sacs
-(alveoli) that block 
-airflow, leading to 
-symptoms like  cough, 
-shortness of breath,
- and chest tightness,
- primarily caused 
-by long-term irritant
- exposure  like smoking"
-horizontal_alignment = 1
-
-[node name="migraine" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/migraine"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_top = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/migraine/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/migraine/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="migraine" type="Label" parent="CanvasLayer/finance_book/migraine/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Migraine"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="detail" type="Label" parent="CanvasLayer/finance_book/migraine/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-text = "Symptoms:
-- Headache
-- Nausea
-- Vomiting
-
-Prescription
-- Triptans 
-- Antiemetics 
--Ppreventive medications 
-(beta-blockers, anticonvulsants)
-
-Lifestyle changes
-- Sleep and hydration
-- Identify and avoid triggers
-(stress, food, etc.)"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/migraine/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/migraine/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="detail" type="Label" parent="CanvasLayer/finance_book/migraine/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Migraine's are a 
-neurological condition
- causing moderate to
- severe head pain, 
-usually on one side,
-accompanied by
- symptoms like nausea 
-and vomiting."
-horizontal_alignment = 1
-
-[node name="diabetes" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/diabetes"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = -20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/diabetes/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/diabetes/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="diabetes" type="Label" parent="CanvasLayer/finance_book/diabetes/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Diabetes"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="detail" type="Label" parent="CanvasLayer/finance_book/diabetes/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Symptoms:
--  frequent urination 
-- thirsty/hungry
-- fatigue
-
-Prescription
-- metformin + 
-sulfonylureas
-
-Lifestyle changes
-- Healthy diet
-- Regular exercise"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/diabetes/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/diabetes/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="detail" type="Label" parent="CanvasLayer/finance_book/diabetes/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-text = "Diabetes is a chronic 
-condition where your 
-blood sugar (glucose) 
-levels are too high
- because your body 
-either doesn't make 
-enough insulin or can't 
-use it effectively,
-preventing sugar from 
-entering cells for energy, 
-leading to potential 
-damage to the heart, 
-eyes, kidneys, and 
-nerves over time"
-horizontal_alignment = 1
-
-[node name="gerd" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/finance_book/gerd"]
-custom_minimum_size = Vector2(375, 275)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/gerd/MarginContainer2"]
-custom_minimum_size = Vector2(350, 250)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 20
-
-[node name="gerd" type="Label" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Gastroesophageal Reflux 
-Disease (GERD)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-
-[node name="detail" type="Label" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- chest pain
-- cough 
-- sore throat
-
-Prescription
-- Proton pump inhibitors
-- H2 blockers
-
-Lifestyle changes
-- Eat small meals
-- Lose excess weight
-- Quit smoking"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/finance_book/gerd/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "GERD is a chronic 
-digestive disorder 
-where stomach acid 
-frequently flows back 
-(refluxes) into the 
-esophagus (food pipe), 
-irritating its lining due to
- a weak or poorly closing 
-lower esophageal sphincter
- (LES) muscle, leading to 
-symptoms like chest pain,
-cough, and sore throat"
-horizontal_alignment = 1
-
-[node name="iron" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/finance_book/iron"]
-custom_minimum_size = Vector2(375, 275)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/iron/MarginContainer2"]
-custom_minimum_size = Vector2(350, 250)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 20
-
-[node name="iron" type="Label" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 18
-text = "Iron-Deficiency Anemia"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 25
-
-[node name="detail" type="Label" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- Fatigue
-- shortness of breath
-- dizziness
-
-Prescription
-- Iron supplements
-
-Lifestyle change
-- Iron-rich foods 
-(red meat, beans, 
-leafy greens)
-"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/finance_book/iron/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Anemia is a condition
- in which the blood
- doesn't have enough 
-healthy red blood
- cells. Red blood 
-cells carry oxygen
- to the body's
- tissues. Not getting
-enough iron can 
-cause iron deficiency."
-horizontal_alignment = 1
-
-[node name="blood" type="PanelContainer" parent="CanvasLayer/finance_book"]
-visible = false
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/finance_book/blood"]
-custom_minimum_size = Vector2(375, 275)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/blood/MarginContainer2"]
-custom_minimum_size = Vector2(350, 250)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer"]
-custom_minimum_size = Vector2(375, 0)
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 20
-
-[node name="blood" type="Label" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 17
-text = "Hypertension 
-(High Blood Pressure)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-
-[node name="detail" type="Label" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Symptoms:
-- headache
-- dizziness
-
-Prescription
-- ACE inhibitors
-- beta-blockers
-
-Lifestyle changes
-- Reduce salt intake
-Regular exercise
-Stress management 
-and weight control"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="description" type="Label" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 17
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/finance_book/blood/MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Hypertension is the force
- of blood against your
- artery walls is consistently
- too high, making your 
-heart work harder and
-damaging arteries over
- time, leading to risks of 
-heart attackand stroke. 
-It's often called the
- \"silent killer\"  symptoms,
- but readings of 130/80
- mmHg or higher 
-indicate hypertension
-"
-horizontal_alignment = 1
-
-[node name="buttons" type="MarginContainer" parent="CanvasLayer/finance_book"]
-custom_minimum_size = Vector2(425, 325)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="forward" type="Button" parent="CanvasLayer/finance_book/buttons"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-action_mode = 0
-text = ">"
-
-[node name="escape" type="Button" parent="CanvasLayer/finance_book/buttons"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-action_mode = 0
-text = "X"
-
-[node name="backwards" type="Button" parent="CanvasLayer/finance_book/buttons"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-action_mode = 0
-text = "<"
-
 [node name="notification" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.326
@@ -2758,6 +1363,7 @@ offset_right = -0.296021
 offset_bottom = 0.231995
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("30_da5eq")
 theme_override_font_sizes/font_size = 20
 text = "notifications"
 horizontal_alignment = 1
@@ -2796,43 +1402,49 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pause/menu"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pause/menu/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-alignment = 1
+theme_override_font_sizes/font_size = 65
+text = "Pause Menu"
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("5_6cpf6")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="VBoxContainer" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("30_da5eq")
 theme_override_font_sizes/font_size = 35
 text = "Tutorial"
 
 [node name="exit" type="Button" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("30_da5eq")
 theme_override_font_sizes/font_size = 35
 text = "Exit Game"
 
-[node name="resume" type="Button" parent="CanvasLayer/pause/menu/MarginContainer"]
+[node name="resume" type="Button" parent="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(70, 20)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("30_da5eq")
+theme_override_font_sizes/font_size = 35
 text = "resume"
+icon_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/book_ui/buttons/escape" to="." method="_on_escape_pressed"]
@@ -2843,9 +1455,9 @@ text = "resume"
 [connection signal="pressed" from="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer/1star" to="." method="_on_star1_pressed"]
 [connection signal="pressed" from="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer/3star" to="." method="_on_star3_pressed"]
 [connection signal="pressed" from="CanvasLayer/elec_options/stars/MarginContainer/VBoxContainer/HBoxContainer/5star" to="." method="_on_star5_pressed"]
-[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/play" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer2/VBoxContainer/play" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer2/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer2/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/credits/MarginContainer/back" to="." method="_on_back_main_pressed"]
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer/doc" to="." method="_on_start_doc_pressed"]
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer/elec" to="." method="_on_elec_pressed"]
@@ -2853,9 +1465,6 @@ text = "resume"
 [connection signal="pressed" from="CanvasLayer/careers/MarginContainer/back" to="." method="_on_back_career_pressed"]
 [connection signal="pressed" from="CanvasLayer/career_desc/MarginContainer/exit" to="." method="_on_exit_career_desc_pressed"]
 [connection signal="pressed" from="CanvasLayer/tutorial/MarginContainer/HBoxContainer/no" to="." method="_on_exit_tut_pressed"]
-[connection signal="pressed" from="CanvasLayer/finance_book/buttons/forward" to="." method="_on_forward_pressed"]
-[connection signal="pressed" from="CanvasLayer/finance_book/buttons/escape" to="." method="_on_escape_pressed"]
-[connection signal="pressed" from="CanvasLayer/finance_book/buttons/backwards" to="." method="_on_backwards_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2/exit" to="." method="_on_exit_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause/menu/MarginContainer/VBoxContainer/HBoxContainer2/resume" to="." method="_on_resume_pressed"]

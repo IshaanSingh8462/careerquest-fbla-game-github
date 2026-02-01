@@ -22,11 +22,11 @@ buses/default_bus_layout=""
 [autoload]
 
 Global="*res://scripts/Autoload/global.gd"
+_Music="*res://assets/music/music_bg.gd"
 
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
 
 [global_group]
 

@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://06j7yrexg6uv"]
+[gd_scene load_steps=19 format=3 uid="uid://06j7yrexg6uv"]
 
 [ext_resource type="PackedScene" uid="uid://bi6td14dng4sg" path="res://assets/blender/electrician_house_room.blend" id="1_2ien5"]
+[ext_resource type="Texture2D" uid="uid://c2tv5shxe0nmf" path="res://assets/blender/textures/table_wood.jpeg" id="2_8w028"]
+[ext_resource type="Texture2D" uid="uid://cc272xq4op0cs" path="res://assets/blender/textures/Dark Wood Floor.jpeg" id="2_otxt7"]
+[ext_resource type="Texture2D" uid="uid://b6obsxae5mklg" path="res://assets/blender/textures/wood_floor_texture.jpg" id="2_p4nc0"]
+[ext_resource type="PackedScene" uid="uid://2t3nc8t5wixl" path="res://assets/meshes/light_bulbs.tscn" id="5_ke7cj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ien5"]
-size = Vector3(2.05432, 0.118164, 1.96191)
+size = Vector3(12.7695, 11.0417, 1.00665)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke7cj"]
+albedo_texture = ExtResource("2_8w028")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otxt7"]
 size = Vector3(4.74899, 1.80322, 1.03442)
@@ -14,6 +21,12 @@ size = Vector3(1.61707, 3.83057, 1.50049)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ke7cj"]
 size = Vector3(4.3058, 0.833008, 1.52637)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u51f2"]
+albedo_texture = ExtResource("2_8w028")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2pdt"]
+albedo_texture = ExtResource("2_p4nc0")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_u51f2"]
 size = Vector3(13.2031, 15.6091, 4.97852)
 
@@ -23,11 +36,37 @@ height = 4.02002
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4nc0"]
 size = Vector3(1.39648, 1.39502, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5rcl"]
+albedo_texture = ExtResource("2_8w028")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w028"]
+albedo_texture = ExtResource("2_otxt7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_otxt7"]
+albedo_texture = ExtResource("2_p4nc0")
+
 [node name="electrician_house_room" instance=ExtResource("1_2ien5")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0725708, -0.954132, 0.0336914)
+[node name="StaticBody3D" type="StaticBody3D" parent="room" index="0"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="room/StaticBody3D" index="0"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.181818, 0.0860292, -0.0984741, 0.961864)
 shape = SubResource("BoxShape3D_2ien5")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="room/StaticBody3D" index="1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.181818, 0.0860292, -0.0984741, -0.99201)
+shape = SubResource("BoxShape3D_2ien5")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="room/StaticBody3D" index="2"]
+transform = Transform3D(-8.74228e-09, 0, 0.181818, 0, 0.2, 0, -0.2, 0, -7.94753e-09, -0.979601, -0.0984741, 0.277899)
+shape = SubResource("BoxShape3D_2ien5")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="room/StaticBody3D" index="3"]
+transform = Transform3D(-8.74228e-09, 0, 0.181818, 0, 0.2, 0, -0.2, 0, -7.94753e-09, 0.985885, -0.0984741, 0.277899)
+shape = SubResource("BoxShape3D_2ien5")
+
+[node name="tv_table" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_ke7cj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="sofa/sofa_fbx/RootNode/sofa_002/sofa_001/sofa_sofa_0" index="0"]
 
@@ -47,11 +86,20 @@ shape = SubResource("BoxShape3D_8w028")
 transform = Transform3D(50.0026, 1.3113e-06, 2.09184e-11, -6.52671e-06, 50.0016, -5.40181e-11, 3.86535e-11, -4.37872e-13, 50.0019, 1.729, 30.5423, 13.1595)
 shape = SubResource("BoxShape3D_ke7cj")
 
+[node name="sofa_table" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_u51f2")
+
+[node name="Cubo_17__0" parent="bookshelf/d42886a06ddf41dba23177b13424e646_fbx/RootNode_001/Cubo_17" index="0"]
+material_override = SubResource("StandardMaterial3D_s2pdt")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="bookshelf/d42886a06ddf41dba23177b13424e646_fbx/RootNode_001/Cubo_17/Cubo_17__0" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bookshelf/d42886a06ddf41dba23177b13424e646_fbx/RootNode_001/Cubo_17/Cubo_17__0/StaticBody3D" index="0"]
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 10.6445, -26.3335, -8.8623)
 shape = SubResource("BoxShape3D_u51f2")
+
+[node name="Mesh_Mesh_head_geo_001_lambert2SG_002" parent="book2" index="0"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, -1.77636e-15, 0, 0, 0.03, 4.4409, 12.0738, 2.68633)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tall_house_plant/Plant2_fbx/RootNode_003/Cylinder_002/Cylinder_002_Pot_0" index="0"]
 
@@ -64,3 +112,23 @@ shape = SubResource("CylinderShape3D_2ien5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="accent_chair/Collada visual scene group/Flick_Accent_Chair/FABRIC/StaticBody3D" index="0"]
 transform = Transform3D(50, -7.62939e-06, -1.81899e-12, 0, 50, 9.09495e-13, 0, -3.63798e-12, 50, 0.231895, -2.96627, 35.3879)
 shape = SubResource("BoxShape3D_p4nc0")
+
+[node name="accent_chair_table" parent="." index="14"]
+material_override = SubResource("StandardMaterial3D_r5rcl")
+
+[node name="floor" type="CSGBox3D" parent="." index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.775, 0.001, -5.324)
+material_override = SubResource("StandardMaterial3D_8w028")
+size = Vector3(10.7788, 1, 11.1989)
+material = SubResource("StandardMaterial3D_otxt7")
+
+[node name="roof" type="CSGBox3D" parent="." index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98389, 7.91046, -5.60549)
+size = Vector3(10, 1, 11)
+
+[node name="Node3D" parent="roof" index="0" instance=ExtResource("5_ke7cj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.481, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="roof/Node3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.43732, 0)
+omni_range = 10.3638

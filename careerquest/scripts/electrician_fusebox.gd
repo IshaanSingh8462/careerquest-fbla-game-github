@@ -36,6 +36,10 @@ extends Node3D
 @onready var factory := $factory
 @onready var apartment := $apartment
 @onready var house := $house
+@onready var office := $office
+@onready var coffee_shop := $coffee_shop
+@onready var basement := $basement
+
 @onready var tutor := $hinge/CSGBox3D/tutor
 
 @onready var red = load("res://scenes/materials/light_red.tres")
@@ -68,8 +72,8 @@ func _physics_process(_delta: float) -> void:
 		tutor.show()
 	else:
 		tutor.hide()
-	ind_num.text = str(Global.load)
-	if Global.load == Global.elec_cond["load_limit"]:
+	ind_num.text = str(Global.load_)
+	if Global.load_ == Global.elec_cond["load_limit"]:
 		indicator.material = green
 		Global.elec_job_comp["breaker"] = true
 		var all_switches = [switch1, switch2, switch3, switch4, switch5, switch6, switch7, switch8, switch9, switch10]
@@ -80,7 +84,7 @@ func _physics_process(_delta: float) -> void:
 			sw_value[i].material = red
 		for i in range(10):
 			Global.sw_states[i] = false
-		Global.load = 0
+		Global.load_ = 0
 		Global.elec_cond["load_limit"] = null
 	check_comp()
 
@@ -134,8 +138,8 @@ func sw_values():
 
 func elec_location_pick():
 	if Global.is_elec and not elec_location_pick_:
-		var elec_location = ["house","coffee_shop","office","traffic_light","factory","apartment"]
-		var locations = [house, house, house, house, factory, apartment]
+		var elec_location = ["house","coffee_shop","office","basement","factory","apartment"]
+		var locations = [house, coffee_shop, office, basement, factory, apartment]
 		for i in range(6):
 			if Global.elec_cond["location"] == elec_location[i]:
 				locations[i].show()
@@ -148,10 +152,10 @@ func elec_location_pick():
 func loc_coll():
 	var loc = {
 		"house": [house, 3],
-		"coffee_shop": [house, 3],
-		"office": [house, 3],
+		"coffee_shop": [coffee_shop, 3],
+		"office": [office, 3],
 		"factory": [factory, 3],
-		"nasa": [house, 3],
+		"basement": [basement, 3],
 		"apartment": [apartment, 3]
 	}
 	var current = Global.elec_cond["location"]
@@ -161,7 +165,7 @@ func loc_coll():
 		unique_nodes[loc[key][0]] = true
 	for node in unique_nodes.keys():
 		node.hide()
-		node.position.y = 10
+		node.position.y = 20
 	# Then show the active one
 	var node = loc[current][0]
 	node.show()

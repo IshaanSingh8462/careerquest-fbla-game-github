@@ -4,7 +4,7 @@ var pause_game = null
 var mouse_mode = 0 #0=captured, 1=visible
 
 
-var notification = ""
+var notify = ""
 
 '''doctor variables'''
 var is_doc = false
@@ -23,10 +23,10 @@ var clipboard_info = {"first":null,"last":null,"dob":null,"gender":null,"clip_ui
 "clicked":null,"forward":null,"backward":null, "is_editing":null}
 var doc_desc = ["Asthma is a long-term condition where the airways become inflamed and narrow, making it hard to breathe. People may experience wheezing, coughing, chest tightness, or shortness of breath, often triggered by exercise, allergens, or cold air.", 
 "Arthritis causes inflammation in the joints, leading to pain, stiffness, and swelling. It can make everyday movements difficult and often worsens with age or repeated joint use.", 
-"Chronic Obstructive Pulmonary Disease (COPD) is a progressive lung disease that makes breathing increasingly difficult. It is commonly caused by long-term smoking and includes symptoms like chronic cough and shortness of breath.c", 
+"COPD is a progressive lung disease that makes breathing increasingly difficult. It is commonly caused by long-term smoking and includes symptoms like chronic cough and shortness of breath.c", 
 "The flu is a contagious viral infection that affects the respiratory system. Common symptoms include fever, chills, body aches, fatigue, and a sore throat.", 
 "A migraine is a severe headache often accompanied by nausea, light sensitivity, or visual disturbances. Attacks can last for hours or even days and may be triggered by stress, food, or lack of sleep.",
- "Diabetes is a condition where the body has trouble regulating blood sugar levels. This can happen when the body does not make enough insulin or cannot use it effectively.", 
+"Diabetes is a condition where the body has trouble regulating blood sugar levels. This can happen when the body does not make enough insulin or cannot use it effectively.", 
 "GERD is a chronic condition where stomach acid frequently flows back into the esophagus. This can cause heartburn, chest discomfort, and irritation of the throat, especially after eating or when lying down.", 
 "Iron deficiency occurs when the body does not have enough iron to produce healthy red blood cells. This can lead to fatigue, weakness, and difficulty concentrating.", 
 "High blood pressure happens when the force of blood against artery walls is consistently too strong. Over time, it can damage the heart and increase the risk of serious health problems."]
@@ -37,6 +37,16 @@ func pick_doc_desc():
 		var key = keys[i]
 		if condition[key] == true:
 			return doc_desc[i]
+	return ""
+
+func get_condition():
+	var cond = ["Asthma","Arthritis","Chronic Obstructive Pulmonary Disease (COPD)","Influenza (Flu)","Migraine","Diabetes","Gastroesophageal Reflux 
+Disease (GERD)","Iron Deficiency","High Blood Pressure"]
+	var keys = condition.keys()
+	for i in range(keys.size()):
+		var key = keys[i]
+		if condition[key]:
+			return cond[i]
 	return ""
 
 var move = false
@@ -60,6 +70,7 @@ var ask_feel = false
 
 var active_tool = -1
 var doc_therm_text = ""
+var doc_gluc_text = ""
 
 #starts doctor functions
 func interact():
@@ -79,12 +90,24 @@ var elec_games = false
 var open_fusebox = false
 var sw_states = [false,false,false,false,false,false,false,false,false,false] #switch is in on/off position
 var load_val = [4,5,3,1,3,2,6,6,4,5]
-var load = 0
+var load_ = 0
 var tripped_status = false
 
 #pick options variables (stars, card, etc.)
-var elec_location = ["house","coffee_shop","office","nasa","factory","apartment"]
-var elec_desc = ["house desc", "coffee_shop desc","office desc","nasa desc","factory desc","apartment desc"]
+var elec_location = ["house","coffee_shop","office","basement","factory","apartment"]
+var elec_desc = [
+  "Electricians install and repair wiring that powers lights, outlets, and appliances. Working with electricity can be dangerous, so they use insulated tools and safety gear to avoid shocks.",
+  
+  "Circuit breakers protect buildings by automatically shutting off power when too much electricity flows. Without breakers, wires could overheat and cause electrical fires.",
+  
+  "Wall outlets deliver electricity from your home's wiring to devices like chargers and computers. Overloading an outlet with too many plugs can cause overheating and fire hazards.",
+  
+  "Ground wires are a key safety feature — they provide a safe path for electricity to travel in case of a fault. This helps prevent electric shock if something goes wrong.",
+  
+  "Factories use high-voltage equipment that requires industrial electricians. These systems power heavy machines but can be extremely dangerous without proper training and lockout procedures.",
+  
+  "GFCI outlets (the ones with test/reset buttons) are used in bathrooms and kitchens. They shut off power in milliseconds if they detect current flowing through water or a person."
+];
 var elec_job_comp = {"breaker":false,"outlet":false,"light":false}
 func pick_desc(location):
 	if is_doc:
@@ -98,29 +121,29 @@ var random_location = elec_location.pick_random()
 
 var elec_cond = {
 	"difficulty": null,
-	"location": "house", #random_location,
+	"location": "apartment", #random_location,
 	"desc": pick_desc(random_location),
 	"load_limit":null
 }# difficulty: 1-star, 3-star, 5-star; 
 
 func calc_load():
-	load = 0
+	load_ = 0
 	var load_limits = [15, 22, 29]
 
 	# Calculate load
 	for i in range(10):
 		if sw_states[i]:
-			load += load_val[i]
+			load_ += load_val[i]
 	var limit = load_limits[elec_cond["difficulty"]]
 	elec_cond["load_limit"] = limit
 	# Breaker logic
 	if tripped_status:
 		# Breaker is already tripped → only reset if load is zero
-		if load == 0:
+		if load_ == 0:
 			tripped_status = false
 	else:
 		# Breaker is NOT tripped → check if it should trip
-		if load > limit:
+		if load_ > limit:
 			tripped_status = true
 
 #changes state of fusebox switches

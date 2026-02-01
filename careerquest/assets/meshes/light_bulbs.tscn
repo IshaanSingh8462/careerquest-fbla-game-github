@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2t3nc8t5wixl"]
+
+[ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_ew85n"]
+[ext_resource type="Material" uid="uid://d3utq2qq4jl0p" path="res://scenes/materials/light_yellow.tres" id="2_qqgeq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+height = 0.2
+sides = 20
+material = ExtResource("1_ew85n")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+radial_segments = 20
+rings = 20
+material = ExtResource("2_qqgeq")

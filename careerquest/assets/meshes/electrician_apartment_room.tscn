@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://cg7udmvis5rtf"]
+
+[ext_resource type="PackedScene" uid="uid://biv33wfm6p4hn" path="res://assets/blender/electrician_apartment_room.blend" id="1_vkyyb"]
+[ext_resource type="Texture2D" uid="uid://b34tte652wl6e" path="res://assets/blender/textures/black_fabric.jpeg" id="2_6a4sy"]
+[ext_resource type="Texture2D" uid="uid://c2tv5shxe0nmf" path="res://assets/blender/textures/table_wood.jpeg" id="2_umuaj"]
+[ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="3_6a4sy"]
+[ext_resource type="Material" uid="uid://bmp73o70nwelg" path="res://scenes/materials/light_blue.tres" id="3_lt2t8"]
+[ext_resource type="Texture2D" uid="uid://dnmalei2772rr" path="res://assets/ui/flba_logo.png" id="6_lt2t8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0nhq"]
+albedo_texture = ExtResource("2_umuaj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umuaj"]
+albedo_texture = ExtResource("2_6a4sy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lt2t8"]
+albedo_texture = ExtResource("2_6a4sy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_410hu"]
+albedo_texture = ExtResource("2_6a4sy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ht8q"]
+albedo_texture = ExtResource("2_6a4sy")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lt2t8"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="electrician_apartment_room" instance=ExtResource("1_vkyyb")]
+
+[node name="tv_table" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_r0nhq")
+
+[node name="Object_4" parent="plastic_chair/3DSMeshMatrix" index="2"]
+material_override = ExtResource("3_lt2t8")
+
+[node name="Object_4_001" parent="plastic_chair_001/3DSMeshMatrix_001" index="0"]
+material_override = ExtResource("3_lt2t8")
+
+[node name="Cube_fabric_0" parent="sofa/bea6005b817743f6b5e3e586e3204b13_fbx/RootNode/Cube_005/Cube" index="0"]
+material_override = SubResource("StandardMaterial3D_umuaj")
+
+[node name="Cube_004_fabric_0" parent="sofa/bea6005b817743f6b5e3e586e3204b13_fbx/RootNode/Cube_005/Cube_004" index="0"]
+material_override = SubResource("StandardMaterial3D_lt2t8")
+
+[node name="Cube_005_fabric_0" parent="sofa/bea6005b817743f6b5e3e586e3204b13_fbx/RootNode/Cube_005" index="2"]
+material_override = SubResource("StandardMaterial3D_410hu")
+
+[node name="Cylinder_Wood_0" parent="sofa/bea6005b817743f6b5e3e586e3204b13_fbx/RootNode/Cube_005/Cylinder" index="0"]
+material_override = ExtResource("3_6a4sy")
+
+[node name="Plane_fabric_0" parent="sofa/bea6005b817743f6b5e3e586e3204b13_fbx/RootNode/Cube_005/Plane" index="0"]
+material_override = SubResource("StandardMaterial3D_0ht8q")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="19"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.8931, 5.39441, -0.527707)
+texture = SubResource("ViewportTexture_lt2t8")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" index="0"]
+transparent_bg = true
+
+[node name="TextEdit" type="TextureRect" parent="Sprite3D/SubViewport" index="0"]
+offset_left = 100.0
+offset_right = 500.0
+offset_bottom = 371.765
+texture = ExtResource("6_lt2t8")
+expand_mode = 5

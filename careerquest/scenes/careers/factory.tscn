@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -8, 8)
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.06108, -0.842701, -6.01649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.06108, -0.779007, -5.42745)
 shape = SubResource("BoxShape3D_qgvaf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -73,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23743, -5.90505, 5.61333)
 shape = SubResource("BoxShape3D_gqogv")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32893, -0.754333, 6.64178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05453, -0.754333, 5.63665)
 shape = SubResource("BoxShape3D_kb77o")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D"]
@@ -101,9 +101,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87568, -5.00686, -3.91404)
 shape = SubResource("BoxShape3D_6xn2d")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140076, 6.2763, 0.0733643)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 6, 0.073)
 size = Vector3(14.7167, 1, 15.1042)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.123584, 0.992334, 0, -0.992334, 0.123584, -0.623199, 1.53981, 2.90191)
-light_energy = 0.55
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51491, -1.21498, 2.27074)
+omni_range = 10.7797
