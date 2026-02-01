@@ -1,24 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://2c3xn273ioqh"]
+[gd_scene load_steps=10 format=3 uid="uid://2c3xn273ioqh"]
 
 [ext_resource type="Script" uid="uid://pw810kyi61kc" path="res://scripts/npc_doctor.gd" id="1_84hc2"]
-[ext_resource type="PackedScene" uid="uid://24hf3gs6lhq" path="res://assets/man_walk.tscn" id="2_84hc2"]
+[ext_resource type="FontFile" uid="uid://bnbvc77kem3es" path="res://assets/LuckiestGuy-Regular.ttf" id="3_bgitj"]
+[ext_resource type="PackedScene" uid="uid://bye6okbakrkl4" path="res://assets/meshes/walk_man.tscn" id="4_01k3j"]
+[ext_resource type="PackedScene" uid="uid://b3tvwtp43utle" path="res://assets/meshes/walk_girl.tscn" id="5_urmqq"]
+[ext_resource type="PackedScene" uid="uid://cf6tb325u3f8t" path="res://assets/meshes/idle_man.tscn" id="5_urpkq"]
+[ext_resource type="PackedScene" uid="uid://drqbd87l3x5lh" path="res://assets/meshes/idle_girl.tscn" id="6_urmqq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7qyh0"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ceaqc"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bgitj"]
+height = 2.45896
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ceaqc"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84hc2"]
-albedo_color = Color(0.16, 0.16, 0.16, 0.407843)
-
 [node name="npc" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_84hc2")
-
-[node name="man_walk" parent="." instance=ExtResource("2_84hc2")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.24016, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -27,9 +26,8 @@ lod_bias = 0.001
 mesh = SubResource("CapsuleMesh_7qyh0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-visible = false
-shape = SubResource("CapsuleShape3D_ceaqc")
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.494528, 0)
+shape = SubResource("CapsuleShape3D_bgitj")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.938732, 0)
@@ -42,22 +40,36 @@ transparent_bg = true
 size = Vector2i(1920, 1080)
 
 [node name="Label" type="Label" parent="Sprite3D/SubViewport"]
+custom_minimum_size = Vector2(300, 150)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 90.0
-offset_top = -165.0
-offset_right = 174.0
-offset_bottom = 482.438
+offset_top = -190.0
+offset_right = 390.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_bgitj")
 theme_override_font_sizes/font_size = 35
 text = "hello"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25666, 0)
-height = 0.0375977
-sides = 20
-material = SubResource("StandardMaterial3D_84hc2")
+[node name="walk_man" parent="." instance=ExtResource("4_01k3j")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.25, 0)
+visible = false
+
+[node name="idle_man" parent="." instance=ExtResource("5_urpkq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.25, 0)
+
+[node name="walk_girl" parent="." instance=ExtResource("5_urmqq")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, -1.25, 0)
+visible = false
+
+[node name="idle_girl" parent="." instance=ExtResource("6_urmqq")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, -1.25, 0)
+visible = false

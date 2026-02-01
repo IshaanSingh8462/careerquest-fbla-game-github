@@ -1,14 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://w52ivpn8bbqm"]
+[gd_scene load_steps=13 format=3 uid="uid://w52ivpn8bbqm"]
 
 [ext_resource type="Script" uid="uid://cwa7mnk7e17lg" path="res://scripts/electrician_fusebox.gd" id="1_sgqtv"]
 [ext_resource type="Material" uid="uid://c6i6na54lr8yk" path="res://scenes/materials/grey.tres" id="1_xpqt5"]
 [ext_resource type="Material" uid="uid://cckr4glkoaqdu" path="res://scenes/materials/dark_yellow.tres" id="2_1qikm"]
-[ext_resource type="Texture2D" uid="uid://c1wf0tfya7pyn" path="res://icon.png" id="4_6f78w"]
+[ext_resource type="Material" uid="uid://deqhnrjb1nmoh" path="res://assets/meshes/textures/grey.tres" id="2_212gu"]
+[ext_resource type="Texture2D" uid="uid://dmdlokgcvwqit" path="res://assets/ui/breaker_tut.png" id="5_212gu"]
+[ext_resource type="Texture2D" uid="uid://du1m5j7vqa8rw" path="res://assets/ui/breaker_tut_screenshot.png" id="6_gf5ud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_212gu"]
-albedo_color = Color(0.870588, 0.905882, 0.94902, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gf5ud"]
 albedo_color = Color(0.870588, 0.905882, 0.94902, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgqtv"]
@@ -19,12 +18,6 @@ albedo_color = Color(0.4, 0.4, 0.4, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f78w"]
 albedo_color = Color(0.4, 0.4, 0.4, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_6f78w"]
-viewport_path = NodePath("hinge/CSGBox3D/tutor/SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_sgqtv"]
-viewport_path = NodePath("switch1_label/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1qikm"]
 viewport_path = NodePath("indicator_num/SubViewport")
@@ -43,30 +36,35 @@ size = Vector3(10, 15, 1)
 material = SubResource("StandardMaterial3D_212gu")
 
 [node name="hole_wall" type="CSGBox3D" parent="house"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0, 0.4)
-operation = 2
-size = Vector3(1.425, 1.75, 0.205)
-material = SubResource("StandardMaterial3D_gf5ud")
-
-[node name="traffic_light" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 3, 0)
-visible = false
-use_collision = true
-size = Vector3(1.925, 2.25, 1)
-material = SubResource("StandardMaterial3D_sgqtv")
-
-[node name="hole_wall" type="CSGBox3D" parent="traffic_light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 operation = 2
 size = Vector3(1.425, 1.75, 0.205)
-material = SubResource("StandardMaterial3D_1qikm")
+material = ExtResource("2_212gu")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="traffic_light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.914)
-radius = 0.75
-height = 10.0
-sides = 20
-material = SubResource("StandardMaterial3D_6f78w")
+[node name="office" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185, 3, 0)
+use_collision = true
+size = Vector3(10, 15, 1)
+material = SubResource("StandardMaterial3D_212gu")
+
+[node name="hole_wall" type="CSGBox3D" parent="office"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+operation = 2
+size = Vector3(1.425, 1.75, 0.205)
+material = ExtResource("2_212gu")
+
+[node name="coffee_shop" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185, 3, 0)
+visible = false
+use_collision = true
+size = Vector3(10, 15, 1)
+material = SubResource("StandardMaterial3D_212gu")
+
+[node name="hole_wall" type="CSGBox3D" parent="coffee_shop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+operation = 2
+size = Vector3(1.425, 1.75, 0.205)
+material = ExtResource("2_212gu")
 
 [node name="factory" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 3, 0)
@@ -86,17 +84,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -0.914)
 size = Vector3(1, 14, 1)
 material = SubResource("StandardMaterial3D_6f78w")
 
+[node name="basement" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 3, 0)
+visible = false
+use_collision = true
+size = Vector3(1.925, 2.25, 1)
+material = SubResource("StandardMaterial3D_sgqtv")
+
+[node name="hole_wall" type="CSGBox3D" parent="basement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+operation = 2
+size = Vector3(1.425, 1.75, 0.205)
+material = SubResource("StandardMaterial3D_1qikm")
+
 [node name="apartment" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21063, 3, 0)
+visible = false
 use_collision = true
-size = Vector3(6, 6, 1)
+size = Vector3(7.5, 15, 1)
 material = ExtResource("2_1qikm")
 
 [node name="hole_wall" type="CSGBox3D" parent="apartment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05563, 0, 0.4)
 operation = 2
 size = Vector3(1.425, 1.75, 0.205)
-material = ExtResource("2_1qikm")
+material = ExtResource("2_212gu")
 
 [node name="hinge" type="CSGCylinder3D" parent="." groups=["switch_board_elec"]]
 transform = Transform3D(-0.913992, 0, -0.405732, 0, 1, 0, 0.405732, 0, -0.913992, -0.546, 3, 0.5)
@@ -115,16 +127,30 @@ size = Vector3(1.425, 1.75, 0.05)
 material = ExtResource("1_xpqt5")
 
 [node name="tutor" type="Sprite3D" parent="hinge/CSGBox3D"]
-transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 0.0112112, 0, -0.0252553)
-texture = SubResource("ViewportTexture_6f78w")
+transform = Transform3D(-1, 0, -1.78814e-07, 0, 1, 0, 1.78814e-07, 0, -1, 0.0302398, 0, -0.046813)
+texture = ExtResource("5_212gu")
 
 [node name="SubViewport" type="SubViewport" parent="hinge/CSGBox3D/tutor"]
-size = Vector2i(125, 175)
+canvas_item_default_texture_filter = 0
+size = Vector2i(135, 175)
 
 [node name="TextureRect" type="TextureRect" parent="hinge/CSGBox3D/tutor/SubViewport"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_6f78w")
+texture_filter = 1
+custom_minimum_size = Vector2(135, 175)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -87.5
+offset_right = 67.5
+offset_bottom = 87.8067
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_gf5ud")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="circuit_button1" type="CSGBox3D" parent="." groups=["fusebox_switch", "sw1"]]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.2, 3.7, 0.3)
@@ -235,28 +261,6 @@ size = Vector3(0.1, 0.2, 0.05)
 [node name="trip10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 2.4, 0.275)
 size = Vector3(0.1, 0.2, 0.05)
-
-[node name="switch1_label" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, -0.156406, 3.52957, 0.298843)
-texture = SubResource("ViewportTexture_sgqtv")
-
-[node name="SubViewport" type="SubViewport" parent="switch1_label"]
-transparent_bg = true
-
-[node name="Label" type="Label" parent="switch1_label/SubViewport"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.1667
-offset_right = 20.0
-offset_bottom = 11.1667
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "Helo"
 
 [node name="indicator_num" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0.310059, 1.97212, 0.524687)

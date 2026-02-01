@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://briowqvhaxphu"]
+
+[ext_resource type="PackedScene" uid="uid://bodcodio3w5cg" path="res://assets/blender/black_painters_tape.glb" id="1_fc36t"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_fc36t")]

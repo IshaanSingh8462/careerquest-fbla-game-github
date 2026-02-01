@@ -1,0 +1,105 @@
+[gd_scene load_steps=19 format=3 uid="uid://cts04xeejnskl"]
+
+[ext_resource type="PackedScene" uid="uid://camv4ryv5cdk" path="res://assets/blender/electrician_basement_room.blend" id="1_rvrdn"]
+[ext_resource type="Texture2D" uid="uid://dhi411ktcbxe1" path="res://assets/blender/textures/Image_0.015.png" id="2_mbcbn"]
+[ext_resource type="Texture2D" uid="uid://b6obsxae5mklg" path="res://assets/blender/textures/wood_floor_texture.jpg" id="3_2w1kw"]
+[ext_resource type="Texture2D" uid="uid://cxggh0e7cvri1" path="res://assets/blender/textures/Image_0.014.png" id="4_66o4m"]
+[ext_resource type="Texture2D" uid="uid://cptae45njomk6" path="res://assets/blender/textures/Image_0.013.png" id="5_2w1kw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btow8"]
+albedo_texture = ExtResource("2_mbcbn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2w1kw"]
+size = Vector3(0.186096, 2.95435, 2.03088)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66o4m"]
+size = Vector3(0.168701, 2.84216, 1.98444)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btow8"]
+size = Vector3(2.06152, 2.8443, 0.313416)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5t7ft"]
+size = Vector3(0.480591, 1.42334, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vnyuq"]
+size = Vector3(0.428711, 0.71582, 0.471436)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mwsw"]
+size = Vector3(0.261452, 0.535156, 0.203812)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t7ft"]
+albedo_texture = ExtResource("3_2w1kw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnyuq"]
+albedo_texture = ExtResource("4_66o4m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mwsw"]
+albedo_texture = ExtResource("3_2w1kw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v51o8"]
+albedo_texture = ExtResource("3_2w1kw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66o4m"]
+albedo_texture = ExtResource("5_2w1kw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2w1kw"]
+albedo_texture = ExtResource("4_66o4m")
+
+[node name="electrician_basement_room" instance=ExtResource("1_rvrdn")]
+
+[node name="room" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_btow8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="room" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925864, 0.315308, -0.0153198)
+shape = SubResource("BoxShape3D_2w1kw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="room/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95699, 0.382996, -0.00967407)
+shape = SubResource("BoxShape3D_66o4m")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="room/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000194311, 0.379025, 1.026)
+shape = SubResource("BoxShape3D_btow8")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="room/StaticBody3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000194311, 0.379025, -0.99976)
+shape = SubResource("BoxShape3D_btow8")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="room/StaticBody3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.641713, -0.21167, 0.496266)
+shape = SubResource("BoxShape3D_5t7ft")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="room/StaticBody3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.795314, -0.561287, -0.140747)
+shape = SubResource("BoxShape3D_vnyuq")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="room/StaticBody3D" index="6"]
+transform = Transform3D(-0.569366, 0, -0.822085, 0, 1, 0, 0.822085, 0, -0.569366, -0.620535, -0.646564, 0.469956)
+shape = SubResource("BoxShape3D_7mwsw")
+
+[node name="wood_pillars" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_5t7ft")
+
+[node name="wall" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_vnyuq")
+
+[node name="roof_v" parent="." index="12"]
+material_override = SubResource("StandardMaterial3D_7mwsw")
+
+[node name="roof_h" parent="." index="13"]
+material_override = SubResource("StandardMaterial3D_v51o8")
+
+[node name="wall_001" parent="." index="19"]
+material_override = SubResource("StandardMaterial3D_66o4m")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.52201, 8.84828, -5.02012)
+omni_range = 10.0503
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00958, 13.9495, -7.00965)
+material_override = SubResource("StandardMaterial3D_2w1kw")
+size = Vector3(25, 1, 15)

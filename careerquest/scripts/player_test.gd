@@ -3,6 +3,7 @@ extends CharacterBody3D
 #constants
 const SPEED = 7.5
 const JUMP_VELOCITY = 6.0
+var walk_time := 0.0
 
 #main ui
 @onready var start := $CanvasLayer/main
@@ -32,6 +33,7 @@ const JUMP_VELOCITY = 6.0
 @onready var gluc := $head/camera/gluc
 @onready var tri := $head/camera/tri
 var doc_tool_processing := false
+var doc_gluc_processing := false
 
 #doctor ui variables
 @onready var clipboard := $clipboard
@@ -58,16 +60,14 @@ var doc_tool_processing := false
 #electrician tools
 @onready var screw := $head/camera/screw
 @onready var plier := $head/camera/plier
-@onready var volt := $head/camera/volt
-@onready var wire := $head/camera/wire
 @onready var tape := $head/camera/tape
 var elec_tool_processing := false
 
 #electrician locations
 @onready var house := $"../electric_scene/house2"
 @onready var coffee := $"../electric_scene/coffee_test"
-@onready var office := $"../electric_scene/office"
-@onready var nasa := $"../electric_scene/nasa"
+@onready var office := $"../electric_scene/office2"
+@onready var basement := $"../electric_scene/basement2"
 @onready var factory := $"../electric_scene/factory2"
 @onready var apartment := $"../electric_scene/apartment2"
 
@@ -109,6 +109,10 @@ var elec_tool_processing := false
 
 var doc_highscore = 0
 var elec_highscore = 0
+
+@onready var doc_tools = [steth, therm, tongue, gluc, tri]
+@onready var elec_tools = [screw, plier, tape]
+@onready var input_index = ["1","2","3","4","5"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -174,7 +178,7 @@ func _physics_process(delta: float) -> void:
 			Global.mouse_mode = 0
 	else:
 		Global.mouse_mode = 0
-	notif.text = Global.notification
+	notif.text = Global.notify
 	#calls init functions, also hides all ui
 	player_dialogue()
 	move_clip()
@@ -196,23 +200,39 @@ func _physics_process(delta: float) -> void:
 							if Global.active_tool == 0:
 								#Enter Heartbeat Noise Here
 								if Global.condition["asthma"] or Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"] or Global.condition["iron"]  and !doc_tool_processing:
-									Global.notification = "The patient's heartbeat sounds irregular..."
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(.6).timeout
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(.6).timeout
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(.6).timeout
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(.6).timeout
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(.6).timeout
+									Global.notify = "The patient's heartbeat sounds irregular..."
 									await get_tree().create_timer(2.0).timeout
-									Global.notification = ""
+									Global.notify = ""
 								else:
-									Global.notification = "The patient's heartbeat sounds fine..."
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(1).timeout
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(1).timeout
+									_Music.play_music($"../Heartbeat-single-383748")
+									await get_tree().create_timer(1).timeout
+									Global.notify = "The patient's heartbeat sounds fine..."
 									await get_tree().create_timer(2.0).timeout
-									Global.notification = ""
+									Global.notify = ""
 							if Global.active_tool == 1 and !doc_tool_processing:
 								doc_tool_processing = true
 								Global.doc_therm_text = ""
-								Global.notification = "wirrring ."
+								Global.notify = "whirring ."
 								await get_tree().create_timer(1.0).timeout
-								Global.notification = "wirrring . ."
+								Global.notify = "whirring . ."
 								await get_tree().create_timer(1.0).timeout
-								Global.notification = "wirrring . . ."
+								Global.notify = "whirring . . ."
 								await get_tree().create_timer(1.0).timeout
-								Global.notification = ""
+								Global.notify = ""
 								Global.doc_therm_text = str(Global.condition["temp"])
 								therm_off.hide()
 								therm_on_good.show()
@@ -221,24 +241,34 @@ func _physics_process(delta: float) -> void:
 								doc_tool_processing = false
 							if Global.active_tool == 2:
 								if Global.condition["flu"] or Global.condition["copd"] or Global.condition["acid"]:
-									Global.notification = "You see a redness in the patient's throat..."
+									Global.notify = "You see a redness in the patient's throat..."
 									await get_tree().create_timer(2.0).timeout
-									Global.notification = ""
+									Global.notify = ""
 								else:
-									Global.notification = "The patient's throat looks normal...."
+									Global.notify = "The patient's throat looks normal...."
 									await get_tree().create_timer(2.0).timeout
-									Global.notification = ""
-							if Global.active_tool == 3:
-								print("Sugar level: " + str(Global.condition["sugar"]) + "mg/dl")
+									Global.notify = ""
+							if Global.active_tool == 3 and !doc_gluc_processing:
+								Global.doc_gluc_text = ""
+								doc_gluc_processing = true
+								Global.notify = "whirring ."
+								await get_tree().create_timer(1.0).timeout
+								Global.notify = "whirring . ."
+								await get_tree().create_timer(1.0).timeout
+								Global.notify = "whirring . . ."
+								await get_tree().create_timer(1.0).timeout
+								Global.notify = ""
+								Global.doc_gluc_text = str(Global.condition["sugar"])
+								doc_gluc_processing = false
 							if Global.active_tool == 4:
 								if Global.condition["arthritis"]:
-									Global.notification = "The patient had some joint pain and swelling during the test..."
+									Global.notify = "The patient had some joint pain and swelling during the test..."
 									await get_tree().create_timer(2.0).timeout
-									Global.notification = ""
+									Global.notify = ""
 								else:
-									Global.notification = "The patient has normal reaction to reflex hammer..."
+									Global.notify = "The patient has normal reaction to reflex hammer..."
 									await get_tree().create_timer(2.0).timeout
-									Global.notification = ""
+									Global.notify = ""
 						else:
 							Global.is_talking = true
 		#opens doctor book for medications
@@ -301,55 +331,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor() and Global.clipboard_info["checkbox_checked"].position.y == 0 and !Global.pause_game:
 		velocity.y = JUMP_VELOCITY
 
-	#doctor inventory selection - select tools for analysis
-	var doc_tools = [steth, therm, tongue, gluc, tri]
-	var elec_tools = [screw, plier, volt, wire, tape]
-	var input_index = ["1","2","3","4","5"]
-	if Global.is_doc and Global.mouse_mode == 0:
-		if Global.active_tool == -1:
-			for i in range(5):
-				doc_tools[i].hide()
-				doc_slots[i].add_theme_stylebox_override("panel", unpicked)
-		for i in range(5):
-			if Input.is_action_just_pressed(input_index[i]):
-				# If selecting the same tool → unequip
-				if Global.active_tool == i:
-					doc_tools[i].visible = false
-					Global.active_tool = -1
-					continue
-				# Selecting a new tool
-				for t in doc_tools:
-					t.visible = false
-				for j in range(5):
-					doc_slots[j].add_theme_stylebox_override("panel", unpicked)
-				doc_tools[i].visible = true
-				Global.active_tool = i
-				if Global.active_tool != -1:
-					doc_slots[i].add_theme_stylebox_override("panel", picked)
-				if Global.active_tool == 1:
-					therm_off.show()
-					therm_on_good.hide()
-	if Global.is_elec and Global.mouse_mode == 0:
-		if Global.active_tool == -1:
-			for i in range(3):
-				elec_tools[i].hide()
-				elec_slots[i].add_theme_stylebox_override("panel", unpicked)
-		for i in range(5):
-			if Input.is_action_just_pressed(input_index[i]):
-				# If selecting the same tool → unequip
-				if Global.active_tool == i:
-					elec_tools[i].visible = false
-					Global.active_tool = -1
-					continue
-				# Selecting a new tool
-				for t in elec_tools:
-					t.visible = false
-				for j in range(3):
-					elec_slots[j].add_theme_stylebox_override("panel", unpicked)
-				elec_tools[i].visible = true
-				Global.active_tool = i
-				if Global.active_tool != -1:
-					elec_slots[i].add_theme_stylebox_override("panel", picked)
+	#Inventory Hotbar Tools
+	set_tools()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -363,6 +346,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	
 	move_and_slide()
 
 #clipboard animation (pull out/keep back)
@@ -437,17 +421,18 @@ func check_comp():
 		outlet3.reset()
 		Global.elec_cond["difficulty"] = null
 		Global.active_tool = -1
-		var elec_tools = [screw, plier, volt, wire, tape]
-		for i in range(5):
+		for i in range(3):
 			elec_tools[i].hide()
+		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/condition.hide()
 		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/score.text = "Score: " + str(int(Global.score)) + "/250"
 		if Global.score > elec_highscore:
-			$CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2/elec.text = "Highscore: " + str(int(Global.score)) + "/250"
+			$CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/elec.text = str(int(Global.score)) + "/250"
 			elec_highscore = Global.score
 		Global.score = 0
 		$CanvasLayer/timer.hide()
 		career_desc.show()
 		Global.elec_games = true
+		_Music.play_music($"../Morning")
 	if Global.is_doc and Global.repetition == 1:
 		clipboard.hide()
 		print("Score: " + str(Global.score))
@@ -457,13 +442,16 @@ func check_comp():
 		global_rotation = Vector3(0,0,0)
 		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/desc.text = Global.pick_doc_desc()
 		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/score.text = "Score: " + str(int(Global.score)) + "/400"
+		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/condition.show()
+		$CanvasLayer/career_desc/MarginContainer/VBoxContainer/condition.text = Global.get_condition()
 		if Global.score > doc_highscore:
-			$CanvasLayer/careers/MarginContainer/VBoxContainer/HBoxContainer2/doc.text = "Highscore: " + str(int(Global.score)) + "/400"
+			$CanvasLayer/careers/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/doc.text = str(int(Global.score)) + "/400"
 			doc_highscore = Global.score
 		career_desc.show()
 		$CanvasLayer/timer.hide()
 		Global.score = 0
 		Global.repetition = 0
+		_Music.play_music($"../Morning")
 
 func move_outlet():
 	var layouts = {
@@ -484,45 +472,45 @@ func move_outlet():
 			Vector3(0,deg_to_rad(-90),0)
 		],
 		"office": [
-			Vector3(13.007,0,3.069),
-			Vector3(-2.834,0,8.374),
-			Vector3(4,0,13.662),
+			Vector3(13.137,-0.15,6.392),
+			Vector3(-2.834,-0.15,2.469),
+			Vector3(4.1,-0.15,12.4),
 			Vector3(0,deg_to_rad(-90),0),
 			Vector3(0,deg_to_rad(90),0),
 			Vector3(0,deg_to_rad(90),0)
 		],
-		"nasa": [
-			Vector3(7.485,0,.721),
-			Vector3(-3,0,8.676),
-			Vector3(-7.038,0,1.431),
+		"basement": [
+			Vector3(3.18,-0.1,-.8),
+			Vector3(6.21,-0.1,8.54),
+			Vector3(-8.3,-0.1,8.38),
+			Vector3(0,0,0),
 			Vector3(0,deg_to_rad(-90),0),
-			Vector3(0,deg_to_rad(-180),0),
 			Vector3(0,deg_to_rad(90),0)
 		],
 		"factory": [
-			Vector3(3.833,0,-7.05),
-			Vector3(5.893,0,7),
-			Vector3(-7.038,0,-1.977),
+			Vector3(3.833,0,-6.94),
+			Vector3(5.893,0,6.915),
+			Vector3(-6.921,0,-1.977),
 			Vector3(0,0,0),
 			Vector3(0,deg_to_rad(180),0),
 			Vector3(0,deg_to_rad(90),0)
 		],
 		"apartment": [
-			Vector3(4.536,0,3.227),
-			Vector3(-3,0,9.787),
-			Vector3(-4.523,0,-.905),
+			Vector3(4.902,0,1.941),
+			Vector3(-5.873,0,9.546),
+			Vector3(3.351,0,9.547),
 			Vector3(0,deg_to_rad(-90),0),
 			Vector3(0,deg_to_rad(-180),0),
-			Vector3(0,deg_to_rad(90),0)
+			Vector3(0,deg_to_rad(-180),0)
 	]}
-	var loc = {"house":[house,6.16],"coffee_shop":[coffee,0],"office":[office,2.491],"nasa":[nasa,4.99],"factory":[factory,7.5],"apartment":[apartment,3.185]}
+	var loc = {"house":[house,6.16],"coffee_shop":[coffee,2.49],"office":[office,6.49],"basement":[basement,3.14],"factory":[factory,7.076],"apartment":[apartment,3.185]}
 	# find which condition is active
 	for key in layouts.keys():
 		if Global.elec_cond["location"] == key:
 			var pos = layouts[key]
 			for k in loc.keys():
 				loc[k][0].hide()
-				loc[k][0].position.y = 20
+				loc[k][0].position.y = 50
 			loc[key][0].show()
 			loc[key][0].position.y = loc[key][1]
 			outlet1.position = pos[0]
@@ -540,6 +528,58 @@ func get_outlet_by_id(id: int):
 				return child
 	return null
 
+func set_tools():
+	#doctor and electrician inventory selection - select tools for analysis
+	if Global.is_doc and Global.mouse_mode == 0:
+		#if no tool is equiped, reset hotbar
+		if Global.active_tool == -1:
+			for i in range(5):
+				doc_tools[i].hide()
+				doc_slots[i].add_theme_stylebox_override("panel", unpicked)
+		#check number key inputs (1–5) to select tools
+		for i in range(5):
+			if Input.is_action_just_pressed(input_index[i]):
+				# If selecting the same tool → unequip
+				if Global.active_tool == i:
+					doc_tools[i].visible = false
+					Global.active_tool = -1
+					continue
+				#selecting new tool
+				for t in doc_tools:
+					t.visible = false
+				#highlight hotbar specific to tool
+				for j in range(5):
+					doc_slots[j].add_theme_stylebox_override("panel", unpicked)
+				#show tool
+				doc_tools[i].visible = true
+				Global.active_tool = i
+				#special behavior: thermometer 
+				if Global.active_tool != -1:
+					doc_slots[i].add_theme_stylebox_override("panel", picked)
+				if Global.active_tool == 1:
+					therm_off.show()
+					therm_on_good.hide()
+	if Global.is_elec and Global.mouse_mode == 0:
+		if Global.active_tool == -1:
+			for i in range(3):
+				elec_tools[i].hide()
+				elec_slots[i].add_theme_stylebox_override("panel", unpicked)
+		for i in range(3):
+			if Input.is_action_just_pressed(input_index[i]):
+				# If selecting the same tool → unequip
+				if Global.active_tool == i:
+					elec_tools[i].visible = false
+					Global.active_tool = -1
+					continue
+				# Selecting a new tool
+				for t in elec_tools:
+					t.visible = false
+				for j in range(3):
+					elec_slots[j].add_theme_stylebox_override("panel", unpicked)
+				elec_tools[i].visible = true
+				Global.active_tool = i
+				if Global.active_tool != -1:
+					elec_slots[i].add_theme_stylebox_override("panel", picked)
 
 #signals
 func _on_forward_pressed() -> void:
@@ -618,7 +658,9 @@ func _on_start_doc_pressed() -> void:
 		global_position.z = 1.5
 		global_rotation = Vector3(0,0,0)
 		loading.show()
+		_Music.fade_out_music($"../Morning")
 		await get_tree().create_timer(2.0).timeout
+		_Music.play_music($"../MiningByMoonlight")
 		loading.hide()
 		doc_hotbar.show()
 		elec_hotbar.hide()
@@ -641,12 +683,13 @@ func _on_elec_pressed() -> void:
 	global_position.z = -3
 	global_rotation = Vector3(0,0,0)
 	loading.show()
+	_Music.fade_out_music($"../Morning")
 	await get_tree().create_timer(2.0).timeout
 	loading.hide()
 	doc_hotbar.hide()
 	elec_hotbar.show()
 	elec_label1.text = "               1. Screwdriver"
-	elec_label2.text = "2. Wrench        "
+	elec_label2.text = "2. Plier         "
 	elec_label3.text = "3. Tape                       "
 	Global.is_elec = true
 	move_outlet()

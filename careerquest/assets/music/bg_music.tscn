@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgvryo4mnublb"]
+
+[ext_resource type="AudioStream" uid="uid://eoaan3eekmws" path="res://assets/music/Morning.mp3" id="1_2juyb"]
+[ext_resource type="Script" uid="uid://di6fjou8kklew" path="res://assets/music/music_bg.gd" id="2_g8nck"]
+[ext_resource type="AudioStream" uid="uid://dvwdksmcol07s" path="res://assets/music/thudding-heartbeat-372487.mp3" id="3_5edh3"]
+[ext_resource type="AudioStream" uid="uid://d2modrlarnobs" path="res://assets/music/heartbeat-single-383748.mp3" id="4_oyxu2"]
+[ext_resource type="AudioStream" uid="uid://dgt8tii2ke3bs" path="res://assets/music/electric_zap_001-6374.mp3" id="5_8a8j1"]
+
+[node name="Morning" type="AudioStreamPlayer"]
+process_mode = 1
+stream = ExtResource("1_2juyb")
+autoplay = true
+bus = &"bg"
+script = ExtResource("2_g8nck")
+
+[node name="Thudding-heartbeat-372487" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5edh3")
+
+[node name="Heartbeat-single-383748" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oyxu2")
+
+[node name="ElectricZap001-6374" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8a8j1")

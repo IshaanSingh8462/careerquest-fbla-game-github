@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bxx1chvk1fi8r"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bxx1chvk1fi8r"]
+
+[ext_resource type="FontFile" uid="uid://bnbvc77kem3es" path="res://assets/LuckiestGuy-Regular.ttf" id="1_12cqp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0pbu"]
 
@@ -42,8 +44,10 @@ fill_to = Vector2(0.516055, 1)
 texture = SubResource("GradientTexture2D_12cqp")
 
 [resource]
+Button/fonts/font = ExtResource("1_12cqp")
 Button/styles/focus = SubResource("StyleBoxEmpty_o0pbu")
 Button/styles/hover = SubResource("StyleBoxFlat_bl0rr")
 Button/styles/normal = SubResource("StyleBoxFlat_o0pbu")
 Button/styles/pressed = SubResource("StyleBoxFlat_6cpf6")
+Label/fonts/font = ExtResource("1_12cqp")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_43apo")

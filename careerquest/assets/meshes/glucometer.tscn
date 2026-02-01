@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8mq0p8idi62g"]
+
+[ext_resource type="PackedScene" uid="uid://u2mdo3p1rcns" path="res://assets/blender/glucometer.glb" id="1_bs8fk"]
+[ext_resource type="Script" uid="uid://bx552yrftga4q" path="res://assets/meshes/glucometer.gd" id="2_whr55"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs8fk"]
+albedo_color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_whr55"]
+viewport_path = NodePath("Sketchfab_model/f62be4c7b6b54685a19d6599e28acd17_fbx/RootNode/glass/glass_screen_0/Sprite3D/SubViewport")
+
+[node name="glucometer" instance=ExtResource("1_bs8fk")]
+script = ExtResource("2_whr55")
+
+[node name="glass_screen_0" parent="Sketchfab_model/f62be4c7b6b54685a19d6599e28acd17_fbx/RootNode/glass" index="0"]
+transform = Transform3D(1, -1.49012e-08, 2.44249e-15, 1.49012e-08, 1, 0, 8.88178e-16, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_bs8fk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Sketchfab_model/f62be4c7b6b54685a19d6599e28acd17_fbx/RootNode/glass/glass_screen_0" index="0"]
+transform = Transform3D(0.0379476, 2.98023e-08, 4.996e-16, 2.79397e-09, -1.42926, 3.10371e-09, 1.83187e-15, -1.2495e-07, -0.0355023, -0.000457816, -0.00777354, 0.0127322)
+axis = 1
+texture = SubResource("ViewportTexture_whr55")
+
+[node name="SubViewport" type="SubViewport" parent="Sketchfab_model/f62be4c7b6b54685a19d6599e28acd17_fbx/RootNode/glass/glass_screen_0/Sprite3D" index="0"]
+transparent_bg = true
+size = Vector2i(100, 100)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sketchfab_model/f62be4c7b6b54685a19d6599e28acd17_fbx/RootNode/glass/glass_screen_0/Sprite3D/SubViewport" index="0"]
+offset_left = 10.0
+offset_right = 96.0
+offset_bottom = 86.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Sketchfab_model/f62be4c7b6b54685a19d6599e28acd17_fbx/RootNode/glass/glass_screen_0/Sprite3D/SubViewport/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "214"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="Sketchfab_model/f62be4c7b6b54685a19d6599e28acd17_fbx/RootNode/glass/glass_screen_0/Sprite3D/SubViewport/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "mg/dL"
+horizontal_alignment = 2

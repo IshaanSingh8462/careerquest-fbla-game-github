@@ -1,32 +1,69 @@
-[gd_scene format=3 uid="uid://ckii4ec4evt3b"]
+[gd_scene load_steps=5 format=3 uid="uid://ckii4ec4evt3b"]
+
+[ext_resource type="PackedScene" uid="uid://bk854dct834ff" path="res://assets/meshes/electrician_office_room.tscn" id="1_dep46"]
+[ext_resource type="PackedScene" uid="uid://2t3nc8t5wixl" path="res://assets/meshes/light_bulbs.tscn" id="2_mkocv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dep46"]
+albedo_color = Color(0.529067, 0.529067, 0.529067, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkocv"]
 
 [node name="office" type="Node3D"]
 
+[node name="electrician_office_room" parent="." instance=ExtResource("1_dep46")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.89042, -6.40502, 3.51489)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34617, 0, 0)
-use_collision = true
-size = Vector3(15, 7, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98358, 3.42909, -5.52612)
+size = Vector3(15, 1, 20)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70677, 0, 0)
-operation = 2
-size = Vector3(9.721, 8, 6)
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97878, 1.94512, -6.8234)
+omni_range = 10.2719
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15506, -1.41729, -3.35735)
-operation = 2
-size = Vector3(3, 5, 1.5)
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64558, 1.94512, -6.8234)
+omni_range = 9.05783
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40958, 0, -8.35442)
-use_collision = true
-size = Vector3(15.0796, 7, 10)
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.746802, 1.94512, -6.8234)
+omni_range = 11.6389
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2"]
-operation = 2
-size = Vector3(14, 8, 9)
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97878, 1.94512, -10.924)
+omni_range = 10.2719
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220269, -1.41729, 4.68481)
-operation = 2
-size = Vector3(3, 5, 1.5)
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64558, 1.94512, -10.924)
+omni_range = 9.05783
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.746802, 1.94512, -10.924)
+omni_range = 11.6389
+
+[node name="light" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86774, 2.92137, -10.3397)
+size = Vector3(7, 0.15, 2)
+material = SubResource("StandardMaterial3D_dep46")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.094, 0)
+size = Vector3(6.5, 0.15, 1.5)
+material = SubResource("StandardMaterial3D_mkocv")
+
+[node name="light2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86774, 2.92137, -6.88954)
+size = Vector3(7, 0.15, 2)
+material = SubResource("StandardMaterial3D_dep46")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="light2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.094, 0)
+size = Vector3(6.5, 0.15, 1.5)
+material = SubResource("StandardMaterial3D_mkocv")
+
+[node name="Node3D" parent="." instance=ExtResource("2_mkocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184932, 2.93839, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.82164, 0)
+omni_range = 6.49932

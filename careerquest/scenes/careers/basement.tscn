@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsi6a7eefbokb"]
+
+[ext_resource type="PackedScene" uid="uid://cts04xeejnskl" path="res://assets/meshes/electrician_basement_room.tscn" id="1_eslrq"]
+
+[node name="basement" type="Node3D"]
+
+[node name="electrician_basement_room" parent="." instance=ExtResource("1_eslrq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.56272, -3.38991, -5.84203)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpjrfiwexdooa"]
+[gd_scene load_steps=18 format=3 uid="uid://dpjrfiwexdooa"]
 
+[ext_resource type="FontFile" uid="uid://bnbvc77kem3es" path="res://assets/LuckiestGuy-Regular.ttf" id="1_b63by"]
 [ext_resource type="Script" uid="uid://dpdibpqixraho" path="res://scripts/clipboard.gd" id="1_js5ej"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byv16"]
@@ -83,11 +84,13 @@ CheckBox/colors/font_focus_color = Color(0, 0, 0, 1)
 CheckBox/colors/font_hover_color = Color(0, 0, 0, 1)
 CheckBox/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 CheckBox/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckBox/fonts/font = ExtResource("1_b63by")
 CheckBox/styles/focus = SubResource("StyleBoxEmpty_b63by")
 CheckBox/styles/hover = SubResource("StyleBoxFlat_leevr")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_leevr")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_mje68")
 Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("1_b63by")
 LineEdit/colors/caret_color = Color(0, 0, 0, 1)
 LineEdit/colors/clear_button_color = Color(0, 0, 0, 1)
 LineEdit/colors/clear_button_color_pressed = Color(0, 0, 0, 1)
@@ -96,6 +99,7 @@ LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
 LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.435294)
 LineEdit/colors/font_selected_color = Color(0, 0, 0, 1)
 LineEdit/colors/font_uneditable_color = Color(0, 0, 0, 0.5)
+LineEdit/fonts/font = ExtResource("1_b63by")
 LineEdit/styles/focus = SubResource("StyleBoxEmpty_h8tpj")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_cp2nn")
 Panel/styles/panel = SubResource("StyleBoxFlat_3pdu8")
@@ -104,6 +108,7 @@ TextEdit/colors/font_color = Color(0, 0, 0, 1)
 TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.427451)
 TextEdit/colors/font_selected_color = Color(0, 0, 0, 1)
 TextEdit/colors/word_highlighted_color = Color(0, 0, 0, 1)
+TextEdit/fonts/font = ExtResource("1_b63by")
 TextEdit/styles/focus = SubResource("StyleBoxEmpty_mje68")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_w6big")
 
@@ -126,7 +131,6 @@ theme = SubResource("Theme_mje68")
 script = ExtResource("1_js5ej")
 
 [node name="info" type="PanelContainer" parent="."]
-visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 2
@@ -194,7 +198,7 @@ theme_override_constants/separation = 3
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 4
-placeholder_text = "Date of Birth"
+placeholder_text = "Date of Birth (_ _/_ _/_ _ _ _)"
 
 [node name="gender" type="LineEdit" parent="info/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
@@ -372,6 +376,7 @@ custom_minimum_size = Vector2(175, 35)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_b63by")
 text = "Confirm"
 
 [node name="forward" type="Button" parent="."]
@@ -384,6 +389,7 @@ offset_top = 252.0
 offset_right = 325.0
 offset_bottom = 287.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_b63by")
 text = ">"
 
 [node name="backward" type="Button" parent="."]
@@ -396,6 +402,7 @@ offset_top = 252.0
 offset_right = 75.0
 offset_bottom = 287.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_b63by")
 text = "<"
 
 [node name="clip" type="Panel" parent="."]
@@ -407,6 +414,22 @@ anchor_right = 0.216146
 anchor_bottom = 0.969136
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.105035
+anchor_top = 0.918445
+anchor_right = 0.212083
+anchor_bottom = 0.96142
+offset_top = -0.152039
+offset_right = -0.32
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.764511, 0.764511, 0.764511, 1)
+text = "Press CTRL"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="prescriptions/MarginContainer/confirm" to="." method="_on_confirm_pressed"]
