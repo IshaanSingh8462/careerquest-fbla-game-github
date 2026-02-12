@@ -10,7 +10,6 @@
 process_mode = 1
 stream = ExtResource("1_2juyb")
 autoplay = true
-bus = &"bg"
 script = ExtResource("2_g8nck")
 
 [node name="Thudding-heartbeat-372487" type="AudioStreamPlayer" parent="."]

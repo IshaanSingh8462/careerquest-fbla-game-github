@@ -260,7 +260,6 @@ material = SubResource("StandardMaterial3D_65d66")
 [node name="ElectricZap001-6374" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_adlwx")
 pitch_scale = 2.0
-bus = &"zap"
 
 [node name="Ding-402325" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_0au7w")
