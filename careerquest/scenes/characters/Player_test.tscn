@@ -990,7 +990,6 @@ text = "Hard
 "
 
 [node name="main" type="PanelContainer" parent="CanvasLayer"]
-visible = false
 custom_minimum_size = Vector2(1200, 750)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1332,6 +1331,7 @@ layout_mode = 2
 texture = ExtResource("30_j3pel")
 
 [node name="doc" type="TextureRect" parent="CanvasLayer/tutorial/MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("8_p84as")

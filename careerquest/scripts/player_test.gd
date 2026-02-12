@@ -179,6 +179,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		Global.mouse_mode = 0
 	notif.text = Global.notify
+	
+	
+	
 	#calls init functions, also hides all ui
 	player_dialogue()
 	move_clip()
