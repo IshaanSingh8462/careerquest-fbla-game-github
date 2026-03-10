@@ -696,6 +696,8 @@ func _on_elec_pressed() -> void:
 	elec_label3.text = "3. Tape                       "
 	Global.is_elec = true
 	move_outlet()
+	tutorial.show()
+	doc_tutorial.hide()
 	elec_tutorial.show()
 	star.show()
 	print("elec start") # Replace with function body.
